@@ -18,7 +18,6 @@
 
 ## 🛠️ Tech Stack
 - **Frontend**: HTML, CSS, JavaScript, React.js
-- **Backend (if needed)**: Node.js, Express.js
 - **Visualization**: D3.js / Three.js / Canvas API
 - **Deployment**: GitHub Pages / Vercel / Netlify
 
