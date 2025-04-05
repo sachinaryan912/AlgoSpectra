@@ -1,0 +1,14 @@
+{
+  "hosting": {
+    "site": "algospectra",
+    "public": "build",
+    "ignore": [
+      "firebase.json",
+      "**/.*",
+      "**/node_modules/**"
+    ]
+  },
+  "remoteconfig": {
+    "template": "remote.config.json"
+  }
+}
