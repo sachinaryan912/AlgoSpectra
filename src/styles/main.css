@@ -1,0 +1,247 @@
+body {
+  margin: 0;
+  padding: 0;
+  font-family: "Segoe UI", sans-serif;
+  background: linear-gradient(135deg, #0f0f0f, #1a1a1a);
+  color: white;
+}
+
+.homepage {
+  padding: 2rem;
+  max-width: 1200px;
+  margin: auto;
+}
+
+/* HERO SECTION */
+.hero {
+  text-align: center;
+  margin-top: 5rem;
+}
+
+.hero h1 {
+  font-size: 3.5rem;
+  font-weight: bold;
+}
+
+.highlight {
+  color: #7f5af0;
+}
+
+.hero p {
+  font-size: 1.25rem;
+  color: #ccc;
+  margin: 1rem 0 2rem;
+}
+
+.cta-button {
+  background-color: #7f5af0;
+  padding: 0.75rem 1.5rem;
+  color: white;
+  border-radius: 25px;
+  text-decoration: none;
+  font-weight: bold;
+  transition: transform 0.2s ease, background-color 0.3s;
+}
+
+.cta-button:hover {
+  transform: scale(1.05);
+  background-color: #5c45d3;
+}
+
+/* FEATURES SECTION */
+.features {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 2rem;
+  margin-top: 4rem;
+}
+
+.feature-card {
+  background-color: #2a2a2a;
+  padding: 2rem;
+  border-radius: 16px;
+  width: 300px;
+  text-align: center;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+  transition: transform 0.3s ease;
+}
+
+.feature-card:hover {
+  transform: translateY(-5px);
+}
+
+.icon {
+  font-size: 2rem;
+  margin-bottom: 1rem;
+}
+
+/* MODERN SECTION STYLES */
+.modern-section {
+  margin-top: 5rem;
+}
+
+.section-title {
+  font-size: 2.25rem;
+  margin-bottom: 2rem;
+  text-align: center;
+  color: #f8f8f8;
+}
+
+/* CARDS */
+.card-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2rem;
+  justify-content: center;
+}
+
+.modern-card {
+  background: linear-gradient(135deg, #1c1c1c, #292929);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 20px;
+  padding: 2rem;
+  width: 300px;
+  color: #eaeaea;
+  text-align: center;
+  transition: all 0.4s ease;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.5);
+  position: relative;
+  overflow: hidden;
+}
+
+.modern-card:hover {
+  transform: translateY(-10px) scale(1.02);
+  background: linear-gradient(135deg, #232323, #2e2e2e);
+}
+
+.card-icon {
+  font-size: 2.5rem;
+  margin-bottom: 1rem;
+  animation: pulse 1.8s infinite;
+}
+
+.modern-card h3 {
+  font-size: 1.5rem;
+  margin-bottom: 0.75rem;
+}
+
+.modern-card p {
+  font-size: 1rem;
+  color: #ccc;
+  margin-bottom: 1rem;
+}
+
+.card-footer {
+  font-size: 0.85rem;
+  color: #999;
+  border-top: 1px solid #444;
+  padding-top: 0.5rem;
+}
+
+/* ANIMATIONS */
+@keyframes pulse {
+  0% {
+    transform: scale(1);
+    opacity: 0.85;
+  }
+  50% {
+    transform: scale(1.15);
+    opacity: 1;
+  }
+  100% {
+    transform: scale(1);
+    opacity: 0.85;
+  }
+}
+
+/* FOOTER */
+footer {
+  margin-top: 6rem;
+  text-align: center;
+  font-size: 0.85rem;
+  color: #666;
+}
+
+/* RESPONSIVE */
+@media (max-width: 768px) {
+  .hero h1 {
+    font-size: 2.5rem;
+  }
+
+  .features,
+  .card-grid {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .feature-card,
+  .modern-card {
+    width: 90%;
+  }
+}
+
+
+.enhanced-hero {
+  padding: 6rem 2rem 4rem;
+  text-align: center;
+  border-radius: 2rem;
+  margin-bottom: 4rem;
+  transition: all 0.3s ease;
+}
+
+.big-brand-heading {
+  font-weight: 600;
+  letter-spacing: -0.5px;
+  margin: 0;
+  color: #1a1a1a;
+}
+
+.brand-text {
+  font-size: 8rem;
+  font-weight: 700;
+  background: linear-gradient(90deg, #ffffff, #7d7d7d);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  color: transparent;
+}
+
+.tagline {
+  font-size: 0.7rem;
+  color: #4f4f4f;
+  margin-top: 1rem;
+}
+
+/* CTA Button - Keep it minimal too */
+.cta-button {
+  margin-top: 2rem;
+  background-color: #1a1a1a;
+  color: white;
+  padding: 0.75rem 1.5rem;
+  border-radius: 25px;
+  text-decoration: none;
+  font-weight: 500;
+  transition: background-color 0.2s ease;
+}
+
+.cta-button:hover {
+  background-color: #333;
+}
+
+/* Works across modern browsers */
+body {
+  scrollbar-width: none;       /* Firefox */
+  -ms-overflow-style: none;    /* Internet Explorer 10+ */
+}
+
+body::-webkit-scrollbar {
+  display: none;               /* Chrome, Safari, Opera */
+}
+
+html, body {
+  height: 100%;
+  overflow-y: auto; /* Make sure vertical scrolling is enabled */
+}
+
+
