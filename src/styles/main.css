@@ -58,17 +58,21 @@ body {
 }
 
 .feature-card {
-  background-color: #2a2a2a;
+  background: linear-gradient(135deg, #1c1c1c, #292929);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 20px;
   padding: 2rem;
-  border-radius: 16px;
   width: 300px;
+  color: #eaeaea;
   text-align: center;
-  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
-  transition: transform 0.3s ease;
+  transition: all 0.4s ease;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.5);
+  position: relative;
+  overflow: hidden;
 }
 
 .feature-card:hover {
-  transform: translateY(-5px);
+  /* transform: translateY(-5px); */
 }
 
 .icon {
