@@ -2,7 +2,7 @@
   "name": "algospectra",
   "version": "0.1.0",
   "private": true,
-  "homepage": "https://sachinaryan912.github.io/AlgoSpectra",
+  "homepage": ".",
   "dependencies": {
     "@json-editor/json-editor": "^2.15.2",
     "@testing-library/dom": "^10.4.0",

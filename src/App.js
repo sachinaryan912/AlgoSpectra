@@ -4,7 +4,7 @@ import JsonVisualizer from "./components/JsonVisualizer"; // <-- Make sure this 
 
 function App() {
   return (
-    <Router basename="/AlgoSpectra">
+    <Router>
       <Routes>
         <Route path="/" element={<HomePage />} />
         <Route path="/json-visualizer" element={<JsonVisualizer />} />
