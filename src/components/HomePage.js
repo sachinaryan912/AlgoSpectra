@@ -1,10 +1,21 @@
 import { useEffect } from "react";
+import { useNavigate } from "react-router-dom";
 import "../styles/main.css";
 
 export default function HomePage() {
   useEffect(() => {
     document.title = "AlgoSpectra - Visualize DSA Like Never Before";
   }, []);
+
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    document.title = "AlgoSpectra - Visualize DSA Like Never Before";
+  }, []);
+
+  const handleJsonCardClick = () => {
+    navigate("/json-visualizer");
+  };
 
   return (
     <main className="homepage">
@@ -42,7 +53,7 @@ export default function HomePage() {
       <section className="modern-section">
         <h2 className="section-title">Data Models</h2>
         <div className="card-grid">
-          <div className="modern-card">
+        <div className="modern-card clickable-card" onClick={handleJsonCardClick}>
             <div className="card-icon">🔍</div>
             <h3>JSON Visualizer</h3>
             <p>
