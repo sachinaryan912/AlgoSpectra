@@ -1,15 +1,15 @@
 {
   "files": {
-    "main.css": "/AlgoSpectra/static/css/main.a967af2e.css",
-    "main.js": "/AlgoSpectra/static/js/main.aeb1aa32.js",
+    "main.css": "/AlgoSpectra/static/css/main.fe38e58d.css",
+    "main.js": "/AlgoSpectra/static/js/main.9159aab3.js",
     "static/js/453.8a995f6c.chunk.js": "/AlgoSpectra/static/js/453.8a995f6c.chunk.js",
     "index.html": "/AlgoSpectra/index.html",
-    "main.a967af2e.css.map": "/AlgoSpectra/static/css/main.a967af2e.css.map",
-    "main.aeb1aa32.js.map": "/AlgoSpectra/static/js/main.aeb1aa32.js.map",
+    "main.fe38e58d.css.map": "/AlgoSpectra/static/css/main.fe38e58d.css.map",
+    "main.9159aab3.js.map": "/AlgoSpectra/static/js/main.9159aab3.js.map",
     "453.8a995f6c.chunk.js.map": "/AlgoSpectra/static/js/453.8a995f6c.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.a967af2e.css",
-    "static/js/main.aeb1aa32.js"
+    "static/css/main.fe38e58d.css",
+    "static/js/main.9159aab3.js"
   ]
 }
