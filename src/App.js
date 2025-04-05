@@ -1,6 +1,8 @@
 import { BrowserRouter as Router, Routes, Route, Navigate } from "react-router-dom";
-import HomePage from "./components/HomePage";
-import JsonVisualizer from "./components/JsonVisualizer";
+import HomePage from "./pages/HomePage";
+import JsonVisualizer from "./pages/datavisualizers/JsonVisualizer";
+import XmlVisualizer from "./pages/datavisualizers/XmlVisualizer";
+import YamlVisualizer from "./pages/datavisualizers/YamlVisualizer";
 import ArrayPage from "./page/ArrayPage";
 import StackPage from "./page/StackPage";
 import QueuePage from "./page/QueuePage";
@@ -14,6 +16,8 @@ function App() {
 
         <Route path="/algoSpectra" element={<HomePage />} />
         <Route path="/algoSpectra/json-visualizer" element={<JsonVisualizer />} />
+        <Route path="/algoSpectra/xml-visualizer" element={<XmlVisualizer />} />
+        <Route path="/algoSpectra/yaml-visualizer" element={<YamlVisualizer />} />
         <Route path="/algoSpectra/array" element={<ArrayPage />} />
         <Route path="/algoSpectra/stack" element={<StackPage />} />
         <Route path="/algoSpectra/queue" element={<QueuePage />} />

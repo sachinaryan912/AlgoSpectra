@@ -12,6 +12,13 @@
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     gap: 2rem;
   }
+
+  .visual-subheader{
+    width: 100%;
+    display: flex;
+    margin-bottom: 1rem;
+    margin-left: 2rem;
+  }
   
   @media (min-width: 768px) {
     .json-visualizer-container {

@@ -2,8 +2,8 @@ import { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import "../styles/main.css";
 import { algorithmArray, datastructureArray, featureData } from "../data/cardData";
-import FeatureCard from "./Card/FeatureCard";
-import FunctionCard from "./Card/FunctionCard";
+import FeatureCard from "../components/Card/FeatureCard";
+import FunctionCard from "../components/Card/FunctionCard";
 
 export default function HomePage() {
   useEffect(() => {
@@ -17,7 +17,7 @@ export default function HomePage() {
   }, []);
 
   const handleJsonCardClick = () => {
-    navigate("algoSpectra/json-visualizer");
+    navigate("/algoSpectra/json-visualizer");
   };
 
   return (
@@ -46,13 +46,13 @@ export default function HomePage() {
         <div className="card-grid">
         <div className="modern-card clickable-card" onClick={handleJsonCardClick}>
             <div className="card-icon">🔍</div>
-            <h3>JSON Visualizer</h3>
+            <h3>DATA Visualizer</h3>
             <p>
-              Convert and explore complex JSON structures in an intuitive, visual
+              Convert and explore complex Data Model structures in an intuitive, visual
               format. See nested objects come alive with collapsible trees and
               animations.
             </p>
-            <div className="card-footer">Live Editable • Tree View • Highlight Keys</div>
+            <div className="card-footer">JSON • XML • YAML</div>
           </div>
         </div>
       </section>

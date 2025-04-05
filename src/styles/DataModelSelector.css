@@ -1,0 +1,19 @@
+.data-model-selector {
+    display: flex;
+    align-items: flex-start;
+    font-family: "Segoe UI", sans-serif;
+    justify-content: center;
+    align-items: center;
+  }
+  
+
+  
+  select {
+    padding: 8px 12px;
+    border-radius: 8px;
+    border: 1px solid #4b4b4b;
+    background-color: #292929;
+    font-size: 15px;
+    color: azure;
+  }
+  
