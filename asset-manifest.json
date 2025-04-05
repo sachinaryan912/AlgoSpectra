@@ -1,0 +1,15 @@
+{
+  "files": {
+    "main.css": "/AlgoSpectra/static/css/main.a967af2e.css",
+    "main.js": "/AlgoSpectra/static/js/main.c38af194.js",
+    "static/js/453.8a995f6c.chunk.js": "/AlgoSpectra/static/js/453.8a995f6c.chunk.js",
+    "index.html": "/AlgoSpectra/index.html",
+    "main.a967af2e.css.map": "/AlgoSpectra/static/css/main.a967af2e.css.map",
+    "main.c38af194.js.map": "/AlgoSpectra/static/js/main.c38af194.js.map",
+    "453.8a995f6c.chunk.js.map": "/AlgoSpectra/static/js/453.8a995f6c.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.a967af2e.css",
+    "static/js/main.c38af194.js"
+  ]
+}
