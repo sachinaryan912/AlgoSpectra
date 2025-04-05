@@ -20,9 +20,9 @@ export default function HomePage() {
   return (
     <main className="homepage">
       <section className="hero enhanced-hero">
-        <h1 className="big-brand-heading">
+        <div className="big-brand-heading">
           <span className="brand-text">AlgoSpectra</span>
-        </h1>
+        </div>
         <p className="tagline">
           Visualizing Data Structures & Algorithms in a Futuristic Way.
         </p>
