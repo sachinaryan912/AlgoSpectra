@@ -1,6 +1,9 @@
 import { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import "../styles/main.css";
+import { algorithmArray, datastructureArray, featureData } from "../data/cardData";
+import FeatureCard from "./Card/FeatureCard";
+import FunctionCard from "./Card/FunctionCard";
 
 export default function HomePage() {
   useEffect(() => {
@@ -14,7 +17,7 @@ export default function HomePage() {
   }, []);
 
   const handleJsonCardClick = () => {
-    navigate("/json-visualizer");
+    navigate("algoSpectra/json-visualizer");
   };
 
   return (
@@ -32,21 +35,9 @@ export default function HomePage() {
       </section>
 
       <section className="features">
-        <div className="feature-card">
-          <div className="icon">📊</div>
-          <h3>Interactive Visualizations</h3>
-          <p>Step-by-step algorithm animations in real time.</p>
-        </div>
-        <div className="feature-card">
-          <div className="icon">🧠</div>
-          <h3>Multiple Algorithms</h3>
-          <p>Sort, search, traverse — all in one place.</p>
-        </div>
-        <div className="feature-card">
-          <div className="icon">📱</div>
-          <h3>Responsive Design</h3>
-          <p>Looks great on mobile, tablet, and desktop.</p>
-        </div>
+        {featureData?.map((feature, index) => (
+          <FeatureCard name={feature?.name} description={feature?.description}/>
+        ))}
       </section>
 
       {/* Section 1: Data Models */}
@@ -70,35 +61,31 @@ export default function HomePage() {
       <section className="modern-section">
         <h2 className="section-title">Data Structures</h2>
         <div className="card-grid">
-          <div className="modern-card">
-            <div className="card-icon">📦</div>
-            <h3>Arrays</h3>
-            <p>
-              Learn array operations like insert, delete, and traverse through
-              interactive animations.
-            </p>
-            <div className="card-footer">Ordered • Indexed • Efficient Access</div>
-          </div>
+         {datastructureArray?.map((data, index) => (
+            <FunctionCard
+            name={data?.name}
+            description={data?.description}
+            footer={data?.footer}
+            routepath={data?.routePath}
+            key={index}
+            />
+          ))}
+        </div>
+      </section>
 
-          <div className="modern-card">
-            <div className="card-icon">📤</div>
-            <h3>Queue</h3>
-            <p>
-              Visualize FIFO behavior, enqueue/dequeue operations with smooth,
-              real-time transitions.
-            </p>
-            <div className="card-footer">FIFO • Scheduling • Print Queue</div>
-          </div>
-
-          <div className="modern-card">
-            <div className="card-icon">📥</div>
-            <h3>Stack</h3>
-            <p>
-              Understand LIFO operations, recursion stack behavior, and browser
-              history simulation.
-            </p>
-            <div className="card-footer">LIFO • Undo Mechanism • Call Stack</div>
-          </div>
+       {/* Section 3: Algorith */}
+       <section className="modern-section">
+        <h2 className="section-title">Algorithm</h2>
+        <div className="card-grid">
+         {algorithmArray?.map((data, index) => (
+            <FunctionCard
+            name={data?.name}
+            description={data?.description}
+            footer={data?.footer}
+            routepath={data?.routePath}
+            key={index}
+            />
+          ))}
         </div>
       </section>
 
