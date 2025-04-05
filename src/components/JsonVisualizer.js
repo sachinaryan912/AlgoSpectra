@@ -5,7 +5,6 @@ import ReactFlow, {
   Background,
   useNodesState,
   useEdgesState,
-  addEdge,
 } from "reactflow";
 import "reactflow/dist/style.css";
 import "../styles/jsonVisualizer.css";
