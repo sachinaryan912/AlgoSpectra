@@ -1,15 +1,15 @@
 import { initializeApp } from "firebase/app";
 import { getAnalytics } from "firebase/analytics";
+
 const firebaseConfig = {
-  apiKey: "AIzaSyB8oI2P43rDi3n1zYsT52kNY2F7ZRZC01c",
-  authDomain: "algospectraa.firebaseapp.com",
-  projectId: "algospectraa",
-  storageBucket: "algospectraa.firebasestorage.app",
-  messagingSenderId: "644296763839",
-  appId: "1:644296763839:web:c042631c3e5d55296a190a",
-  measurementId: "G-4EYL66HL5X"
+  apiKey: process.env.REACT_APP_FIREBASE_API_KEY,
+  authDomain: process.env.REACT_APP_FIREBASE_AUTH_DOMAIN,
+  projectId: process.env.REACT_APP_FIREBASE_PROJECT_ID,
+  storageBucket: process.env.REACT_APP_FIREBASE_STORAGE_BUCKET,
+  messagingSenderId: process.env.REACT_APP_FIREBASE_MESSAGING_SENDER_ID,
+  appId: process.env.REACT_APP_FIREBASE_APP_ID,
+  measurementId: process.env.REACT_APP_FIREBASE_MEASUREMENT_ID
 };
 
-// Initialize Firebase
 const app = initializeApp(firebaseConfig);
 const analytics = getAnalytics(app);
