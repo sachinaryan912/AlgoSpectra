@@ -73,7 +73,7 @@
     height: calc(100vh - 7rem);
     max-height: 95vh;
     width: 75dvw;
-    background: #1b1b1b;
+    /* background: #1b1b1b; */
     border-radius: 10px;
     border: 1px solid #3a3a3a;
     overflow: hidden;
@@ -84,6 +84,7 @@
     .json-input, .flow-wrapper {
       height: 400px;
       max-height: 100%;
+      width: 94%;
     }
   }
   

@@ -32,17 +32,17 @@ export default function HomePage() {
       </section>
 
       <section className="features">
-        <div className="modern-card">
+        <div className="feature-card">
           <div className="icon">📊</div>
           <h3>Interactive Visualizations</h3>
           <p>Step-by-step algorithm animations in real time.</p>
         </div>
-        <div className="modern-card">
+        <div className="feature-card">
           <div className="icon">🧠</div>
           <h3>Multiple Algorithms</h3>
           <p>Sort, search, traverse — all in one place.</p>
         </div>
-        <div className="modern-card">
+        <div className="feature-card">
           <div className="icon">📱</div>
           <h3>Responsive Design</h3>
           <p>Looks great on mobile, tablet, and desktop.</p>
