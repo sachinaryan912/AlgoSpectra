@@ -122,7 +122,7 @@ export default function JsonVisualizer() {
   return (
     <div>
         <div className="visualizer-header">
-          <h2>JsonVisualizer</h2>
+          <h2>Visualizer</h2>
           <button className="visualize-button" onClick={handleVisualize}>
             Visualize
           </button>
