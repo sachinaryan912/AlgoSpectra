@@ -2,8 +2,10 @@ import { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import "../styles/main.css";
 import { algorithmArray, datastructureArray, featureData } from "../data/cardData";
+import { contributors } from "../data/contributionData";
 import FeatureCard from "../components/Card/FeatureCard";
 import FunctionCard from "../components/Card/FunctionCard";
+import ContributorCard from "../components/Card/ContributorCard";
 
 export default function HomePage() {
   useEffect(() => {
@@ -20,6 +22,10 @@ export default function HomePage() {
     navigate("/algoSpectra/json-visualizer");
   };
 
+  const handleGetStartedClick = () => {
+    navigate("/algoSpectra/newdashboard");
+  };
+
   return (
     <main className="homepage">
       <section className="hero enhanced-hero">
@@ -29,7 +35,7 @@ export default function HomePage() {
         <p className="tagline">
           Visualizing Data Structures & Algorithms in a Futuristic Way.
         </p>
-        <a href="#visualizer" className="cta-button">
+        <a className="cta-button" onClick={handleGetStartedClick}>
           Get Started
         </a>
       </section>
@@ -88,6 +94,15 @@ export default function HomePage() {
           ))}
         </div>
       </section>
+
+      <section style={{ padding: "2rem", textAlign: "center" }}>
+      <h2 style={{ color: "#fff", marginBottom: "1.5rem" }}>Contributors</h2>
+      <div style={{ display: "flex", justifyContent: "center", gap: "2rem", flexWrap: "wrap" }}>
+        {contributors.map((c, i) => (
+          <ContributorCard key={i} {...c} />
+        ))}
+      </div>
+    </section>
 
       <footer>
         Made with ❤️ for learners • © 2025 AlgoSpectra

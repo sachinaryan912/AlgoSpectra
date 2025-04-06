@@ -1,0 +1,55 @@
+.contributor-card {
+    background: transparent;
+    /* border: 1px solid #333; */
+    border-radius: 16px;
+    padding: 24px;
+    width: 250px;
+    text-align: center;
+    color: #f0f0f0;
+    /* box-shadow: 0 10px 20px rgba(0, 0, 0, 0.4); */
+    transition: transform 0.3s ease;
+  }
+  
+  .contributor-card:hover {
+    transform: translateY(-5px);
+  }
+  
+  .avatar {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-bottom: 16px;
+    border: 2px solid #000000;
+  }
+  
+  .name {
+    font-size: 1.25rem;
+    margin-bottom: 6px;
+    font-weight: bold;
+  }
+  
+  .role {
+    font-size: 0.95rem;
+    color: #aaa;
+    margin-bottom: 12px;
+  }
+  
+  .github-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    color: #ffffff;
+    text-decoration: none;
+    font-weight: 500;
+    transition: color 0.2s ease;
+  }
+  
+  .github-link:hover {
+    color: #adadad;
+  }
+  
+  .github-icon {
+    font-size: 1.2rem;
+  }
+  

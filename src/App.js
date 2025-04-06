@@ -3,9 +3,9 @@ import HomePage from "./pages/HomePage";
 import JsonVisualizer from "./pages/datavisualizers/JsonVisualizer";
 import XmlVisualizer from "./pages/datavisualizers/XmlVisualizer";
 import YamlVisualizer from "./pages/datavisualizers/YamlVisualizer";
-import ArrayPage from "./page/ArrayPage";
-import StackPage from "./page/StackPage";
-import QueuePage from "./page/QueuePage";
+import ArrayPage from "./pages/algorithms/ArrayPage";
+import StackPage from "./pages/algorithms/StackPage";
+import QueuePage from "./pages/algorithms/QueuePage";
 
 function App() {
   return (
