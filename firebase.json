@@ -8,7 +8,12 @@
       "**/node_modules/**"
     ]
   },
-
+  "rewrites": [
+      {
+        "source": "**",
+        "destination": "/index.html"
+      }
+    ],
   "remoteconfig": {
     "template": "remote.config.json"
   }
