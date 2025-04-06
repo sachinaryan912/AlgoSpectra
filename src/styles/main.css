@@ -28,24 +28,28 @@ body {
 }
 
 .hero p {
-  font-size: 2dvw;
+  font-size: 1.5dvw;
   color: #ccc;
   margin: 2rem 0 2rem;
 }
 
 .cta-button {
-  background-color: #7f5af0;
   padding: 0.75rem 1.5rem;
   color: white;
   border-radius: 25px;
   text-decoration: none;
   font-weight: bold;
-  transition: transform 0.2s ease, background-color 0.3s;
+  font-size: 1rem;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  transition: transform 0.3s ease, background-color 0.3s ease, box-shadow 0.3s ease;
+  border: none;
+  cursor: pointer;
 }
 
 .cta-button:hover {
-  transform: scale(1.05);
-  background-color: #5c45d3;
+  transform: translateY(-5px)
 }
 
 /* FEATURES SECTION */
@@ -69,10 +73,34 @@ body {
   box-shadow: 0 10px 25px rgba(0, 0, 0, 0.5);
   position: relative;
   overflow: hidden;
-  font-family: "Montserrat", sans-serif;
+  /* font-family: "Montserrat", sans-serif; */
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
 }
 
+.ribbon {
+  position: absolute;
+  top: 2.5rem;
+  left: -15px;
+  width: 50px;
+  background-color: #ff4757; /* Default ribbon color */
+  color: white;
+  font-size: 0.7rem;
+  font-weight: bold;
+  padding: 0.6rem 1rem;
+  transform: rotate(-45deg);
+  transform-origin: left top;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  z-index: 1;
+}
 
+.ribbon.new {
+  background-color: #2ed573; /* Green for "New" */
+}
+
+.ribbon.coming-soon {
+  background-color: #2ed573; /* Orange for "Coming Soon" */
+}
 
 .icon {
   font-size: 2rem;
@@ -111,12 +139,16 @@ body {
   box-shadow: 0 10px 25px rgba(0, 0, 0, 0.5);
   position: relative;
   overflow: hidden;
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
 }
 
 .modern-card:hover {
   cursor: pointer;
   transform: translateY(-10px) scale(1.02);
   background: linear-gradient(135deg, #23232317, #2e2e2e);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
 }
 
 .card-icon {
@@ -205,7 +237,7 @@ body::after {
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center;
-  opacity: 0.1;
+  opacity: 0.2;
   /* filter: blur(5px); */
   position: absolute;
   top: 0;
@@ -231,10 +263,11 @@ body::after {
   -webkit-text-fill-color: transparent;
   background-clip: text;
   color: transparent;
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
 }
 
 .tagline {
-  font-size: 0.7rem;
   color: #4f4f4f;
   margin-top: 20em;
 }
@@ -268,6 +301,15 @@ body::-webkit-scrollbar {
 html, body {
   height: 100%;
   overflow-y: auto; /* Make sure vertical scrolling is enabled */
+}
+
+.see-more-button {
+  text-align: center;
+  margin-top: 2rem;
+}
+
+.button-icon {
+  font-size: 1.2rem;
 }
 
 
