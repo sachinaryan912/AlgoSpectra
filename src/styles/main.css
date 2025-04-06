@@ -199,18 +199,21 @@ footer {
   transition: all 0.3s ease;
 }
 
-.hero::after {
+body::after {
   content: "";
-  background-image: url('../assets/images/android-chrome-512x512.png');
+  background-image: url('../assets/images/god-dna.jfif');
   background-repeat: no-repeat;
-  background-size: contain;
+  background-size: cover;
   background-position: center;
-  opacity: 0.25;
+  opacity: 0.1;
+  /* filter: blur(5px); */
   position: absolute;
   top: 0;
   left: 0;
   right: 0;
   bottom: 0;
+  margin: 0;
+  padding: 0;
   pointer-events: none;
   z-index: -1;
 }
@@ -223,7 +226,7 @@ footer {
 .brand-text {
   font-size: 9.5dvw;
   font-weight: 700;
-  background: linear-gradient(90deg, #ffffff, #292929);
+  background: linear-gradient(90deg, #ffffff, #5252527b);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
