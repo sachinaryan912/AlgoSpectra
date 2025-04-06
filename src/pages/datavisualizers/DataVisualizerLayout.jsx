@@ -1,9 +1,9 @@
 import React from 'react'
 
-function DataVisulizerLayout() {
+function DataVisualizerLayout() {
   return (
     <div>DataVisulizerLayout</div>
   )
 }
 
-export default DataVisulizerLayout
+export default DataVisualizerLayout
