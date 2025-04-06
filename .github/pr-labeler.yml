@@ -1,0 +1,8 @@
+alwaysReplace: false
+caseSensitive: true
+customLabels:
+  - text: ''
+    label: 'DEV:Deployment'
+searchBody: true
+searchTitle: true
+wholeWords: false
