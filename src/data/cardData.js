@@ -19,36 +19,42 @@ export const datastructureArray=[
         name:"Arrays",
         description:"Learn array operations like insert, delete, and traverse through interactive animations.",
         footer:"Ordered • Indexed • Efficient Access",
-        routePath:"/algoSpectra/array"
+        routePath:"/algoSpectra/array",
+        status:"Coming Soon"
     },
     {
         name:"Queue",
         description:"Visualize FIFO behavior, enqueue/dequeue operations with smooth, real-time transitions.",
         footer:"FIFO • Scheduling • Print Queue",
-        routePath:"/algoSpectra/queue"
+        routePath:"/algoSpectra/queue",
+        status:"Coming Soon"
     },
     {
         name:"Stack",
         description:"Explore LIFO behavior with push/pop operations and real-time stack visualizations.",
         footer:"LIFO • Backtracking • Undo/Redo",
-        routePath:"/algoSpectra/stack"
+        routePath:"/algoSpectra/stack",
+        status:"Coming Soon"
     }
 ]
 export const algorithmArray=[
     {
         name:"Sorting Algorithms",
         description:"Visualize sorting algorithms like Bubble Sort, Merge Sort, and Quick Sort.",
-        footer:"O(n log n) • O(n^2) • O(1)"
+        footer:"O(n log n) • O(n^2) • O(1)",
+        status:"Coming Soon"
     },
     {
         name:"Searching Algorithms",
         description:"Explore searching algorithms like Binary Search and Linear Search.",
-        footer:"O(log n) • O(n) • O(1)"
+        footer:"O(log n) • O(n) • O(1)",
+        status:"Coming Soon"
     },
     {
         name:"Graph Algorithms",
         description:"Visualize graph algorithms like Dijkstra's and BFS.",
-        footer:"O(V + E) • O(V^2) • O(E log V)"
+        footer:"O(V + E) • O(V^2) • O(E log V)",
+        status:"Coming Soon"
     }
 ]
 
@@ -56,7 +62,8 @@ export const algorithmData=[
     {
         name:"Sorting Algorithms",
         description:"Visualize sorting algorithms like Bubble Sort, Merge Sort, and Quick Sort.",
-        footer:"O(n log n) • O(n^2) • O(1)"
+        footer:"O(n log n) • O(n^2) • O(1)",
+        status:"Coming Soon"
     },
     {
         name:"Searching Algorithms",
