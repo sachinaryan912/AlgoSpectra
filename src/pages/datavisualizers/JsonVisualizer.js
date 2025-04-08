@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import ReactFlow, {
   MiniMap,
   Controls,
@@ -9,9 +9,13 @@ import ReactFlow, {
 import "reactflow/dist/style.css";
 import "../../styles/jsonVisualizer.css";
 import DataModelSelector from "../../components/DataModelSelector";
+import { setMenuSelected } from "../../redux/HomeSlice";
+import { useDispatch } from "react-redux";
 
 // Grouped Object Node Transformer
 const transformJsonToNodes = (json, parentId = null, level = 0, prefix = "node", yOffset = 0) => {
+ 
+
   let nodes = [];
   let edges = [];
   const nodeId = `${prefix}-${level}-${Math.random().toString(36).substr(2, 5)}`;
@@ -20,6 +24,8 @@ const transformJsonToNodes = (json, parentId = null, level = 0, prefix = "node",
   let childYOffset = yOffset;
   let childNodes = [];
   let childEdges = [];
+
+
 
   Object.entries(json).forEach(([key, value]) => {
     if (typeof value === "object" && value !== null) {
@@ -101,6 +107,11 @@ export default function JsonVisualizer() {
       alert("Invalid JSON");
     }
   };
+
+  const dispatch = useDispatch();
+  useEffect(() => {
+        dispatch(setMenuSelected('json'));
+  },[])
 
   return (
     <div>

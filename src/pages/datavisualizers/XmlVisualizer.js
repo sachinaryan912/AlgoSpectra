@@ -1,5 +1,5 @@
 // src/components/XmlVisualizer.js
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { xml2json } from "xml-js";
 import ReactFlow, {
   MiniMap,
@@ -11,6 +11,8 @@ import ReactFlow, {
 import "reactflow/dist/style.css";
 import "../../styles/jsonVisualizer.css";
 import DataModelSelector from "../../components/DataModelSelector";
+import { useDispatch } from "react-redux";
+import { setMenuSelected } from "../../redux/HomeSlice";
 
 const transformXmlToNodes = (json, parentId = null, level = 0, yOffset = 0, prefix = "xml") => {
   let nodes = [];
@@ -76,6 +78,10 @@ export default function XmlVisualizer() {
       alert("Invalid XML");
     }
   };
+  const dispatch = useDispatch();
+  useEffect(() => {
+        dispatch(setMenuSelected('xml'));
+  },[])
 
   return (
     <div>
