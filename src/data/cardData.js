@@ -23,6 +23,13 @@ export const datastructureArray=[
         status:"Coming Soon"
     },
     {
+        name:"LinkedList",
+        description:"Explore LIFO behavior with push/pop operations and real-time stack visualizations.",
+        footer:"LIFO • Backtracking • Undo/Redo",
+        routePath:"/algoSpectra/linkedlist",
+        status:"Coming Soon"
+    },
+    {
         name:"Queue",
         description:"Visualize FIFO behavior, enqueue/dequeue operations with smooth, real-time transitions.",
         footer:"FIFO • Scheduling • Print Queue",
@@ -35,7 +42,8 @@ export const datastructureArray=[
         footer:"LIFO • Backtracking • Undo/Redo",
         routePath:"/algoSpectra/stack",
         status:"Coming Soon"
-    }
+    },
+    
 ]
 export const algorithmArray=[
     {

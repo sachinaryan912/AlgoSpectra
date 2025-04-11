@@ -6,6 +6,7 @@ import YamlVisualizer from "./pages/datavisualizers/YamlVisualizer";
 import ArrayPage from "./pages/algorithms/ArrayPage";
 import StackPage from "./pages/algorithms/StackPage";
 import QueuePage from "./pages/algorithms/QueuePage";
+import LinkedListPage from "./pages/algorithms/LinkedListPage";
 
 function App() {
   return (
@@ -21,6 +22,7 @@ function App() {
         <Route path="/algoSpectra/array" element={<ArrayPage />} />
         <Route path="/algoSpectra/stack" element={<StackPage />} />
         <Route path="/algoSpectra/queue" element={<QueuePage />} />
+        <Route path="/algoSpectra/linkedlist" element={<LinkedListPage />} />
 
         {/* Optional: catch-all redirect to /algoSpectra */}
         <Route path="*" element={<Navigate to="/algoSpectra" replace />} />
