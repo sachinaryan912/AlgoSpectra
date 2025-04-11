@@ -21,6 +21,8 @@ function FunctionCard({ name, description, footer, routepath,status }) {
           {name.toLowerCase().includes("search") && <span role="img" aria-label="search">🔍</span>}
           {name.toLowerCase().includes("array") && <span role="img" aria-label="array"><MdOutlineDataArray /></span>}
           {name.toLowerCase().includes("queue") && <span role="img" aria-label="queue">📥</span>}
+          {name.toLowerCase().includes("linked") && <span role="img" aria-label="queue">🔗</span>}
+          
         </div>
         <h3>{name}</h3>
         <p>{description}</p>

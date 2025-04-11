@@ -1,16 +1,16 @@
 import React, { useEffect, useState } from "react";
 import LinkedList from "../../utils/LinkedList";
 import { motion, AnimatePresence } from "framer-motion";
-import { useSelector, useDispatch } from "react-redux";
+import { useSelector } from "react-redux";
 // import { setDashBoardElement } from "../dashboardElementSlice";
-import "./linkedListStyle.css";
+import "../../styles/linkedListStyle.css";
 export default function LinkedListPage() {
     const [linkedList] = useState(new LinkedList());
     const [elements, setElements] = useState([]);
     const [inputValue, setInputValue] = useState("");
     const [historyArr, setHistoryArr] = useState([]);
     
-    const dispatch = useDispatch();
+    // const dispatch = useDispatch();
     useEffect(() => {
         // dispatch(setDashBoardElement("Linked List"));
     }, []);

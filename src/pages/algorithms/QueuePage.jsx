@@ -2,9 +2,9 @@
 import React, { useState, useEffect } from "react";
 import Queue from "../../utils/Queue";
 import { motion, AnimatePresence } from "framer-motion";
-import { useSelector, useDispatch } from "react-redux";
-import "./queueStyle.css";
-import { Grid, Switch } from "@mui/material";
+import { useSelector } from "react-redux";
+import "../../styles/queueStyle.css";
+import { Switch } from "@mui/material";
 // import { setDashBoardElement } from "../dashboardElementSlice"
 
 export default function QueuePage() {
@@ -17,7 +17,7 @@ export default function QueuePage() {
     const [overflow, setOverflow] = useState(false);
      const darkMode = useSelector((state)=>state?.themeSlice?.darkMode) || false;
 
-    const dispatch = useDispatch();
+    // const dispatch = useDispatch();
     useEffect(()=>{
         // dispatch(setDashBoardElement("Queue"))
     },[]);

@@ -3,9 +3,9 @@ import React, { useEffect, useState } from "react";
 import Stack from "../../utils/Stack";
 import { motion, AnimatePresence } from "framer-motion";
 import { useSelector } from "react-redux";
-import { useDispatch } from "react-redux";
+// import { useDispatch } from "react-redux";
 // import { setDashBoardElement } from "../dashboardElementSlice"
-import "./stackStyle.css";
+import "../../styles/stackStyle.css";
 import { Switch } from "@mui/material";
 
 export default function StackPage()
@@ -18,7 +18,7 @@ export default function StackPage()
     const [isButtonOn, setIsButtonOn] = useState(false);
     const [overflow, setOverflow] = useState(false);
 
-    const dispatch = useDispatch();
+    // const dispatch = useDispatch();
     useEffect(()=>{
         // dispatch(setDashBoardElement("Stack"))
     },[]);
