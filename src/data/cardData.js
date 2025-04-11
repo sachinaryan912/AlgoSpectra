@@ -14,29 +14,34 @@ export const featureData=[
     
 ]
 
-export const datastructureArray=[
+export const datastructureArray = [
     {
-        name:"Arrays",
-        description:"Learn array operations like insert, delete, and traverse through interactive animations.",
-        footer:"Ordered • Indexed • Efficient Access",
-        routePath:"/algoSpectra/array",
-        status:"Coming Soon"
+        name: "Arrays",
+        description: "Master the foundation of data structures with arrays—learn how to insert, delete, and access elements using interactive step-by-step visualizations.",
+        footer: "Ordered • Indexed • Random Access • Static Size",
+        routePath: "/algoSpectra/array",
+        status: "Coming Soon"
     },
     {
-        name:"Queue",
-        description:"Visualize FIFO behavior, enqueue/dequeue operations with smooth, real-time transitions.",
-        footer:"FIFO • Scheduling • Print Queue",
-        routePath:"/algoSpectra/queue",
-        status:"Coming Soon"
+        name: "LinkedList",
+        description: "Understand how linked lists work under the hood—learn dynamic memory allocation, traversal, insertion, and deletion at various positions.",
+        footer: "Dynamic Size • Node-Based • Efficient Insert/Delete",
+        routePath: "/algoSpectra/linkedlist"
     },
     {
-        name:"Stack",
-        description:"Explore LIFO behavior with push/pop operations and real-time stack visualizations.",
-        footer:"LIFO • Backtracking • Undo/Redo",
-        routePath:"/algoSpectra/stack",
-        status:"Coming Soon"
+        name: "Queue",
+        description: "Visualize real-world queuing systems with FIFO (First In, First Out) operations—see how elements move from front to rear with smooth animations.",
+        footer: "FIFO • Linear/ Circular • Scheduling • Buffering",
+        routePath: "/algoSpectra/queue"
+    },
+    {
+        name: "Stack",
+        description: "Explore how stacks manage data using LIFO (Last In, First Out) logic—perfect for recursion, backtracking, and undo-redo functionalities.",
+        footer: "LIFO • Recursion • Backtracking • Expression Evaluation",
+        routePath: "/algoSpectra/stack"
     }
 ]
+
 export const algorithmArray=[
     {
         name:"Sorting Algorithms",

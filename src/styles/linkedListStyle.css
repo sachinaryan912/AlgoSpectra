@@ -1,0 +1,170 @@
+.ll-controls {
+    border: 1px solid #ccc;
+    padding: 1.25rem;
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    border-radius: 0.5rem;
+    margin: 1.25rem;
+    width: 50%;
+}
+
+.ll-title {
+    font-size: 1.5rem;
+}
+
+.ll-input-container {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.ll-input {
+    width: 96%;
+    height: 2.5rem;
+    padding: 0.75rem;
+    font-size: 1.125rem;
+    border: 1px solid #ccc;
+    border-radius: 0.5rem;
+}
+
+.ll-input.light {
+    color: black;
+    background-color: white;
+}
+
+.ll-input.dark {
+    color: white;
+    background-color: #2d2d2d;
+}
+
+.ll-button-group {
+    display: flex;
+    gap: 0.5rem;
+}
+
+.ll-button {
+    width: 48%;
+    height: 2.5rem;
+    font-size: 1.25rem;
+    border: none;
+    border-radius: 0.5rem;
+    cursor: pointer;
+    color: white;
+}
+
+.ll-button.green {
+    background-color: #22c55e;
+}
+
+.ll-button.green:hover {
+    background-color: #16a34a;
+}
+
+.ll-button.red {
+    background-color: #ef4444;
+}
+
+.ll-button.red:hover {
+    background-color: #dc2626;
+}
+
+.ll-clear-button {
+    width: 96%;
+    height: 2.5rem;
+    font-size: 1.25rem;
+    border: none;
+    border-radius: 0.5rem;
+    cursor: pointer;
+}
+
+.ll-clear-button.light {
+    color: white;
+    background-color: black;
+}
+
+.ll-clear-button.dark {
+    color: black;
+    background-color: white;
+}
+
+.ll-history {
+    border: 1px solid #ccc;
+    padding: 0.75rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    border-radius: 0.5rem;
+    overflow-y: auto;
+    margin: 1.25rem;
+    width: 45%;
+}
+
+.ll-history-title {
+    font-size: 1.25rem;
+    margin-left: 0.5rem;
+    padding: 0.75rem 0;
+}
+
+.ll-history-item {
+    font-size: 1.125rem;
+}
+
+.ll-history-label {
+    font-weight: 600;
+    margin-right: 0.5rem;
+}
+
+.ll-history-label.green {
+    color: #22c55e;
+}
+
+.ll-history-label.red {
+    color: #ef4444;
+}
+
+.ll-visualization {
+    border: 1px solid #ccc;
+    padding: 1.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+    overflow-x: auto;
+    border-radius: 0.5rem;
+    margin: 1.25rem;
+    height: 20vh;
+}
+
+.ll-node {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 1rem;
+    width: 5.5rem;
+    height: 5.5rem;
+    border-radius: 0.75rem;
+    font-size: 1.25rem;
+    font-weight: bold;
+    box-shadow: 0 2px 6px rgba(128, 91, 91, 0.2);
+}
+
+.ll-node.light {
+    background-color: black;
+    color: white;
+}
+
+.ll-node.dark {
+    background-color: white;
+    color: black;
+}
+
+.ll-arrow {
+    font-size: 1.5rem;
+    font-weight: bold;
+}
+
+.row2
+{
+    display: flex;
+}  

@@ -1,5 +1,5 @@
 // src/components/YamlVisualizer.js
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import yaml from "js-yaml";
 import ReactFlow, {
   MiniMap,
@@ -11,6 +11,8 @@ import ReactFlow, {
 import "reactflow/dist/style.css";
 import "../../styles/jsonVisualizer.css";
 import DataModelSelector from "../../components/DataModelSelector";
+import { useDispatch } from "react-redux";
+import { setMenuSelected } from "../../redux/HomeSlice";
 
 const transformYamlToNodes = (json, parentId = null, level = 0, yOffset = 0, prefix = "yaml") => {
   let nodes = [];
@@ -73,6 +75,11 @@ export default function YamlVisualizer() {
       alert("Invalid YAML");
     }
   };
+
+  const dispatch = useDispatch();
+  useEffect(() => {
+        dispatch(setMenuSelected('yaml'));
+  },[])
 
   return (
     <div>

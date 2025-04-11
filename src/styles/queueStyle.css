@@ -1,0 +1,211 @@
+.queue-controls {
+    border: 1px solid #ccc;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    border-radius: 8px;
+    margin: 20px;
+    width: 50%;
+  }
+  
+  .queue-title {
+    font-size: 1.5rem;
+  }
+  
+  .input-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+  }
+  
+  .queue-input {
+    width: 68%;
+    height: 40px;
+    padding: 0 12px;
+    font-size: 1.2rem;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+  }
+  
+  .light {
+    background-color: white;
+  }
+  
+  .dark {
+    background-color: #121212;
+    color: white;
+  }
+  
+  .disabled {
+    cursor: not-allowed;
+  }
+  
+  .light-disabled {
+    background-color: #dddddd;
+  }
+  
+  .enqueue-btn {
+    width: 28%;
+    background-color: #22c55e;
+    color: white;
+    height: 40px;
+    font-size: 1.2rem;
+    border-radius: 8px;
+    border: none;
+    cursor: pointer;
+  }
+  
+  .enqueue-btn:hover {
+    background-color: #16a34a;
+  }
+  
+  .btn-row {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+  }
+  
+  .dequeue-btn,
+  .clear-btn {
+    width: 48%;
+    height: 40px;
+    font-size: 1.2rem;
+    border-radius: 8px;
+    border: none;
+    cursor: pointer;
+  }
+  
+  .dequeue-btn {
+    background-color: #ef4444;
+    color: white;
+  }
+  
+  .dequeue-btn:hover {
+    background-color: #dc2626;
+  }
+  
+  .clear-btn.light {
+    background-color: white;
+    color: black;
+  }
+  
+  .clear-btn.dark {
+    background-color: black;
+    color: white;
+  }
+  
+  .operations-history {
+    border: 1px solid #ccc;
+    padding: 12px 12px 0 12px;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    border-radius: 8px;
+    overflow-y: auto;
+    margin: 20px;
+    z-index: 1;
+    width: 50%;
+  }
+  
+  .history-title {
+    font-size: 1.25rem;
+    padding: 12px 0;
+    margin-left: 8px;
+  }
+  
+  .history-item {
+    font-size: 1.125rem;
+    margin-left: 16px;
+  }
+  
+  .history-op.enqueue {
+    color: #22c55e;
+  }
+  
+  .history-op.dequeue {
+    color: #ef4444;
+  }
+  
+  .queue-visualization {
+    border: 1px solid #ccc;
+    padding: 80px 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 8px;
+    margin-top: 20px;
+    border-radius: 8px;
+    position: relative;
+  }
+  
+  .queue-info {
+    position: absolute;
+    top: 0;
+    padding: 8px;
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    font-size: 1rem;
+    color: white;
+  }
+  
+  .queue-info.light {
+    background-color: white;
+    color: black;
+  }
+  
+  .queue-info.dark {
+    background-color: black;
+    color: white;
+  }
+  
+  .queue-box {
+    height: 120px;
+    margin-top: 3rem;
+    border-top: 2px solid #ccc;
+    border-bottom: 2px solid #ccc;
+    padding: 8px;
+    display: flex;
+    flex-direction: row-reverse;
+    gap: 8px;
+    overflow-x: auto;
+    overflow-y: hidden;
+  }
+  
+  .light-bg {
+    background-color: #dddddd65;
+  }
+  
+  .dark-bg {
+    background-color: #33333365;
+  }
+  
+  .overflow-msg {
+    position: absolute;
+    bottom: 12px;
+    left: 44%;
+    background-color: #3b82f6;
+    padding: 8px;
+    width: 160px;
+    text-align: center;
+    border-radius: 6px;
+    color: white;
+    font-size: 1rem;
+  }
+  
+  .queue-item {
+    font-size: 1.5rem;
+    min-width: 80px;
+    padding: 8px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 6px;
+  }
+.row2
+{
+    display: flex;
+}  
