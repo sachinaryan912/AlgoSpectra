@@ -1,7 +1,7 @@
 import { BrowserRouter as Router, Routes, Route, Navigate } from "react-router-dom";
 import HomePage from "./pages/HomePage";
-import JsonVisualizer from "./pages/datavisualizers/JsonVisualizer";
-import XmlVisualizer from "./pages/datavisualizers/XmlVisualizer";
+import VisualizerPage from "./pages/datavisualizers/VisualizerPage";
+import VisualizerXmlPage from "./pages/datavisualizers/VisualizerXmlPage";
 import YamlVisualizer from "./pages/datavisualizers/YamlVisualizer";
 import ArrayPage from "./pages/algorithms/ArrayPage";
 import StackPage from "./pages/algorithms/StackPage";
@@ -16,8 +16,8 @@ function App() {
         <Route path="/" element={<Navigate to="/algoSpectra" replace />} />
 
         <Route path="/algoSpectra" element={<HomePage />} />
-        <Route path="/algoSpectra/json-visualizer" element={<JsonVisualizer />} />
-        <Route path="/algoSpectra/xml-visualizer" element={<XmlVisualizer />} />
+        <Route path="/algoSpectra/json-visualizer" element={<VisualizerPage />} />
+        <Route path="/algoSpectra/xml-visualizer" element={<VisualizerXmlPage />} />
         <Route path="/algoSpectra/yaml-visualizer" element={<YamlVisualizer />} />
         <Route path="/algoSpectra/array" element={<ArrayPage />} />
         <Route path="/algoSpectra/stack" element={<StackPage />} />
