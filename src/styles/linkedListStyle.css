@@ -123,7 +123,21 @@ body {
 /* Buttons */
 .ll-button-group {
     display: flex;
-    gap: 0.5rem;
+    flex-wrap: wrap; /* Allow buttons to wrap to the next line if needed */
+    gap: 0.5rem; /* Space between buttons */
+    justify-content: space-between; /* Distribute buttons evenly */
+}
+
+.ll-button-group button {
+    flex: 1 1 calc(50% - 0.5rem); /* Make buttons responsive and take up half the width */
+    max-width: 48%; /* Ensure buttons don’t exceed half the container width */
+}
+
+@media (max-width: 768px) {
+    .ll-button-group button {
+        flex: 1 1 100%; /* Make buttons full width on smaller screens */
+        max-width: 100%; /* Ensure buttons span the full width */
+    }
 }
 
 /* Modern Button Styles */
@@ -137,7 +151,7 @@ body {
     font-size: 1rem;
     font-weight: 400;
     border: none;
-    border-radius: 2rem;
+    border-radius: 0.4rem;
     cursor: pointer;
     color: #e5e5e5;
     background-color: #3b82f6;
@@ -150,7 +164,7 @@ body {
 }
 
 .ll-button.green {
-    background-color: #22c55e;
+    background-color: #048834;
 }
 
 .ll-button.green:hover {
@@ -243,15 +257,30 @@ body {
 
 /* Layout */
 .row2 {
-    display: grid;
-    grid-template-columns: 2fr; /* Single column by default */
-    gap: 1rem;
-    width: 98%; /* Ensure the grid container takes full width */
-    box-sizing: border-box; /* Include padding and borders in width calculations */
+    display: flex;
+    flex-direction: row;
+    gap: 1.5rem;
+    justify-content: space-between;
+    align-items: flex-start;
+    box-sizing: border-box;
 }
 
-@media (min-width: 768px) {
+.row2 > * {
+    flex: 1 1 calc(50% - 1rem);
+    max-width: calc(50% - 1rem);
+}
+
+@media (max-width: 768px) {
     .row2 {
-        grid-template-columns: 1fr 1fr; /* Two columns for larger screens */
+        flex-wrap: wrap;
+        gap: 1.5rem;
+        justify-content: space-between;
+        align-items: flex-start;
+        box-sizing: border-box;
+    
+    }
+    .row2 > * {
+        flex: 1 1 100%;
+        max-width: 100%;
     }
 }

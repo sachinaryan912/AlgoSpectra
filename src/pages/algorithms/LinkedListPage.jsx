@@ -114,22 +114,23 @@ export default function LinkedListPage() {
                     </div>
                     <div className="ll-button-group">
                         <button className="ll-button green" onClick={handleInsertHead}>
-                            <i className="fas fa-arrow-up"></i> Insert Head
+                            <i className="fas fa-plus"></i> Head
                         </button>
                         <button className="ll-button green" onClick={handleInsertTail}>
-                            <i className="fas fa-arrow-down"></i> Insert Tail
+                            <i className="fas fa-plus"></i> Tail
                         </button>
                         <button className="ll-button red" onClick={handleDeleteHead}>
-                            <i className="fas fa-trash-alt"></i> Delete Head
+                            <i className="fas fa-trash-alt"></i> Head
                         </button>
                         <button className="ll-button red" onClick={handleDeleteTail}>
-                            <i className="fas fa-trash"></i> Delete Tail
+                            <i className="fas fa-trash"></i> Tail
                         </button>
-                    </div>
-                  
-                    <button className={`ll-clear-button ${darkMode ? "dark" : "light"}`} onClick={handleClear}>
+                        <button className={`ll-clear-button ${darkMode ? "dark" : "light"}`} onClick={handleClear}>
                         <i className="fas fa-times-circle"></i> Clear
                     </button>
+                    </div>
+                  
+                    
                 </div>
 
                 {/* Operations History */}
