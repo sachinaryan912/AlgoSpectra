@@ -90,6 +90,36 @@ export default function StackPage() {
 
       <nav className={`stack-navbar ${darkMode ? "glass-dark" : "glass-light"}`}>
         <h3 className="stack-title">Stack Visualizer</h3>
+        {/* Stack Info Section */}
+<div className={`ll-info-container ${darkMode ? "dark" : "dark"}`}>
+    <details className="ll-info-section">
+        <summary className="ll-info-title">📘 What is a Stack?</summary>
+        <p>
+            A Stack is a linear data structure that follows the <strong>Last In First Out (LIFO)</strong> principle.
+            The element added last is removed first. It's like a pile of plates — you add and remove from the top.
+        </p>
+    </details>
+
+    <details className="ll-info-section">
+        <summary className="ll-info-title">📌 Key Rules of Stack</summary>
+        <ul>
+            <li><strong>Push</strong>: Add an element to the top of the stack.</li>
+            <li><strong>Pop</strong>: Remove the top element from the stack.</li>
+            <li><strong>Peek</strong>: Look at the top element without removing it.</li>
+            <li><strong>isEmpty</strong>: Check if the stack has no elements.</li>
+        </ul>
+    </details>
+
+    <details className="ll-info-section">
+        <summary className="ll-info-title">🎓 Study Resources</summary>
+        <ul>
+            <li><a href="https://www.geeksforgeeks.org/stack-data-structure/" target="_blank" rel="noopener noreferrer">GeeksforGeeks: Stack</a></li>
+            <li><a href="https://www.youtube.com/watch?v=wjI1WNcIntg" target="_blank" rel="noopener noreferrer">YouTube: Stack Explained (by mycodeschool)</a></li>
+            <li><a href="https://leetcode.com/tag/stack/" target="_blank" rel="noopener noreferrer">LeetCode: Stack Problems</a></li>
+        </ul>
+    </details>
+</div>
+
       </nav>
   
       <div className={`stack-wrapper ${darkMode ? "dark-theme" : "light-theme"}`}>

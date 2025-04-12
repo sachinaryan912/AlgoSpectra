@@ -63,6 +63,43 @@ export default function LinkedListPage() {
             {/* Header */}
             <nav className={`stack-navbar ${darkMode ? "glass-dark" : "glass-light"}`}>
         <h3 className="stack-title">LinkedList Visualizer</h3>
+
+        {/* Linked List Info Section */}
+<div className={`ll-info-container ${darkMode ? "dark" : "light"}`}>
+    <details className="ll-info-section">
+        <summary className="ll-info-title">📘 What is a Linked List?</summary>
+        <p>
+            A Linked List is a linear data structure where elements are stored in nodes,
+            and each node points to the next node using a reference or pointer. Unlike arrays,
+            linked lists do not require contiguous memory locations.
+        </p>
+        <p>
+            They are dynamic, meaning they can grow or shrink at runtime. Common types include
+            singly linked lists, doubly linked lists, and circular linked lists.
+        </p>
+    </details>
+
+    <details className="ll-info-section">
+        <summary className="ll-info-title">📌 Key Rules of Linked Lists</summary>
+        <ul>
+            <li>Each node contains data and a pointer to the next node.</li>
+            <li>Head points to the first node in the list.</li>
+            <li>Tail is the last node, which usually points to <code>null</code>.</li>
+            <li>Insertions and deletions are faster than arrays (especially at head).</li>
+            <li>They do not allow random access like arrays (you must traverse).</li>
+        </ul>
+    </details>
+
+    <details className="ll-info-section">
+        <summary className="ll-info-title">🎓 Study Resources</summary>
+        <ul>
+            <li><a href="https://www.geeksforgeeks.org/data-structures/linked-list/" target="_blank" rel="noopener noreferrer">GeeksforGeeks: Linked List</a></li>
+            <li><a href="https://www.youtube.com/watch?v=njTh_OwMljA" target="_blank" rel="noopener noreferrer">YouTube: Linked Lists (by mycodeschool)</a></li>
+            <li><a href="https://leetcode.com/tag/linked-list/" target="_blank" rel="noopener noreferrer">LeetCode: Linked List Problems</a></li>
+        </ul>
+    </details>
+</div>
+
       </nav>
             <div className="ll-container">
             

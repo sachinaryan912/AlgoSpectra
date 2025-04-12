@@ -229,6 +229,45 @@
     transition: all 0.2s ease-in-out;
 }
 
+.ll-info-container {
+    margin: 2rem auto;
+    max-width: 800px;
+    padding: 1.5rem;
+    border-radius: 20px;
+    backdrop-filter: blur(10px);
+    background: rgba(255, 255, 255, 0.05);
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.2);
+}
+
+.ll-info-container.dark {
+    color: #fff;
+    background: rgba(30, 30, 30, 0.6);
+}
+
+.ll-info-container.light {
+    color: #000;
+    background: rgba(255, 255, 255, 0.8);
+}
+
+.ll-info-section {
+    margin-bottom: 1rem;
+    padding: 1rem;
+    border-radius: 12px;
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.ll-info-section:hover {
+    background: rgba(255, 255, 255, 0.1);
+}
+
+.ll-info-title {
+    font-size: 1.1rem;
+    font-weight: 600;
+}
+
+
 .ll-clear-button:hover {
     background-color: #4b5563;
     transform: translateY(-2px);

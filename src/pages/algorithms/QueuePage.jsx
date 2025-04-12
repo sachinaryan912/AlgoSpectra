@@ -56,6 +56,37 @@ export default function QueuePage() {
         <>
         <nav className={`stack-navbar ${darkMode ? "glass-dark" : "glass-light"}`}>
         <h3 className="stack-title">Queue Visualizer</h3>
+        {/* Queue Info Section */}
+<div className={`ll-info-container ${darkMode ? "dark" : "light"}`}>
+    <details className="ll-info-section">
+        <summary className="ll-info-title">📘 What is a Queue?</summary>
+        <p>
+            A Queue is a linear data structure that follows the <strong>First In First Out (FIFO)</strong> principle.
+            The element inserted first is removed first. Think of a queue at a ticket counter.
+        </p>
+    </details>
+
+    <details className="ll-info-section">
+        <summary className="ll-info-title">📌 Key Rules of Queue</summary>
+        <ul>
+            <li><strong>Enqueue</strong>: Add an element to the rear.</li>
+            <li><strong>Dequeue</strong>: Remove an element from the front.</li>
+            <li><strong>Front</strong>: Get the front element.</li>
+            <li><strong>Rear</strong>: Get the last element.</li>
+            <li><strong>isEmpty</strong>: Check if the queue is empty.</li>
+        </ul>
+    </details>
+
+    <details className="ll-info-section">
+        <summary className="ll-info-title">🎓 Study Resources</summary>
+        <ul>
+            <li><a href="https://www.geeksforgeeks.org/queue-data-structure/" target="_blank" rel="noopener noreferrer">GeeksforGeeks: Queue</a></li>
+            <li><a href="https://www.youtube.com/watch?v=okr-XE8yTO8" target="_blank" rel="noopener noreferrer">YouTube: Queue Explained (by mycodeschool)</a></li>
+            <li><a href="https://leetcode.com/tag/queue/" target="_blank" rel="noopener noreferrer">LeetCode: Queue Problems</a></li>
+        </ul>
+    </details>
+</div>
+
       </nav>
 
       <div className="queue-container">
