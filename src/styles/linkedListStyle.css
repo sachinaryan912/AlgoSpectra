@@ -1,21 +1,46 @@
-/* General Styles */
-body {
-    font-family: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
-    margin: 0;
-    padding: 0;
-    background-color: #121212;
-    color: #e5e5e5;
-}
 
-/* Header */
-.ll-header {
-    background: transparent;
-    color: #e5e5e5;
-    text-align: center;
-    padding: 1.5rem;
-    border-radius: 0 0 1rem 1rem;
-    /* box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3); */
-}
+
+.stack-navbar {
+    padding: 20px 32px;
+    backdrop-filter: blur(16px);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  }
+  .glass-light {
+    background: rgba(19, 18, 18, 0.6);
+    color: #cacaca;
+  }
+  .glass-dark {
+    background: rgba(20, 20, 20, 0.6);
+    color: #fff;
+  }
+.ll-container {
+    padding: 1em;
+  }
+.navbar-glass {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: rgba(30, 30, 30, 0.7);
+    backdrop-filter: blur(10px);
+    border-bottom: 1px solid #333;
+    padding: 1em 2em;
+    border-radius: 0.75em;
+    margin-bottom: 2em;
+  }
+  
+  .nav-logo {
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: #61dafb;
+  }
+  
+  .nav-title {
+    font-size: 1.2rem;
+    color: #fff;
+    font-weight: 500;
+  }
+
+
 
 .ll-header h1 {
     font-size: 2rem;
@@ -25,7 +50,9 @@ body {
 
 /* Visualization */
 .ll-visualization {
-    border: 1px solid #2d2d2d;
+    background: rgba(255, 255, 255, 0.05);
+  border: 1px solid #333;
+  border-radius: 1em;
     padding: 1.5rem;
     display: flex;
     align-items: center;
@@ -34,8 +61,8 @@ body {
     overflow-x: auto;
     border-radius: 1rem;
     margin: 1.25rem;
+    backdrop-filter: blur(20px);
     height: 20vh;
-    background-color: #1e1e1e;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
 }
 
@@ -77,15 +104,17 @@ body {
 
 /* Controls */
 .ll-controls {
-    border: 1px solid #2d2d2d;
+    background: rgba(255, 255, 255, 0.05);
+  border: 1px solid #333;
+  border-radius: 1em;
     padding: 1.5rem;
     display: flex;
     flex-direction: column;
     gap: 1.5rem;
     border-radius: 1rem;
     margin: 1.25rem;
-    width: 100%; /* Ensure full width within the grid */
-    background-color: #1e1e1e;
+    width: 100%;
+    backdrop-filter: blur(20px);
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
     box-sizing: border-box;
 }
@@ -123,20 +152,20 @@ body {
 /* Buttons */
 .ll-button-group {
     display: flex;
-    flex-wrap: wrap; /* Allow buttons to wrap to the next line if needed */
-    gap: 0.5rem; /* Space between buttons */
-    justify-content: space-between; /* Distribute buttons evenly */
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    justify-content: space-between;
 }
 
 .ll-button-group button {
-    flex: 1 1 calc(50% - 0.5rem); /* Make buttons responsive and take up half the width */
-    max-width: 48%; /* Ensure buttons don’t exceed half the container width */
+    flex: 1 1 calc(50% - 0.5rem);
+    max-width: 48%; 
 }
 
 @media (max-width: 768px) {
     .ll-button-group button {
-        flex: 1 1 100%; /* Make buttons full width on smaller screens */
-        max-width: 100%; /* Ensure buttons span the full width */
+        flex: 1 1 100%;
+        max-width: 100%;
     }
 }
 
@@ -164,19 +193,23 @@ body {
 }
 
 .ll-button.green {
-    background-color: #048834;
+    background: linear-gradient(145deg, #006f25, #004d57);
+  color: white;
 }
 
 .ll-button.green:hover {
-    background-color: #16a34a;
+    background: linear-gradient(145deg, #006f25, #004d57);
+  color: white;
 }
 
 .ll-button.red {
-    background-color: #ef4444;
+    background: linear-gradient(145deg, #ff0000, #57003e);
+  color: white;
 }
 
 .ll-button.red:hover {
-    background-color: #dc2626;
+    background: linear-gradient(145deg, #ff0000, #57003e);
+  color: white;
 }
 
 .ll-clear-button {
@@ -192,7 +225,7 @@ body {
     border-radius: 0.5rem;
     cursor: pointer;
     color: #e5e5e5;
-    background-color: #6b7280;
+    background: linear-gradient(145deg, #607d8b, #00000048);
     transition: all 0.2s ease-in-out;
 }
 
@@ -208,7 +241,8 @@ body {
 
 /* History */
 .ll-history {
-    border: 1px solid #2d2d2d;
+    background: rgba(255, 255, 255, 0.05);
+  border: 1px solid #333;
     padding: 1rem;
     display: flex;
     flex-direction: column;
@@ -216,8 +250,7 @@ body {
     border-radius: 1rem;
     overflow-y: auto;
     margin: 1.25rem;
-    width: 100%; /* Ensure full width within the grid */
-    background-color: #1e1e1e;
+    width: 100%;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
     box-sizing: border-box;
 }

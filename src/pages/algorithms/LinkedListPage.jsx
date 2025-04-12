@@ -61,9 +61,12 @@ export default function LinkedListPage() {
     return (
         <>
             {/* Header */}
-            <header className="ll-header">
-                <h1>Linked List Visualizer</h1>
-            </header>
+            <nav className={`stack-navbar ${darkMode ? "glass-dark" : "glass-light"}`}>
+        <h3 className="stack-title">LinkedList Visualizer</h3>
+      </nav>
+            <div className="ll-container">
+            
+
 
             {/* Linked List Visualization */}
             <div className="ll-visualization">
@@ -158,6 +161,7 @@ export default function LinkedListPage() {
                         ))}
                     </AnimatePresence>
                 </div>
+            </div>
             </div>
         </>
     );
