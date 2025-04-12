@@ -1,18 +1,131 @@
+
+
+.stack-navbar {
+    padding: 20px 32px;
+    backdrop-filter: blur(16px);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  }
+  .glass-light {
+    background: rgba(19, 18, 18, 0.6);
+    color: #cacaca;
+  }
+  .glass-dark {
+    background: rgba(20, 20, 20, 0.6);
+    color: #fff;
+  }
+.ll-container {
+    padding: 1em;
+  }
+.navbar-glass {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: rgba(30, 30, 30, 0.7);
+    backdrop-filter: blur(10px);
+    border-bottom: 1px solid #333;
+    padding: 1em 2em;
+    border-radius: 0.75em;
+    margin-bottom: 2em;
+  }
+  
+  .nav-logo {
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: #61dafb;
+  }
+  
+  .nav-title {
+    font-size: 1.2rem;
+    color: #fff;
+    font-weight: 500;
+  }
+
+
+
+.ll-header h1 {
+    font-size: 2rem;
+    font-weight: 600;
+    margin: 0;
+}
+
+/* Visualization */
+.ll-visualization {
+    background: rgba(255, 255, 255, 0.05);
+  border: 1px solid #333;
+  border-radius: 1em;
+    padding: 1.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+    overflow-x: auto;
+    border-radius: 1rem;
+    margin: 1.25rem;
+    backdrop-filter: blur(20px);
+    height: 20vh;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+}
+
+/* Nodes */
+.ll-node {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 1rem;
+    width: 5rem;
+    height: 5rem;
+    border-radius: 1rem;
+    font-size: 1.25rem;
+    font-weight: 600;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+    transition: transform 0.2s ease-in-out;
+}
+
+.ll-node:hover {
+    transform: scale(1.1);
+}
+
+.ll-node.light {
+    background-color: #ffffff;
+    color: #111827;
+}
+
+.ll-node.dark {
+    background-color: #2d2d2d;
+    color: #e5e5e5;
+}
+
+/* Arrows */
+.ll-arrow {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: #9ca3af;
+}
+
+/* Controls */
 .ll-controls {
-    border: 1px solid #ccc;
-    padding: 1.25rem;
+    background: rgba(255, 255, 255, 0.05);
+  border: 1px solid #333;
+  border-radius: 1em;
+    padding: 1.5rem;
     display: flex;
     flex-direction: column;
-    gap: 2rem;
-    border-radius: 0.5rem;
+    gap: 1.5rem;
+    border-radius: 1rem;
     margin: 1.25rem;
-    width: 50%;
+    width: 100%;
+    backdrop-filter: blur(20px);
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+    box-sizing: border-box;
 }
 
 .ll-title {
     font-size: 1.5rem;
+    font-weight: 600;
+    color: #e5e5e5;
 }
 
+/* Input */
 .ll-input-container {
     display: flex;
     align-items: center;
@@ -20,99 +133,190 @@
 }
 
 .ll-input {
-    width: 96%;
+    width: 100%;
     height: 2.5rem;
     padding: 0.75rem;
-    font-size: 1.125rem;
-    border: 1px solid #ccc;
+    font-size: 1rem;
+    border: 1px solid #2d2d2d;
     border-radius: 0.5rem;
+    background-color: #1e1e1e;
+    color: #e5e5e5;
+    outline: none;
+    transition: border-color 0.2s ease-in-out;
 }
 
-.ll-input.light {
-    color: black;
-    background-color: white;
+.ll-input:focus {
+    border-color: #3b82f6;
 }
 
-.ll-input.dark {
-    color: white;
-    background-color: #2d2d2d;
-}
-
+/* Buttons */
 .ll-button-group {
     display: flex;
+    flex-wrap: wrap;
     gap: 0.5rem;
+    justify-content: space-between;
 }
 
-.ll-button {
-    width: 48%;
+.ll-button-group button {
+    flex: 1 1 calc(50% - 0.5rem);
+    max-width: 48%; 
+}
+
+@media (max-width: 768px) {
+    .ll-button-group button {
+        flex: 1 1 100%;
+        max-width: 100%;
+    }
+}
+
+/* Modern Button Styles */
+.ll-button, .ll-clear-button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem; /* Space between icon and text */
+    width: 50%;
     height: 2.5rem;
-    font-size: 1.25rem;
+    font-size: 1rem;
+    font-weight: 400;
     border: none;
-    border-radius: 0.5rem;
+    border-radius: 0.4rem;
     cursor: pointer;
-    color: white;
+    color: #e5e5e5;
+    background-color: #3b82f6;
+    transition: all 0.2s ease-in-out;
+}
+
+.ll-button:hover, .ll-clear-button:hover {
+    background-color: #2563eb;
+    transform: translateY(-2px);
 }
 
 .ll-button.green {
-    background-color: #22c55e;
+    background: linear-gradient(145deg, #006f25, #004d57);
+  color: white;
 }
 
 .ll-button.green:hover {
-    background-color: #16a34a;
+    background: linear-gradient(145deg, #006f25, #004d57);
+  color: white;
 }
 
 .ll-button.red {
-    background-color: #ef4444;
+    background: linear-gradient(145deg, #ff0000, #57003e);
+  color: white;
 }
 
 .ll-button.red:hover {
-    background-color: #dc2626;
+    background: linear-gradient(145deg, #ff0000, #57003e);
+  color: white;
 }
 
 .ll-clear-button {
-    width: 96%;
+    width: 100%;
     height: 2.5rem;
-    font-size: 1.25rem;
+    font-size: 1rem;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
     border: none;
     border-radius: 0.5rem;
     cursor: pointer;
+    color: #e5e5e5;
+    background: linear-gradient(145deg, #607d8b, #00000048);
+    transition: all 0.2s ease-in-out;
 }
 
-.ll-clear-button.light {
-    color: white;
-    background-color: black;
+.ll-info-container {
+    margin: 2rem auto;
+    max-width: 800px;
+    padding: 1.5rem;
+    border-radius: 20px;
+    backdrop-filter: blur(10px);
+    background: rgba(255, 255, 255, 0.05);
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.2);
 }
 
-.ll-clear-button.dark {
-    color: black;
-    background-color: white;
+.ll-info-container.dark {
+    color: #fff;
+    background: rgba(30, 30, 30, 0.6);
 }
 
+.ll-info-container.light {
+    color: #000;
+    background: rgba(255, 255, 255, 0.8);
+}
+
+.ll-info-section {
+    margin-bottom: 1rem;
+    padding: 1rem;
+    border-radius: 12px;
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.ll-info-section:hover {
+    background: rgba(255, 255, 255, 0.1);
+}
+
+.ll-info-title {
+    font-size: 1.1rem;
+    font-weight: 600;
+}
+
+
+.ll-clear-button:hover {
+    background-color: #4b5563;
+    transform: translateY(-2px);
+}
+
+/* Icon Styling */
+.ll-button i, .ll-clear-button i {
+    font-size: 1.2rem;
+}
+
+/* History */
 .ll-history {
-    border: 1px solid #ccc;
-    padding: 0.75rem;
+    background: rgba(255, 255, 255, 0.05);
+  border: 1px solid #333;
+    padding: 1rem;
     display: flex;
     flex-direction: column;
     gap: 0.5rem;
-    border-radius: 0.5rem;
+    border-radius: 1rem;
     overflow-y: auto;
     margin: 1.25rem;
-    width: 45%;
+    width: 100%;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+    box-sizing: border-box;
 }
 
 .ll-history-title {
     font-size: 1.25rem;
-    margin-left: 0.5rem;
-    padding: 0.75rem 0;
+    font-weight: 600;
+    color: #e5e5e5;
 }
 
 .ll-history-item {
-    font-size: 1.125rem;
+    font-size: 1rem;
+    display: flex;
+    justify-content: space-between;
+    padding: 0.5rem;
+    border-radius: 0.5rem;
+    background-color: #2d2d2d;
+    color: #e5e5e5;
+    transition: background-color 0.2s ease-in-out;
+}
+
+.ll-history-item:hover {
+    background-color: #3b3b3b;
 }
 
 .ll-history-label {
     font-weight: 600;
-    margin-right: 0.5rem;
 }
 
 .ll-history-label.green {
@@ -123,48 +327,32 @@
     color: #ef4444;
 }
 
-.ll-visualization {
-    border: 1px solid #ccc;
-    padding: 1.5rem;
+/* Layout */
+.row2 {
     display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 1rem;
-    overflow-x: auto;
-    border-radius: 0.5rem;
-    margin: 1.25rem;
-    height: 20vh;
+    flex-direction: row;
+    gap: 1.5rem;
+    justify-content: space-between;
+    align-items: flex-start;
+    box-sizing: border-box;
 }
 
-.ll-node {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    padding: 1rem;
-    width: 5.5rem;
-    height: 5.5rem;
-    border-radius: 0.75rem;
-    font-size: 1.25rem;
-    font-weight: bold;
-    box-shadow: 0 2px 6px rgba(128, 91, 91, 0.2);
+.row2 > * {
+    flex: 1 1 calc(50% - 1rem);
+    max-width: calc(50% - 1rem);
 }
 
-.ll-node.light {
-    background-color: black;
-    color: white;
+@media (max-width: 768px) {
+    .row2 {
+        flex-wrap: wrap;
+        gap: 1.5rem;
+        justify-content: space-between;
+        align-items: flex-start;
+        box-sizing: border-box;
+    
+    }
+    .row2 > * {
+        flex: 1 1 100%;
+        max-width: 100%;
+    }
 }
-
-.ll-node.dark {
-    background-color: white;
-    color: black;
-}
-
-.ll-arrow {
-    font-size: 1.5rem;
-    font-weight: bold;
-}
-
-.row2
-{
-    display: flex;
-}  
