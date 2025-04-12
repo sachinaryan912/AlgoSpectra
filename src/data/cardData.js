@@ -60,6 +60,13 @@ export const algorithmArray=[
         description:"Visualize graph algorithms like Dijkstra's and BFS.",
         footer:"O(V + E) • O(V^2) • O(E log V)",
         status:"Coming Soon"
+    },
+    {
+        name:"Queue Algorithms",
+        description:"Visualize graph algorithms like Dijkstra's and BFS.",
+        footer:"O(V + E) • O(V^2) • O(E log V)",
+        status:"Coming Soon",
+        routePath: "/algoSpectra/queue/infixToPostfix"
     }
 ]
 

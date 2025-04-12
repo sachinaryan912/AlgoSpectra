@@ -1,0 +1,229 @@
+.stack-controls {
+    border: 1px solid #ccc;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    border-radius: 8px;
+    font-size: 1rem;
+  }
+  
+  @media (min-width: 768px) {
+    .stack-controls {
+      grid-column: 1 / 5;
+      grid-row: 2 / 5;
+      padding: 12px;
+      gap: 0;
+      justify-content: space-between;
+      margin: 20px;
+      margin-bottom: 0;
+      font-size: 1.25rem;
+    }
+  }
+  
+  @media (min-width: 1024px) {
+    .stack-controls {
+      grid-column: 3 / 7;
+    }
+  }
+  
+  .input-wrapper {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+  }
+  
+  .input-field {
+    width: 68%;
+    border: 1px solid #ccc;
+    height: 40px;
+    padding: 0 12px;
+    border-radius: 6px;
+  }
+  
+  .start-btn {
+    width: 28%;
+    background-color: #22c55e;
+    height: 40px;
+    border-radius: 8px;
+    color: white;
+    cursor: pointer;
+  }
+  
+  .start-btn:hover {
+    background-color: #16a34a;
+  }
+  
+  .validation-msg {
+    padding: 4px;
+    font-weight: bold;
+    position: relative;
+    top: -52px;
+    left: 10px;
+    background-color: #fef3c7;
+    border-radius: 6px;
+    color: #ef4444;
+  }
+  
+  .dark .validation-msg {
+    background-color: #fbbf24;
+  }
+  
+  .hidden {
+    display: none;
+  }
+  
+  .controls {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+  }
+  
+  .control-btn {
+    width: 32%;
+    height: 40px;
+    border-radius: 8px;
+    cursor: pointer;
+  }
+  
+  .control-btn.disabled {
+    opacity: 0.7;
+    cursor: not-allowed;
+  }
+  
+  .control-btn.black {
+    background-color: black;
+    color: white;
+  }
+  
+  .control-btn.white {
+    background-color: white;
+    color: black;
+  }
+  
+  .control-btn.red {
+    background-color: #ef4444;
+    color: white;
+  }
+  
+  .control-btn.red:hover {
+    background-color: #dc2626;
+  }
+  
+  .history-panel {
+    border: 1px solid #ccc;
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    border-radius: 8px;
+    overflow: auto;
+    margin: 20px;
+  }
+  
+  .history-content {
+    min-height: 5rem;
+    max-height: 90%;
+    width: 95%;
+    padding: 10px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 4px;
+    overflow: auto;
+  }
+  
+  .history-content.dark {
+    background-color: #33333365;
+    color: white;
+  }
+  
+  .history-content.light {
+    background-color: #dddddd65;
+    color: black;
+  }
+  
+  .history-char {
+    height: 40px;
+    width: 40px;
+    font-size: 1.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .history-char.active.dark {
+    background-color: #727272;
+  }
+  
+  .history-char.active.light {
+    background-color: #a4a4a4;
+  }
+  
+  .animation-text {
+    margin: 12px 16px 0 16px;
+    letter-spacing: 0.05em;
+    font-size: 1.125rem;
+  }
+  
+  .stack-visualization {
+    border: 1px solid #ccc;
+    padding-bottom: 2.5rem;
+    margin-top: 1.25rem;
+    border-radius: 8px;
+    display: flex;
+    flex-direction: column;
+    gap: 5rem;
+    overflow-y: auto;
+    margin: 20px;
+  }
+  
+  .stack-result {
+    padding: 1rem;
+    width: 100%;
+    font-size: 1.125rem;
+    letter-spacing: 0.05em;
+    text-align: center;
+    background-color: black;
+    color: white;
+  }
+  
+  .stack-result.dark {
+    background-color: white;
+    color: black;
+  }
+  
+  .stack-box {
+    width: 12rem;
+    min-height: 100px;
+    border: 2px solid #ccc;
+    border-top: none;
+    padding: 8px;
+    display: flex;
+    flex-direction: column-reverse;
+    gap: 8px;
+  }
+  
+  .stack-box.light {
+    background-color: #dddddd65;
+  }
+  
+  .stack-box.dark {
+    background-color: #33333365;
+  }
+  
+  .stack-item {
+    font-size: 1.5rem;
+    height: 48px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 6px;
+    background-color: black;
+    color: white;
+  }
+  
+  .stack-item.dark {
+    background-color: white;
+    color: black;
+  }
+  
