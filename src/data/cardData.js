@@ -62,7 +62,7 @@ export const algorithmArray=[
         status:"Coming Soon"
     },
     {
-        name:"Queue Algorithms",
+        name:"Stack Algorithms",
         description:"Visualize graph algorithms like Dijkstra's and BFS.",
         footer:"O(V + E) • O(V^2) • O(E log V)",
         status:"Coming Soon",

@@ -1,0 +1,51 @@
+/* Reset box model */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  html, body, #root {
+    height: 100%;
+    font-family: Arial, sans-serif;
+  }
+  
+  .main-containe {
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+  }
+  
+  /* Fixed header styling */
+  .header {
+    height: 4vh;
+    z-index: 1000;
+    /* height: 60px;
+    background-color: #0f172a; 
+    color: white;
+    display: flex;
+    align-items: center;
+    padding: 0 20px;
+    z-index: 10;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1); */
+  }
+  
+  /* Footer styling */
+  .footer {
+    height: 40px;
+    background-color: #1e293b;
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0 20px;
+  }
+  
+  /* Body area should take up all remaining space */
+  .body {
+    /* flex: 1; */
+    overflow-y: auto;
+    /* padding: 20px;
+    background-color: #f8fafc; */
+  }
+  

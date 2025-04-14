@@ -8,9 +8,12 @@ import StackPage from "./pages/algorithms/StackPage";
 import QueuePage from "./pages/algorithms/QueuePage";
 import LinkedListPage from "./pages/algorithms/LinkedListPage";
 import InfixToPostfix from "./pages/queueAlgorithm/InfixToPostfix";
+import Navbar from "./components/navbar/Navbar";
 
 function App() {
   return (
+    <>
+    {/* <Navbar/> */}
     <Router>
       <Routes>
         {/* Redirect root to /algoSpectra */}
@@ -30,7 +33,9 @@ function App() {
         <Route path="*" element={<Navigate to="/algoSpectra" replace />} />
       </Routes>
     </Router>
+    </>
   );
+   
 }
 
 export default App;
