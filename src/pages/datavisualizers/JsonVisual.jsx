@@ -4,7 +4,7 @@ import JsonVisulizerComponent from '../../components/componentPage/JsonVisulizer
 
 function JsonVisual() {
   return (
-    <div> <AlgoVisulizerLayout component={<JsonVisulizerComponent/>}/></div>
+    <div> <AlgoVisulizerLayout component={<JsonVisulizerComponent/>} title='JSON Visualizer'/></div>
   )
 }
 

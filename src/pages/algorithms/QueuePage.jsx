@@ -4,7 +4,7 @@ import QueueComponent from '../../components/componentPage/QueueComponent'
 
 function QueuePage() {
   return (
-    <div> <AlgoVisulizerLayout component={<QueueComponent/>}/></div>
+    <div> <AlgoVisulizerLayout component={<QueueComponent/>} title='Queue Visualizer'/></div>
   )
 }
 

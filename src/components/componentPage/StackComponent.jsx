@@ -89,7 +89,7 @@ export default function StackComponent() {
     <>
 
       <nav className={`stack-navbar ${darkMode ? "glass-dark" : "glass-light"}`}>
-        <h3 className="stack-title">Stack Visualizer</h3>
+
         {/* Stack Info Section */}
 <div className={`ll-info-container ${darkMode ? "dark" : "dark"}`}>
     <details className="ll-info-section">

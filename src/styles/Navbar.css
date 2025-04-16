@@ -1,0 +1,146 @@
+.navbar {
+    background: transparent;
+    color: white;
+    padding: 1rem 1.5rem;
+    position: relative;
+    z-index: 10;
+  }
+  
+  .navbar-container {
+    max-width: 1280px;
+    margin: auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  
+  .logo-title {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+  }
+  
+  .logo {
+    height: 40px;
+  }
+  
+  .title {
+    font-size: 1.2rem;
+    font-weight: 600;
+    color: white;
+  }
+  
+  .nav-right {
+    display: flex;
+    align-items: center;
+  }
+  
+  .signin-container {
+    position: relative;
+  }
+  
+  .signin-button {
+    background: linear-gradient(135deg, #1f1f1f, #2c2c2c);
+    border: 1px solid #444;
+    color: #fff;
+    padding: 0.5rem 1rem;
+    border-radius: 12px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.3s ease;
+  }
+  
+  .signin-button:hover {
+    background: #002d5779;
+    color: #909090;
+  }
+  
+  .signin-popup {
+    position: absolute;
+    top: 110%;
+    right: 0;
+    background: #1a1a1a3b;
+    border-radius: 10px;
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.4);
+    display: flex;
+    flex-direction: column;
+    padding: 0.5rem;
+    backdrop-filter: blur(10px);
+    z-index: 100;
+    min-width: 120px;
+  }
+  
+  .signin-popup button {
+    background: transparent;
+    border: none;
+    color: white;
+    padding: 0.5rem 1rem;
+    text-align: left;
+    cursor: pointer;
+    transition: background 0.2s ease;
+  }
+  
+  .signin-popup button:hover {
+    background: #3333332a;
+  }
+  
+  .menu-icon {
+    display: none;
+    cursor: pointer;
+    transition: transform 0.4s ease;
+  }
+  
+  .menu-icon.open {
+    transform: rotate(90deg);
+  }
+  
+  /* Responsive */
+  @media (max-width: 768px) {
+    .menu-icon {
+      display: block;
+    }
+  
+    .nav-right {
+      position: absolute;
+      top: 100%;
+      right: 0;
+      background: #121212;
+      flex-direction: column;
+      align-items: flex-start;
+      padding: 1rem;
+      border-radius: 0 0 12px 12px;
+      box-shadow: 0 6px 20px rgba(0, 0, 0, 0.5);
+      width: 100%;
+      display: none;
+      animation: slideDown 0.4s ease forwards;
+    }
+  
+    .nav-right.active {
+      display: flex;
+    }
+  
+    .signin-container {
+      width: 100%;
+      display: flex;
+      justify-content: center;
+      margin-top: 0.5rem;
+    }
+  
+    .signin-popup {
+      position: static;
+      margin-top: 0.5rem;
+      box-shadow: none;
+    }
+  }
+  
+  @keyframes slideDown {
+    from {
+      opacity: 0;
+      transform: translateY(-10px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  

@@ -5,7 +5,7 @@ import AlgoVisulizerLayout from '../../layout/AlgoVisulizerLayout'
 function LinkedListPage() {
   return (
     <div>
-        <AlgoVisulizerLayout component={<LinkedListComponent/>}/>
+        <AlgoVisulizerLayout component={<LinkedListComponent/>} title='LinkedList Visualizer'/>
     </div>
   )
 }

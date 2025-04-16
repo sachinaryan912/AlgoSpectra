@@ -55,7 +55,6 @@ export default function QueueComponent() {
     return (
         <>
         <nav className={`stack-navbar ${darkMode ? "glass-dark" : "glass-light"}`}>
-        <h3 className="stack-title">Queue Visualizer</h3>
         {/* Queue Info Section */}
 <div className={`ll-info-container ${darkMode ? "dark" : "light"}`}>
     <details className="ll-info-section">

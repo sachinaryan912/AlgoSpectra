@@ -4,7 +4,7 @@ import StackComponent from '../../components/componentPage/StackComponent'
 
 function StackPage() {
   return (
-    <div> <AlgoVisulizerLayout component={<StackComponent/>}/></div>
+    <div> <AlgoVisulizerLayout component={<StackComponent/>} title='Stack Visualizer'/></div>
   )
 }
 

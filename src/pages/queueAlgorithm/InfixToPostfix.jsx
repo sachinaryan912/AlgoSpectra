@@ -4,7 +4,7 @@ import InfixToPostfixComponent from '../../components/componentPage/InfixToPostf
 
 function InfixToPostfix() {
   return (
-<div> <AlgoVisulizerLayout component={<InfixToPostfixComponent/>}/></div>
+<div> <AlgoVisulizerLayout component={<InfixToPostfixComponent/>} title='Infix Postfix Visualizer'/></div>
   )
 }
 

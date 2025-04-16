@@ -175,8 +175,6 @@ const handleAnimation = () => {
     return(
         <>
         <nav className={`stack-navbar ${darkMode ? "glass-dark" : "glass-light"}`}>
-  <h3 className="stack-title">Infix to Postfix Visualizer</h3>
-
   {/* Infix to Postfix Info Section */}
   <div className={`ll-info-container ${darkMode ? "dark" : "light"}`}>
     <details className="ll-info-section">

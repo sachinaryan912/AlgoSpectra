@@ -62,8 +62,6 @@ export default function LinkedListComponent() {
         <>
             {/* Header */}
             <nav className={`stack-navbar ${darkMode ? "glass-dark" : "glass-light"}`}>
-        <h3 className="stack-title">LinkedList Visualizer</h3>
-
         {/* Linked List Info Section */}
 <div className={`ll-info-container ${darkMode ? "dark" : "light"}`}>
     <details className="ll-info-section">

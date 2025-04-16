@@ -53,24 +53,24 @@ export default function HomeComponent() {
       </section>
 
       {/* Section 1: Data Models */}
-      <section className="modern-section">
-        <h2 className="section-title">Data Models</h2>
-        <div className="card-grid">
-          <div className="modern-card clickable-card" onClick={handleJsonCardClick}>
-            <div className="card-icon">🔍</div>
-            <h3>DATA Visualizer</h3>
-            <p>
-              Convert and explore complex Data Model structures in an intuitive, visual
-              format. See nested objects come alive with collapsible trees and
-              animations.
-            </p>
-            <div className="card-footer">JSON • XML • YAML</div>
+        <section className="modern-section">
+          <h2 className="section-title">Data Models</h2>
+          <div className="card-grid">
+            <div className="modern-card clickable-card" onClick={handleJsonCardClick}>
+          <div className="card-icon">{`{ }`}</div>
+          <h3>JSON Visualizer</h3>
+          <p>
+            Convert and explore complex JSON structures in an intuitive, visual
+            format. See nested objects come alive with collapsible trees and
+            animations.
+          </p>
+          <div className="card-footer">DATA • JSON • TREE</div>
+            </div>
           </div>
-        </div>
-   
-      </section>
+         
+        </section>
 
-      {/* Section 2: Data Structures */}
+        {/* Section 2: Data Structures */}
       <section className="modern-section">
         <h2 className="section-title">Data Structures</h2>
         <div className="card-grid">
@@ -114,14 +114,14 @@ export default function HomeComponent() {
         </div>
       </section>
 
-      <section style={{ padding: "2rem", textAlign: "center" }}>
+      {/* <section style={{ padding: "2rem", textAlign: "center" }}>
         <h2 style={{ color: "#fff", marginBottom: "1.5rem" }}>Contributors</h2>
         <div style={{ display: "flex", justifyContent: "center", gap: "2rem", flexWrap: "wrap" }}>
           {contributors.map((c, i) => (
             <ContributorCard key={i} {...c} />
           ))}
         </div>
-      </section>
+      </section> */}
     </main>
   );
 }
