@@ -56,7 +56,7 @@ function Sidebar({ dataType }) {
   return (
     <div className="sidebar">
       <div className="sidebar__title-cont">
-        <h1 className="sidebar__title-cont__title">{dataType.toUpperCase()} Visualizer</h1>
+       
         <div className="sidebar__controls">
           {/* <DataModelSelector /> */}
           <button

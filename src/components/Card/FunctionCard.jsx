@@ -7,6 +7,8 @@ import { MdOutlineDataArray } from "react-icons/md";
 function FunctionCard({ name, description, footer, routepath,status }) {
   const naigate = useNavigate();
   const handleClick = () => {
+    console.log("Clicked",routepath);
+    
     naigate(routepath);
   };
 

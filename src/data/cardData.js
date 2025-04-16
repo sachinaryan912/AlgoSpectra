@@ -44,6 +44,11 @@ export const datastructureArray = [
 
 export const algorithmArray=[
     {
+        name:"Infix to Postfix Conversion",
+        description:"Learn how to convert infix expressions to postfix notation using stack-based algorithms.",
+        footer:"O(V + E) • O(V^2) • O(E log V)",
+        routePath: "/algoSpectra/queue/infixToPostfix"
+    },{
         name:"Sorting Algorithms",
         description:"Visualize sorting algorithms like Bubble Sort, Merge Sort, and Quick Sort.",
         footer:"O(n log n) • O(n^2) • O(1)",
@@ -61,6 +66,7 @@ export const algorithmArray=[
         footer:"O(V + E) • O(V^2) • O(E log V)",
         status:"Coming Soon"
     }
+    
 ]
 
 export const algorithmData=[

@@ -7,9 +7,13 @@ import ArrayPage from "./pages/algorithms/ArrayPage";
 import StackPage from "./pages/algorithms/StackPage";
 import QueuePage from "./pages/algorithms/QueuePage";
 import LinkedListPage from "./pages/algorithms/LinkedListPage";
+import InfixToPostfix from "./pages/queueAlgorithm/InfixToPostfix";
+import Navbar from "./components/navbar/Navbar";
 
 function App() {
   return (
+    <>
+    {/* <Navbar/> */}
     <Router>
       <Routes>
         {/* Redirect root to /algoSpectra */}
@@ -23,12 +27,15 @@ function App() {
         <Route path="/algoSpectra/stack" element={<StackPage />} />
         <Route path="/algoSpectra/queue" element={<QueuePage />} />
         <Route path="/algoSpectra/linkedlist" element={<LinkedListPage />} />
+        <Route path="/algoSpectra/queue/infixToPostfix" element={<InfixToPostfix />} />
 
         {/* Optional: catch-all redirect to /algoSpectra */}
         <Route path="*" element={<Navigate to="/algoSpectra" replace />} />
       </Routes>
     </Router>
+    </>
   );
+   
 }
 
 export default App;
