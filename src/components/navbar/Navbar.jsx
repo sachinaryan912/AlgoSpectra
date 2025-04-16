@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import "../../styles/Navbar.css"; // Adjust the path as necessary
 import { Menu, X } from "lucide-react";
 import logo from "../../assets/images/logo512.png"; // Adjust the path as necessary
+import LogoComponent from "../LogoComponent/LogoComponent";
 
 const Navbar = ({ title = "AlgoSpectra" }) => {
   const [menuOpen, setMenuOpen] = useState(false);
@@ -15,10 +16,11 @@ const Navbar = ({ title = "AlgoSpectra" }) => {
   return (
     <nav className="navbar">
       <div className="navbar-container">
-        <div className="logo-title">
+        {/* <div className="logo-title">
           <img src={logo} alt="Logo" className="logo" />
           <span className="title">{title}</span>
-        </div>
+        </div> */}
+        <LogoComponent title={title}/>
 
         <div className={`nav-right ${menuOpen ? "active" : ""}`}>
           <div className="signin-container">

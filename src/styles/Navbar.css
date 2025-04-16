@@ -67,7 +67,7 @@
     padding: 0.5rem;
     backdrop-filter: blur(10px);
     z-index: 100;
-    min-width: 120px;
+    min-width: 150px;
   }
   
   .signin-popup button {
