@@ -44,7 +44,7 @@ const Home = () => {
                     playsInline
                     ref={videoRef}
                 >
-                    <source src="/algo_bg.mp4" type="video/mp4" />
+                    <source src="/obj_bg.mp4" type="video/mp4" />
                     Your browser does not support the video tag.
                 </video>
                 <div className="video-control">
@@ -83,7 +83,8 @@ const Home = () => {
                         <section className="all-dsa-section">
                             <div className="section-divider"></div>
                             <div className="section-header">
-                                <h2>All Data Structures and Algorithms</h2>
+                                <h2>All Visualizers</h2>
+                                <p>Click explore button to use all the visualizer features</p>
                                 <button 
                                     className="explore-button" 
                                     onClick={() => window.location.href = '/algoSpectra/dashboard'}

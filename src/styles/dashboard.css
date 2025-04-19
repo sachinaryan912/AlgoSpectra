@@ -105,5 +105,23 @@
     background-color: #2ed573; /* Orange for "Coming Soon" */
   }
   
+
+  @media screen and (max-width: 768px) {
+    .card-grid {
+      flex-direction: column;
+      align-items: center;
+    }
+  
+    .modern-card {
+      width: 90%;
+      margin-bottom: 2rem;
+    }
+  
+    .ribbon {
+      font-size: 0.4rem;
+      /* transform: rotate(-45deg); */
+    }
+    
+  }
   
   
