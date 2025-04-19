@@ -24,15 +24,15 @@ body {
 
 .app-cont {
   width: 100vw;
-  height: 100vh;
+  height: 92vh;
   display: flex;
   flex-direction: row-reverse;
 }
 
 .sidebar {
   width: 20vw;
-  min-height: 100vh;
-  background-color: var(--bg-sidebar-clr);
+  min-height: 92vh;
+  background: linear-gradient(to bottom, rgb(0, 26, 49), rgb(0, 0, 0));
   color: var(--text-clr);
   display: flex;
   flex-direction: column;
@@ -41,7 +41,7 @@ body {
 
 .sidebar__text-cont {
   flex-grow: 1;
-  background: var(--bg-sidebar-clr);
+  background: linear-gradient(to bottom, rgb(0, 26, 49), rgb(0, 0, 0));
   outline: none;
   border: none;
   color: var(--text-clr);
@@ -193,7 +193,7 @@ body {
 
 .react-flow-cont {
     width: 80vw;
-    min-height: 100vh;
+    min-height: 92vh;
   }
 
 .data-model-selector {

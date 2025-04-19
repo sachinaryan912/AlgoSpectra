@@ -9,6 +9,7 @@ import QueuePage from "./pages/algorithms/QueuePage";
 import LinkedListPage from "./pages/algorithms/LinkedListPage";
 import InfixToPostfix from "./pages/queueAlgorithm/InfixToPostfix";
 import Navbar from "./components/navbar/Navbar";
+import DashboardPage from "./pages/DashboardPage";
 
 function App() {
   return (
@@ -24,6 +25,7 @@ function App() {
         <Route path="/algoSpectra/xml-visualizer" element={<VisualizerXmlPage />} />
         <Route path="/algoSpectra/yaml-visualizer" element={<YamlVisualizer />} />
         <Route path="/algoSpectra/array" element={<ArrayPage />} />
+        <Route path="/algoSpectra/dashboard" element={<DashboardPage />} />
         <Route path="/algoSpectra/stack" element={<StackPage />} />
         <Route path="/algoSpectra/queue" element={<QueuePage />} />
         <Route path="/algoSpectra/linkedlist" element={<LinkedListPage />} />

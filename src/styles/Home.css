@@ -1,0 +1,452 @@
+/* Home.css */
+
+/* General Reset */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+    background: linear-gradient(to bottom, rgb(0, 26, 49), rgb(0, 0, 0)) !important;
+    color: #e0e0e0; /* Light text for contrast */
+    margin: 0;
+}
+
+html {
+    scroll-behavior: smooth; /* Smooth scrolling for anchor links */
+}
+a {
+    text-decoration: none;
+    color: inherit; /* Inherit color from parent element */
+}
+
+
+
+/* Hero Section */
+.hero-section {
+    position: relative;
+    height: 90vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    overflow: hidden;
+}
+
+.background-video {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100dvw;
+    height: 100vh;
+    object-fit: cover;
+    z-index: -1;
+    filter: brightness(0.3);
+}
+
+.video-control {
+    position: absolute;
+    bottom: 10rem;
+    right: 2rem;
+    z-index: 2;
+}
+
+.video-toggle-button {
+    background: rgba(255, 255, 255, 0.022);
+    color: #ffffff;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 50%;
+    width: 30px;
+    height: 30px;
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    transition: transform 0.3s ease;
+}
+
+.video-toggle-button:hover {
+    transform: scale(1.1);
+}
+
+.hero-content {
+    z-index: 1;
+    color: #ffffff;
+    gap: 1rem;
+    text-align: center;
+    justify-content: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.hero-title {
+    font-size: 9.5dvw;
+    font-weight: 700;
+    background: linear-gradient(90deg, #ffffff, #f9f9f938);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    color: transparent;
+    line-height: 1.2; /* Adjust line height */
+    padding-bottom: 0.5rem; /* Add padding to prevent text cutoff */
+}
+
+.hero-slogan {
+    color: #ababab;
+    margin-top: 0.6rem;
+    font-size: 1.5dvw !important;
+}
+
+
+.hero-input{
+    margin-top: 1.6rem;
+    position: relative;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    width: 80%;
+    border-radius: 50px;
+}
+
+.hero-input input[type="text"] {
+    width: 80%;
+    padding: 1rem 0;
+    border-radius: 50px;
+    border: none;
+    outline: none;
+    background-color: transparent;
+    color: #ffffff;
+}
+.hero-input input[type="text"]::placeholder {
+    color: #828282; /* Placeholder color */
+}
+
+
+.hero-input .search-button {
+    position: absolute;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    background: rgba(255, 255, 255, 0.1);
+    color: #ffffff;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 50px;
+    padding: 1rem 2rem;
+    cursor: pointer;
+    backdrop-filter: blur(15px) saturate(180%);
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+.hero-input .search-button:hover {
+    background: rgba(255, 255, 255, 0.2);
+    transform: scale(1.05);
+}
+
+
+
+/* Features Section */
+.features {
+    margin-top: -2rem;
+    justify-content: center;
+    padding: 4rem 2rem 0 2rem;
+    position: relative;
+    border-radius: 40px 40px 0 0;
+    backdrop-filter: blur(15px) saturate(180%);
+    background: rgba(255, 255, 255, 0.1);
+    border-top: #505050 solid 1px;
+    font-family: "Nunito", sans-serif;
+    font-weight: 200;
+    font-style: normal;
+    line-height: normal;
+    text-align: center;
+    align-items: center;
+}
+
+.feature-cards {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.feature-card {
+    color: #ffffff;
+    padding: 1.5rem;
+    margin: 1rem;
+    width: 300px;
+    border-radius: 16px;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+    opacity: 0;
+    transform: translateY(50px);
+    animation: fadeInUp 1s ease forwards;
+}
+
+.feature-icon img {
+    width: 80%;
+    margin-bottom: 1rem;
+    transition: transform 0.3s ease;
+    border-radius: 30px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.feature-card:hover {
+    transform: translateY(-10px);
+}
+
+.feature-icon img:hover {
+    transform: scale(1.1);
+}
+
+@keyframes fadeInUp {
+    0% {
+        opacity: 0;
+        transform: translateY(50px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+
+
+/* Carousel Section */
+.all-dsa-section {
+    text-align: center;
+    color: #ffffff;
+    backdrop-filter: blur(15px) saturate(180%);
+    background: rgba(255, 255, 255, 0.1);
+}
+
+.section-header {
+    margin-bottom: 2rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+    
+    padding: 2rem 0;
+}
+
+.section-divider {
+    width: 70%;
+    height: 1px;
+    background-color: #505050;
+    margin: 0 auto;
+}
+
+
+
+.explore-button {
+    background: rgba(255, 255, 255, 0.1);
+    color: #ffffff;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 50px;
+    padding: 0.8rem 2rem;
+    cursor: pointer;
+    font-size: 1rem;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.explore-button:hover {
+    background: rgba(255, 255, 255, 0.2);
+    transform: scale(1.05);
+}
+
+.explore-button .arrow {
+    margin-left: 0.5rem;
+    font-size: 1.2rem;
+}
+
+
+.carousel-section {
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+  }
+  
+  .carousel-row-wrapper {
+    overflow: hidden;
+    width: 100%;
+  }
+  
+  .carousel-row {
+    display: flex;
+    width: max-content;
+    animation: scroll 30s linear infinite;
+  }
+  
+  .carousel-row.moving-right {
+    animation-direction: reverse;
+  }
+  
+  .carousel-item {
+    flex: 0 0 auto;
+    width: 200px;
+    height: max-content;
+    margin: 1rem;
+    border-radius: 1rem;
+    padding: 1rem;
+    color: white;
+    font-family: "Nunito", sans-serif;
+    transition: transform 0.3s ease;
+    backdrop-filter: blur(8px);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .carousel-item:hover {
+    transform: scale(1.05);
+  }
+  
+  .glossy {
+    position: relative;
+    overflow: hidden;
+  }
+  
+  @keyframes scroll {
+    0% {
+      transform: translateX(0%);
+    }
+    100% {
+      transform: translateX(-50%);
+    }
+  }
+  
+
+
+.columns-section {
+    padding: 2rem 2rem;
+    background-color: #1e1e1e;
+    color: #e0e0e0;
+    text-align: left;
+}
+
+.columns-section h2 {
+    font-size: 2rem;
+    margin-bottom: 1.5rem;
+    color: #ffffff;
+}
+
+.columns-container {
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+    flex-wrap: wrap;
+}
+
+.column {
+    flex: 1 1 200px;
+    max-width: 300px;
+    border-radius: 8px;
+    padding: 1rem;
+    text-align: left;
+    transition: transform 0.3s ease, background-color 0.3s ease;
+}
+
+.column h4 {
+    margin-bottom: 1rem;
+    color: #d2d2d2;
+}
+
+.column ul {
+    list-style: none;
+    padding: 0;
+}
+
+.column li {
+    margin-bottom: 0.5rem;
+    color: #ababab;
+    cursor: pointer;
+    transition: color 0.3s ease;
+}
+
+
+@media (max-width: 768px) {
+    .columns-container {
+        flex-direction: row;
+        align-items: center;
+    }
+
+    .column {
+        max-width: 100%;
+    }
+}
+
+
+/* Footer Section */
+.footer {
+    background-color: #1e1e1e;
+    color: #e0e0e0;
+    text-align: center;
+    padding: 1rem 0;
+    font-size: 0.9rem;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .hero-title {
+        font-size: 3.5rem !important;
+    }
+
+    .hero-slogan {
+        font-size: 0.9rem !important;
+    }
+
+    .features {
+        margin-top: -7rem;
+    }
+
+    .feature-card {
+        flex: 1 1 calc(50% - 2rem);
+    }
+
+    .carousel-item {
+        flex: 1 1 calc(50% - 1rem);
+    }
+}
+
+@media (max-width: 480px) {
+    .feature-card {
+        flex: 1 1 100%;
+    }
+
+    .carousel-item {
+        flex: 1 1 100%;
+    }
+}
+
+
+.home-nav{
+    position: absolute;
+    top: 50px;
+    left: 0;
+    width: 80%;
+    height: 60px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 2rem;
+    z-index: 10;
+    align-self: center;
+    transform: translate(-50%, -50%);
+    left: 50%;
+}
+
+
+.home-nav-container {
+    width: 100%;
+    margin: 0 0;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
