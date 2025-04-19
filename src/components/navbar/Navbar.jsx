@@ -3,7 +3,7 @@ import "../../styles/Navbar.css"; // Adjust the path as necessary
 import { Menu, X } from "lucide-react";
 import logo from "../../assets/images/logo512.png"; // Adjust the path as necessary
 
-const Navbar = ({ title = "AlgoSpectra" }) => {
+const Navbar = ({ title = "" }) => {
   const [menuOpen, setMenuOpen] = useState(false);
   const [popupOpen, setPopupOpen] = useState(false);
 

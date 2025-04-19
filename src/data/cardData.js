@@ -1,18 +1,33 @@
-export const featureData=[
+export const featureData = [
     {
-        name:"Interactive Visualizations",
-        description:"Step-by-step algorithm animations in real time."
+        image_name: "feature3",
+        name: "Interactive Visualizations",
+        description: "Experience step-by-step algorithm animations in real time, designed to enhance your understanding of complex concepts."
     },
     {
-        name:"Multiple Algorithms",
-        description:"Sort, search, traverse — all in one place."
+        image_name: "feature4",
+        name: "Comprehensive Algorithm Library",
+        description: "Access a wide range of algorithms for sorting, searching, and traversal, all in one unified platform."
     },
     {
-        name:"Responsive Design",
-        description:"Looks great on mobile, tablet, and desktop."
-    },
-    
+        image_name: "feature1",
+        name: "Responsive and Intuitive Design",
+        description: "Enjoy a seamless experience across mobile, tablet, and desktop with our user-friendly interface."
+    }
 ]
+
+
+   
+export  const dataItems = [
+    { title: 'Data Visualizer', description: 'Visualize data structures in real-time.' },
+    { title: 'Stack', description: 'Learn about stack operations and applications.' },
+    { title: 'Queue', description: 'Understand queues and their use cases.' },
+    { title: 'Tree', description: 'Explore tree structures and algorithms.' },
+    { title: 'Graph', description: 'Dive into graph theory and traversal techniques.' },
+    { title: 'Sorting', description: 'Master sorting algorithms step by step.' },
+    { title: 'Searching', description: 'Learn efficient searching techniques.' },
+    { title: 'Dynamic Programming', description: 'Understand dynamic programming concepts.' },
+  ]
 
 export const datastructureArray = [
     {

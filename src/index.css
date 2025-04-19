@@ -5,6 +5,7 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  
 }
 
 body {
@@ -18,6 +19,7 @@ body::-webkit-scrollbar {
 
 html, body {
   height: 100%;
+  
   overflow-y: auto; /* Make sure vertical scrolling is enabled */
 }
 

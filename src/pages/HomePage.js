@@ -1,11 +1,11 @@
 import React from 'react'
 import AlgoVisulizerLayout from '../layout/AlgoVisulizerLayout'
-import HomeComponent from '../components/componentPage/HomeComponent'
+import Home from '../components/componentPage/Home'
 
 function HomePage() {
   return (
     <div>
-      <AlgoVisulizerLayout component={<HomeComponent/>} title='AlgoSpectra'/>
+      <AlgoVisulizerLayout component={<Home/>} title=''/>
     </div>
   )
 }

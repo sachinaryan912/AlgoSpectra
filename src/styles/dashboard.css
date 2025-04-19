@@ -1,0 +1,109 @@
+.dashboard{
+    margin: 2rem;
+    align-items: start;
+}
+
+.modern-section {
+    margin-top: 1.5rem;
+    font-family: "Nunito", sans-serif;
+  }
+
+/* CARDS */
+.card-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 2rem;
+    justify-content: start;
+  }
+  
+  .modern-card {
+    background: linear-gradient(135deg, #1c1c1c41, #292929);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 20px;
+    padding: 2rem;
+    width: 300px;
+    color: #eaeaea;
+    text-align: center;
+    transition: all 0.4s ease;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.5);
+    position: relative;
+    overflow: hidden;
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+  }
+  
+  .modern-card:hover {
+    cursor: pointer;
+    transform: translateY(-10px) scale(1.02);
+    background: linear-gradient(135deg, #23232317, #2e2e2e);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+  }
+  
+  .card-icon {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+    animation: pulse 1.8s infinite;
+  }
+  
+  .modern-card h3 {
+    font-size: 1.5rem;
+    margin-bottom: 0.75rem;
+  }
+  
+  .modern-card p {
+    font-size: 0.8rem;
+    color: #ccc;
+    margin-bottom: 1rem;
+  }
+  
+  .card-footer {
+    font-size: 0.8rem;
+    color: #999;
+    border-top: 1px solid #444;
+    padding-top: 0.5rem;
+  }
+  
+  /* ANIMATIONS */
+  @keyframes pulse {
+    0% {
+      transform: scale(1);
+      opacity: 0.85;
+    }
+    50% {
+      transform: scale(1.15);
+      opacity: 1;
+    }
+    100% {
+      transform: scale(1);
+      opacity: 0.85;
+    }
+  }
+
+  .ribbon {
+    position: absolute;
+    top: 2.5rem;
+    left: -15px;
+    width: 50px;
+    background-color: #ff4757; /* Default ribbon color */
+    color: white;
+    font-size: 0.7rem;
+    font-weight: bold;
+    padding: 0.6rem 1rem;
+    border-radius: 40px;
+    /* transform: rotate(-45deg); */
+    transform-origin: left top;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    z-index: 1;
+  }
+  
+  .ribbon.new {
+    background-color: #2ed573; /* Green for "New" */
+  }
+  
+  .ribbon.coming-soon {
+    background-color: #2ed573; /* Orange for "Coming Soon" */
+  }
+  
+  
+  

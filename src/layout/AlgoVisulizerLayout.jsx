@@ -3,17 +3,16 @@ import "./style.css"
 import { Box } from '@mui/material'
 import Navbar from '../components/navbar/Navbar'
 
-function AlgoVisulizerLayout({ component, title = "AlgoSpectra" }) {
+function AlgoVisulizerLayout({ component, title = "" }) {
   return (
     <Box className="main-containe">
-      <Box className="header">
-        <Navbar title={title} />
-      </Box>
+      {title !== "" && (
+        <Box className="header">
+          <Navbar title={title} />
+        </Box>
+      )}
       <Box className="body">
         {component}
-      </Box>
-      <Box className="footer">
-      Made with ❤️ for learners • © 2025 AlgoSpectra
       </Box>
     </Box>
   )
