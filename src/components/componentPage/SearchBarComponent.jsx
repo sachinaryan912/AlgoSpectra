@@ -3,70 +3,115 @@ import TextField from "@mui/material/TextField";
 import Autocomplete from "@mui/material/Autocomplete";
 import { searchDataArray } from "../../data/dataForSearchBar";
 import "../../styles/Home.css";
+import { styled } from "@mui/material/styles";
+import Paper from "@mui/material/Paper";
+import { useNavigate } from "react-router-dom";
 
-export default function SearchBarComponent({setSelectSearch}) {
+const GlassPaper = styled(Paper)(({ theme }) => ({
+  background: "transparent",
+  backdropFilter: "blur(20px)",
+  WebkitBackdropFilter: "blur(20px)",
+  borderRadius: "26px",
+  border: "1px solid rgba(255, 255, 255, 0.1)",
+  boxShadow: "0 4px 20px rgba(0, 0, 0, 0.4)",
+  color: "white",
+  marginTop: "8px",
+  outline: "none",
+  animation: "fadeIn 0.3s ease-out",
+  "@keyframes fadeIn": {
+    from: { opacity: 0, transform: "scale(0.9) translateY(-10px)" },
+    to: { opacity: 1, transform: "scale(1) translateY(0)" },
+  },
+  // Style each dropdown item
+  "& .MuiAutocomplete-option": {
+    backdropFilter: "blur(10px)",
+    padding: "10px 20px",
+    borderRadius: "18px",
+    transition: "all 0.2s ease-in-out",
+    "&:hover": {
+      backgroundColor: "rgba(255, 255, 255, 0.1)",
+    },
+    "&[aria-selected='true']": {
+      backgroundColor: "rgba(255, 255, 255, 0.1)",
+    }
+  },
+}));
+
+
+export default function SearchBarComponent({ setSelectSearch }) {
+  const navigate = useNavigate();
+  const [inputValue, setInputValue] = React.useState("");
+
   return (
-   <>
     <Autocomplete
-
-// className="hero-input"
-placeholder="Search for algorithms..."
-disablePortal
-options={searchDataArray}
-sx={{
-    width: '80%', // full width of container
-    // maxWidth: {
-    //   xs: '90%',    // on small screens
-    //   sm: '80%',
-    //   md: '60%',
-    //   lg: '40%',
-    //   xl: '32em',   // original width on large screens
-    // },
-    // mx: 'auto', // center horizontally
-  }}
-onChange={(event, newValue) => {
-  // console.log(newValue);
-  setSelectSearch(newValue);
-}}
-renderInput={(params) => 
-<TextField
-  {...params}
-  placeholder="Search for algorithms..."
-  className="hero-input"
-
-   sx={{
-    '& .MuiOutlinedInput-root': {
-      color: 'white', // selected text color
-      '& fieldset': {
-        borderColor: 'transparent',
-      },
-      '&:hover fieldset': {
-        borderColor: 'transparent',
-      },
-      '&.Mui-focused fieldset': {
-        borderColor: 'transparent',
-      },
-    },
-    '& .MuiInputBase-root': {
-      boxShadow: 'none',
-    },
-    '& input': {
-      color: 'white', // input text color
-    },
-    '& label.Mui-focused': {
-      color: 'inherit',
-    },
-    // 🔽 Change clear (×) and dropdown (▾) icon colors
-    '& .MuiAutocomplete-clearIndicator, & .MuiAutocomplete-popupIndicator': {
-      color: 'white', // or any color like '#ff5722'
-    },
-  }}
-/>
-
-}
-
-/>
-{/* <button className="search-button">Search</button> */}
-   </>
+      disablePortal
+      options={searchDataArray}
+      inputValue={inputValue}
+      onInputChange={(event, newInputValue) => {
+        setInputValue(newInputValue);
+      }}
+      open={inputValue.trim().length > 0}
+      onChange={(event, newValue) => {
+        if (newValue?.path) {
+          navigate(newValue.path);
+        }
+        setSelectSearch(newValue);
+      }}
+      PaperComponent={(props) => <GlassPaper {...props} />}
+      sx={{
+        width: "80%",
+        margin: "0",
+        '& .MuiAutocomplete-inputRoot': {
+          background: "transparent",
+          borderRadius: "50px",
+          padding: "8px 16px",
+          color: "white",
+          backdropFilter: "blur(20px)",
+          outline: "none",
+          boxShadow: "0 4px 30px rgba(0, 0, 0, 0.4)",
+          transition: "all 0.3s ease-in-out",
+          '&:hover': {
+            background: "transparent",
+          },
+          '&.Mui-focused': {
+            background: "transparent",
+          },
+        },
+        '& .MuiAutocomplete-popupIndicator': {
+          color: "transparent",
+        },
+        '& .MuiAutocomplete-clearIndicator': {
+          color: "transparent",
+        },
+        '& .MuiInputBase-input': {
+          color: "white",
+        },
+      }}
+      renderInput={(params) => (
+        <TextField
+          {...params}
+          placeholder="Search here e.g. Arrays, queue etc..."
+          sx={{
+            '& .MuiOutlinedInput-root': {
+              '& fieldset': {
+                border: 'none',
+              },
+              '&:hover fieldset': {
+                border: 'none',
+              },
+              '&.Mui-focused fieldset': {
+                border: 'none',
+              },
+            },
+          }}
+          InputProps={{
+            ...params.InputProps,
+            style: {
+              fontSize: "1rem",
+            },
+          }}
+        />
+      )}
+    />
   );
 }
