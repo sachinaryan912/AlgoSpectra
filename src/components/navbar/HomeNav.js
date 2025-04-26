@@ -1,9 +1,15 @@
 import React, { useState } from "react";
 import { Menu, X } from "lucide-react";
+import CustomModal from "../Model/CustomModel";
+import LoginForm from "../Login/LoginForm";
 
 const HomeNav = ({ title = "" }) => {
   const [menuOpen, setMenuOpen] = useState(false);
   const [popupOpen, setPopupOpen] = useState(false);
+  const [open, setOpen] = useState(false);
+
+  const handleOpen = () => setOpen(true);
+  const handleClose = () => setOpen(false);
 
   const toggleMenu = () => {
     setMenuOpen(!menuOpen);
@@ -12,6 +18,7 @@ const HomeNav = ({ title = "" }) => {
 
   return (
     <nav className="home-nav">
+      <CustomModal children={<LoginForm/>} open={open} onClose={handleClose}/>
       <div className="home-nav-container">
         <div className="logo-title">
           <img src="/logo512.png" alt="Logo" className="logo" />
@@ -22,7 +29,7 @@ const HomeNav = ({ title = "" }) => {
           <div className="signin-container">
             <button
               className="signin-button"
-              onClick={() => setPopupOpen(!popupOpen)}
+              onClick={() => {handleOpen()}}
             >
               Sign In
             </button>
