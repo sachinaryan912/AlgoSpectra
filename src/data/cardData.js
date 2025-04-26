@@ -32,10 +32,9 @@ export  const dataItems = [
 export const datastructureArray = [
     {
         name: "Arrays",
-        description: "Master the foundation of data structures with arrays—learn how to insert, delete, and access elements using interactive step-by-step visualizations.",
+        description: "Master the foundation of data structures with arrays—learn how to insert, delete, update and access elements using interactive step-by-step visualizations.",
         footer: "Ordered • Indexed • Random Access • Static Size",
-        routePath: "/algoSpectra/array",
-        status: "Coming Soon"
+        routePath: "/algoSpectra/array"
     },
     {
         name: "LinkedList",
