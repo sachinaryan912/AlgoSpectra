@@ -2,7 +2,6 @@ import * as React from "react";
 import TextField from "@mui/material/TextField";
 import Autocomplete from "@mui/material/Autocomplete";
 import { searchDataArray } from "../../data/dataForSearchBar";
-import "../../styles/Home.css";
 import { styled } from "@mui/material/styles";
 import Paper from "@mui/material/Paper";
 import { useNavigate } from "react-router-dom";
@@ -24,7 +23,6 @@ const GlassPaper = styled(Paper)(({ theme }) => ({
   },
   // Style each dropdown item
   "& .MuiAutocomplete-option": {
-    backdropFilter: "blur(10px)",
     padding: "10px 20px",
     borderRadius: "18px",
     transition: "all 0.2s ease-in-out",
@@ -63,6 +61,7 @@ export default function SearchBarComponent({ setSelectSearch }) {
         margin: "0",
         '& .MuiAutocomplete-inputRoot': {
           background: "transparent",
+          backgroundColor: "transparent",
           borderRadius: "50px",
           padding: "8px 16px",
           color: "white",

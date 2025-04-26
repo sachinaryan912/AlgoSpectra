@@ -1,0 +1,224 @@
+:root {
+  /* Backgrounds */
+  --background-dark: rgba(18, 18, 18, 0.9);
+  --input-background: #2c2c2c00;
+  --element-background: rgba(255, 255, 255, 0.08);
+  --button-background: #3a4400;
+  --button-hover: #596800;
+  --switch-background: #1c1c1c;
+  --switch-thumb: #0141a0bc;
+
+  /* Text and borders */
+  --text-color: #ffffff;
+  --success-color: #4caf50;
+  --error-color: #ff867e;
+  --popup-background: #ff867e;
+
+  /* Shadows */
+  --box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+  --popup-shadow: 0 8px 20px rgba(0, 0, 0, 0.25);
+}
+
+.array-visualizer-container {
+  padding: 30px;
+  min-height: 100vh;
+  font-family: "SF Pro Display", sans-serif;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background: var(--background-dark);
+  color: var(--text-color);
+  backdrop-filter: blur(12px);
+}
+
+h2 {
+  font-size: 1.8rem;
+  margin-bottom: 20px;
+}
+
+/* Size Config Section */
+.size-config {
+  margin: 10px 0;
+  display: flex;
+  gap: 10px;
+}
+
+.type-container{
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  justify-content: center;
+}
+
+.size-config input {
+  border-radius: 20px;
+  border: 1px solid #414141;
+  outline: none;
+  width: 65px;
+  height: 50px;
+  font-size: 1rem;
+  text-align: center;
+  background-color: var(--input-background);
+  color: var(--text-color);
+}
+
+.size-config button {
+  padding: 8px 16px;
+  border: none;
+  border-radius: 20px;
+  background: var(--button-background);
+  color: var(--text-color);
+  cursor: pointer;
+  transition: background 0.3s ease;
+  box-shadow: var(--box-shadow);
+}
+
+.size-config button:hover {
+  background: var(--button-hover);
+}
+
+/* Array Box */
+.array-box {
+  display: flex;
+  margin: 30px 0;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 12px;
+}
+
+.array-element {
+  background: var(--element-background);
+  border-radius: 12px;
+  min-width: 65px;
+  height: 55px;
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-weight: bold;
+  color: var(--text-color);
+  box-shadow: var(--box-shadow);
+}
+
+/* Controls */
+.controls {
+  display: flex;
+  gap: 10px;
+  margin-top: 20px;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+.input-container input {
+  padding: 0px 20px;
+  border: 1px solid #414141;
+  height: 55px;
+  margin: 5px;
+  border-radius: 20px;
+  width: 120px;
+  text-align: center;
+  outline: none;
+  font-size: 0.9rem;
+  background-color: var(--input-background);
+  color: var(--text-color);
+}
+
+.button-container {
+  display: flex;
+  gap: 10px;
+ align-items: center;
+ justify-content: center;
+  margin-top: 20px;
+  flex-wrap: wrap;
+}
+.button-container  button {
+  background: var(--button-background);
+  border: none;
+  height: 50px;
+  border-radius: 20px;
+  padding: 10px 16px;
+  width: 120px;
+  color: var(--text-color);
+  font-weight: bold;
+  cursor: pointer;
+  transition: background 0.3s ease;
+  box-shadow: var(--box-shadow);
+}
+
+.controls button:hover {
+  background: var(--button-hover);
+}
+
+/* Popup Message */
+.popup-message {
+  position: fixed;
+  top: 30px;
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: var(--popup-background);
+  color: var(--text-color);
+  padding: 14px 28px;
+  border-radius: 30px;
+  font-weight: bold;
+  font-size: 16px;
+  z-index: 9999;
+  box-shadow: var(--popup-shadow);
+  opacity: 0.95;
+  pointer-events: none;
+}
+
+.popup-message.success {
+  background-color: var(--success-color);
+}
+
+.popup-message.error {
+  background-color: var(--error-color);
+}
+
+/* iOS Switch */
+.ios-switch-wrapper {
+  display: flex;
+  justify-content: center;
+  text-align: center;
+  align-items: center;
+  margin: 20px 0;
+}
+
+.ios-switch {
+  position: relative;
+  display: flex;
+  background-color: var(--switch-background);
+  border-radius: 30px;
+  width: 200px;
+  height: 55px;
+  padding: 4px;
+  cursor: pointer;
+  box-shadow: inset 0 0 8px rgba(0, 0, 0, 0.4);
+}
+
+.ios-switch-thumb {
+  position: absolute;
+  width: 50%;
+  height: 47px;
+  background-color: var(--switch-thumb);
+  border-radius: 25px;
+  top: 4px;
+  left: 4px;
+  z-index: 1;
+}
+
+.ios-option {
+  flex: 1;
+  text-align: center;
+  line-height: 47px;
+  color: var(--text-color);
+  font-size: 14px;
+  z-index: 2;
+  user-select: none;
+  transition: color 0.3s ease;
+}
+
+.ios-option:hover {
+  color: var(--button-hover);
+}

@@ -67,7 +67,6 @@ const Home = () => {
                     <p className="hero-slogan">Visualizing Data Structures & Algorithms in a Futuristic Way.</p>
                 
                     <div className="hero-input">
-                        {/* <input type="text" className="search-bar" placeholder="Search for algorithms..." /> */}
                         <SearchBarComponent setSelectSearch={setSelectSearch}/>
                         <button className="search-button" onClick={handleSearch}>Search</button>
                     </div>
@@ -103,10 +102,14 @@ const Home = () => {
                                     Explore Now <span className="arrow">→</span>
                                 </button>
                             </div>
-                            <div>
-                                <DataCarousel items={dataItems} />
-                            </div>
+                                
+                            
                         </section>
+
+                       <div className="crousel-bg">
+                       <DataCarousel items={dataItems} />
+                       
+                       </div>
 
                         {/* New Columns Section */}
             <section className="columns-section">

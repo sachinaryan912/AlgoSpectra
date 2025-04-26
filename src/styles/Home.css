@@ -1,29 +1,9 @@
 /* Home.css */
 
-/* General Reset */
-* {
-    box-sizing: border-box;
-    margin: 0;
-    padding: 0;
-}
-
-body {
-    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-    background: linear-gradient(to bottom, #02152b, rgb(0, 0, 0)) !important;
-    color: #e0e0e0; /* Light text for contrast */
-    margin: 0;
-}
-
-html {
-    scroll-behavior: smooth; /* Smooth scrolling for anchor links */
-}
 a {
     text-decoration: none;
     color: inherit; /* Inherit color from parent element */
-}
-
+  }
 
 
 /* Hero Section */
@@ -106,10 +86,11 @@ a {
 .hero-input{
     margin-top: 1.6rem;
     position: relative;
+    background-color: transparent;
+    background: transparent;
     border: 1px solid rgba(255, 255, 255, 0.2);
     width: 80%;
     border-radius: 50px;
-    backdrop-filter: blur(15px) saturate(180%);
 }
 
 /* .hero-input input[type="text"] {
@@ -156,7 +137,6 @@ a {
     position: relative;
     border-radius: 40px 40px 0 0;
     backdrop-filter: blur(15px) saturate(180%);
-    background: rgba(255, 255, 255, 0.1);
     border-top: #505050 solid 1px;
     font-family: "Nunito", sans-serif;
     font-weight: 200;
@@ -223,7 +203,11 @@ a {
     text-align: center;
     color: #ffffff;
     backdrop-filter: blur(15px) saturate(180%);
-    background: rgba(255, 255, 255, 0.1);
+}
+
+.crousel-bg{
+    background-color: transparent;
+    backdrop-filter: blur(15px) saturate(180%);
 }
 
 .section-header {
@@ -436,7 +420,7 @@ a {
     background-color: #1e1e1e;
     color: #e0e0e0;
     text-align: center;
-    padding: 1rem 0;
+    padding-bottom: 2rem;
     font-size: 0.9rem;
 }
 

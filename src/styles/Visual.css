@@ -10,17 +10,6 @@
   --handle-clr: #bb86fc;
 }
 
-html {
-  font-size: 16px;
-}
-
-body {
-  margin: 0;
-  padding: 0;
-  background-color: var(--bg-main-clr);
-  color: var(--text-clr);
-  font-family: 'Roboto', sans-serif;
-}
 
 .app-cont {
   width: 100vw;
@@ -32,7 +21,7 @@ body {
 .sidebar {
   width: 20vw;
   min-height: 92vh;
-  background: linear-gradient(to bottom, rgb(0, 26, 49), rgb(0, 0, 0));
+  background: linear-gradient(to bottom,rgb(0, 0, 0), rgb(0, 26, 49));
   color: var(--text-clr);
   display: flex;
   flex-direction: column;
@@ -41,7 +30,7 @@ body {
 
 .sidebar__text-cont {
   flex-grow: 1;
-  background: linear-gradient(to bottom, rgb(0, 26, 49), rgb(0, 0, 0));
+  background: linear-gradient(to bottom,rgb(0, 0, 0), rgb(0, 26, 49));
   outline: none;
   border: none;
   color: var(--text-clr);

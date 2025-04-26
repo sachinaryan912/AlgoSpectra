@@ -1,0 +1,83 @@
+
+.ds-info-container {
+    margin: 0.2rem auto;
+    max-width: 800px;
+    border-radius: 20px;
+    /* backdrop-filter: blur(10px);
+    background: rgba(255, 255, 255, 0.05);
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.2); */
+}
+
+.ds-info-section p {
+    line-height: 1;
+    margin-top: 10px;
+    margin-left: 20px;
+  }
+
+.ds-info-container.dark {
+    color: #fff;
+    background: rgba(30, 30, 30, 0.6);
+}
+
+.ds-info-container.light {
+    color: #000;
+    background: rgba(255, 255, 255, 0.8);
+}
+
+.ds-info-section {
+    margin-bottom: 1rem;
+    padding: 1rem;
+    border-radius: 12px;
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    cursor: pointer;
+    transition: ads 0.3s ease;
+}
+
+.ds-info-section ul {
+    list-style-type: disc;
+    padding-left: 40px;
+    margin-top: 10px;
+  }
+
+.ds-info-section ul li a{
+    color: #b2b2b2;
+    text-decoration: none;
+    font-size: 1rem;
+    font-weight: 500;
+    transition: color 0.2s ease-in-out;
+}
+
+.ds-info-section li {
+    color: #dcdcdc;
+    margin-bottom: 2px;
+    transition: color 0.3s ease;
+  }
+
+.ds-info-section ul li a:hover {
+    color: #3b82f6;
+}
+
+.ds-info-section:hover {
+    background: rgba(255, 255, 255, 0.1);
+}
+
+.ds-info-title {
+    font-size: 1.1rem;
+    font-weight: 600;
+}
+
+
+.ds-info-section {
+    animation: fadeIn 1s ease-in-out;
+  }
+  
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+      transform: translateY(15px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }

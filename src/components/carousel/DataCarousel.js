@@ -2,7 +2,7 @@ import React from 'react';
 
 const generateGlossyColor = () => {
   const hue = Math.floor(Math.random() * 360);
-  return `hsla(${hue}, 85%, 65%, 0.3)`;
+  return `hsla(${hue}, 85%, 65%, 0.4)`;
 };
 
 const DataCarousel = ({ items }) => {
@@ -18,7 +18,7 @@ const DataCarousel = ({ items }) => {
         <div className={`carousel-row ${directionClass}`}>
           {duplicatedItems.map((item, index) => {
             const bgColor = generateGlossyColor();
-            const gradientOverlay = `linear-gradient(135deg, ${bgColor} 0%, rgba(255, 255, 255, 0.08) 100%)`;
+            const gradientOverlay = `linear-gradient(135deg, ${bgColor} 0%, rgba(255, 255, 255, 0.32) 100%)`;
 
             return (
               <div
@@ -26,7 +26,6 @@ const DataCarousel = ({ items }) => {
                 key={index}
                 style={{
                   background: gradientOverlay,
-                  border: '1px solid rgba(255,255,255,0.15)',
                   boxShadow: '0 8px 20px rgba(0, 0, 0, 0.15)',
                   backdropFilter: 'blur(8px)',
                 }}
