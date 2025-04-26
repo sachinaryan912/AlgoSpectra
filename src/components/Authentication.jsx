@@ -71,7 +71,7 @@ export default function Authentication({ show, onClose }) {
                 <input
                   type="text"
                   placeholder="Username"
-                  disabled
+                  // disabled
                 />
               )}
               <input
