@@ -1,20 +1,26 @@
 import React, { useState } from "react";
 import "../../styles/Navbar.css"; // Adjust the path as necessary
 import { Menu, X } from "lucide-react";
+import { useNavigate } from "react-router-dom";
 
 const Navbar = ({ title = "" }) => {
   const [menuOpen, setMenuOpen] = useState(false);
   const [popupOpen, setPopupOpen] = useState(false);
+  const navigate = useNavigate();
 
   const toggleMenu = () => {
     setMenuOpen(!menuOpen);
     setPopupOpen(false);
   };
+  const handleNavigate = () => {
+    navigate("/");
+    
+  }
 
   return (
     <nav className="navbar">
       <div className="navbar-container">
-        <div className="logo-title">
+        <div className="logo-title" onClick={handleNavigate} style={{ cursor: "pointer" }}>
           <img src="/logo512.png" alt="Logo" className="logo" />
           <span className="title">{title}</span>
         </div>
