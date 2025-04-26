@@ -6,6 +6,8 @@ import "../../styles/stackStyle.css";
 import { styled } from "@mui/material/styles";
 import Switch from "@mui/material/Switch";
 
+import DataStructureInfo from "../DataStructureInfo";
+
 export default function StackComponent() {
   const [stack] = useState(new Stack());
   const [elements, setElements] = useState([]);
@@ -22,8 +24,9 @@ export default function StackComponent() {
   const handlePush = () => {
     if (inputValue !== "") {
       if (isButtonOn && stack.getStackLength() === Number(stackSize)) {
-        setOverflow(!overflow);
+        setOverflow(true);
         setHistoryArr([...historyArr, ["overflow", inputValue]]);
+        setTimeout(() => setOverflow(false), 2000); // hide after 2s
       } else {
         stack.push(inputValue);
         setHistoryArr([...historyArr, ["push", inputValue]]);
@@ -32,6 +35,7 @@ export default function StackComponent() {
       setInputValue("");
     }
   };
+  
 
   const handlePop = () => {
     if (!stack.isEmpty()) {
@@ -90,35 +94,7 @@ export default function StackComponent() {
 
       <nav className={`stack-navbar ${darkMode ? "glass-dark" : "glass-light"}`}>
 
-        {/* Stack Info Section */}
-<div className={`ll-info-container ${darkMode ? "dark" : "dark"}`}>
-    <details className="ll-info-section">
-        <summary className="ll-info-title">📘 What is a Stack?</summary>
-        <p>
-            A Stack is a linear data structure that follows the <strong>Last In First Out (LIFO)</strong> principle.
-            The element added last is removed first. It's like a pile of plates — you add and remove from the top.
-        </p>
-    </details>
-
-    <details className="ll-info-section">
-        <summary className="ll-info-title">📌 Key Rules of Stack</summary>
-        <ul>
-            <li><strong>Push</strong>: Add an element to the top of the stack.</li>
-            <li><strong>Pop</strong>: Remove the top element from the stack.</li>
-            <li><strong>Peek</strong>: Look at the top element without removing it.</li>
-            <li><strong>isEmpty</strong>: Check if the stack has no elements.</li>
-        </ul>
-    </details>
-
-    <details className="ll-info-section">
-        <summary className="ll-info-title">🎓 Study Resources</summary>
-        <ul>
-            <li><a href="https://www.geeksforgeeks.org/stack-data-structure/" target="_blank" rel="noopener noreferrer">GeeksforGeeks: Stack</a></li>
-            <li><a href="https://www.youtube.com/watch?v=wjI1WNcIntg" target="_blank" rel="noopener noreferrer">YouTube: Stack Explained (by mycodeschool)</a></li>
-            <li><a href="https://leetcode.com/tag/stack/" target="_blank" rel="noopener noreferrer">LeetCode: Stack Problems</a></li>
-        </ul>
-    </details>
-</div>
+      <DataStructureInfo dataStructure="stack" />
 
       </nav>
   
@@ -198,39 +174,43 @@ export default function StackComponent() {
               <div>Length: {stack.getStackLength()}</div>
             </div>
   
-            <div
-              className="stack-box"
-              style={
-                !isButtonOn || stackSize === ""
-                  ? { minHeight: "456px" }
-                  : { height: `${stackSize * 56}px` }
-              }
-            >
-              <motion.div
-                initial={{ opacity: 0 }}
-                animate={overflow ? { opacity: 1, scale: 1 } : { opacity: 0 }}
-                transition={{ duration: 0.5 }}
-                onAnimationComplete={() => setTimeout(() => setOverflow(false), 5)}
-                className="overflow-notice"
-              >
-                Overflow
-              </motion.div>
-  
-              <AnimatePresence>
-                {elements.map((item, index) => (
-                  <motion.div
-                    key={index}
-                    initial={{ opacity: 0, y: -80 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    exit={{ opacity: 0, y: -80 }}
-                    transition={{ duration: 0.6 }}
-                    className="stack-node"
-                  >
-                    {item}
-                  </motion.div>
-                ))}
-              </AnimatePresence>
-            </div>
+           <div className="parent-container">
+           <div className="stack-glass-container"
+  style={
+    !isButtonOn || stackSize === ""
+      ? { minHeight: "456px" }
+      : { height: `${Math.max(stackSize * 56, 456)}px` }
+  }
+>
+  {overflow && (
+    <motion.div
+      initial={{ opacity: 0, scale: 0.8 }}
+      animate={{ opacity: 1, scale: 1 }}
+      exit={{ opacity: 0, scale: 0.8 }}
+      transition={{ duration: 0.4 }}
+      className="overflow-notice"
+    >
+      Overflow
+    </motion.div>
+  )}
+
+  <AnimatePresence>
+    {elements.map((item, index) => (
+      <motion.div
+        key={index}
+        initial={{ opacity: 0, y: -80 }}
+        animate={{ opacity: 1, y: 0 }}
+        exit={{ opacity: 0, y: -80 }}
+        transition={{ duration: 0.6 }}
+        className={index === 0 ? "stack-node-start" : "stack-node"}
+      >
+        {item}
+      </motion.div>
+    ))}
+  </AnimatePresence>
+</div>
+
+           </div>
           </div>
         </div>
       </div>

@@ -38,6 +38,7 @@
   flex: 1;
   min-width: 320px;
   max-width: 600px;
+  
   box-shadow: 0 8px 30px rgba(0, 0, 0, 0.3);
   color: #fff;
 }
@@ -132,21 +133,52 @@
   margin-bottom: 1rem;
   font-weight: 500;
 }
-.stack-box {
+
+.parent-container{
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+.stack-glass-container {
+  display: flex;
+  width: 60%;
+  flex-direction: column-reverse;
+  align-items: center;
+  gap: 0.1rem;
+  padding: 16px;
+  overflow: hidden;
   display: flex;
   flex-direction: column-reverse;
   align-items: center;
-  gap: 0.75rem;
-  padding: 1rem;
-  border-radius: 16px;
-  overflow-y: auto;
-  background: rgba(255, 255, 255, 0.03);
+  justify-content: flex-start;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-bottom-left-radius: 35px;
+  border-bottom-right-radius: 35px;
+  border-top: none; /* open from top */
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(10px);
 }
+
+
+
+
 .stack-node {
   background: rgba(255, 255, 255, 0.1);
   padding: 12px 24px;
-  border-radius: 14px;
-  width: 60%;
+  border-radius: 0%;
+  width: 100%;
+  text-align: center;
+  font-weight: 600;
+  font-size: 1rem;
+  color: white;
+}
+
+.stack-node-start {
+  background: rgba(255, 255, 255, 0.1);
+  padding: 12px 24px;
+  border-bottom-left-radius: 20px;
+  border-bottom-right-radius: 20px;
+  width: 100%;
   text-align: center;
   font-weight: 600;
   font-size: 1rem;

@@ -7,7 +7,7 @@ import { useDispatch } from "react-redux";
 // import { setDashBoardElement } from "../dashboardElementSlice"
 import { hasEqualBrackets } from "../../utils/fuctions";
 import "../../styles/infixToPostfixStyle.css";
-
+import DataStructureInfo from "../DataStructureInfo";
 
 
 let result = []
@@ -175,40 +175,10 @@ const handleAnimation = () => {
     return(
         <>
         <nav className={`stack-navbar ${darkMode ? "glass-dark" : "glass-light"}`}>
-  {/* Infix to Postfix Info Section */}
-  <div className={`ll-info-container ${darkMode ? "dark" : "light"}`}>
-    <details className="ll-info-section">
-      <summary className="ll-info-title">📘 What is Infix & Postfix?</summary>
-      <p>
-        <strong>Infix</strong> expressions are the common form of expressions like <code>A + B</code>,
-        where operators are placed between operands. <br />
-        <strong>Postfix</strong> (or Reverse Polish Notation) places the operator after the operands, like <code>AB+</code>.
-      </p>
-      <p>
-        Postfix expressions eliminate the need for parentheses and make evaluation easier for computers using stacks.
-      </p>
-    </details>
 
-    <details className="ll-info-section">
-      <summary className="ll-info-title">📌 Key Rules of Conversion</summary>
-      <ul>
-        <li>Use a stack to keep track of operators.</li>
-        <li>Operands go directly to the output.</li>
-        <li>Pop operators from the stack based on precedence and associativity.</li>
-        <li>Parentheses are handled specially: push <code>(</code> and pop until <code>)</code> is found.</li>
-        <li>After the expression is read, pop all remaining operators to the output.</li>
-      </ul>
-    </details>
-
-    <details className="ll-info-section">
-      <summary className="ll-info-title">🎓 Study Resources</summary>
-      <ul>
-        <li><a href="https://www.geeksforgeeks.org/convert-infix-expression-to-postfix-expression/" target="_blank" rel="noopener noreferrer">GFG: Infix to Postfix</a></li>
-        <li><a href="https://www.youtube.com/watch?v=2kZz_1Y8cJw" target="_blank" rel="noopener noreferrer">YouTube: Infix to Postfix (Stack Algorithm)</a></li>
-        <li><a href="https://leetcode.com/problems/basic-calculator/" target="_blank" rel="noopener noreferrer">LeetCode: Expression Parsing</a></li>
-      </ul>
-    </details>
-  </div>
+            <DataStructureInfo dataStructure="infixtopostfix" />
+          
+  
 </nav>
 
        <div className="parent-data">

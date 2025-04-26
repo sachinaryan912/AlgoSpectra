@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import { Menu, X } from "lucide-react";
-import logo from "../../assets/images/logo512.png"; // Adjust the path as necessary
 
 const HomeNav = ({ title = "" }) => {
   const [menuOpen, setMenuOpen] = useState(false);
@@ -15,7 +14,7 @@ const HomeNav = ({ title = "" }) => {
     <nav className="home-nav">
       <div className="home-nav-container">
         <div className="logo-title">
-          <img src={logo} alt="Logo" className="logo" />
+          <img src="/logo512.png" alt="Logo" className="logo" />
           <span className="title">{title}</span>
         </div>
 

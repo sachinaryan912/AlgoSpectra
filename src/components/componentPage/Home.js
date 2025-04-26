@@ -4,10 +4,20 @@ import FeatureCard from "../Card/FeatureCard";
 import DataCarousel from "../carousel/DataCarousel";
 import { algorithmArray, datastructureArray, featureData, dataItems } from "../../data/cardData";
 import HomeNav from "../navbar/HomeNav";
+import SearchBarComponent from "./SearchBarComponent";
+import { useNavigate } from "react-router-dom";
 
 const Home = () => {
     const videoRef = useRef(null);
     const [isPlaying, setIsPlaying] = useState(false);
+    const [selectSearch,setSelectSearch] = useState("");
+    const navigate = useNavigate();
+
+    const handleSearch = () => {
+        console.log(selectSearch);
+        navigate(selectSearch?.path);
+        
+    }
 
     const togglePlayback = () => {
         if (!videoRef.current) return;
@@ -55,10 +65,10 @@ const Home = () => {
                 <div className="hero-content">
                     <h1 className="hero-title">AlgoSpectra</h1>
                     <p className="hero-slogan">Visualizing Data Structures & Algorithms in a Futuristic Way.</p>
-
+                
                     <div className="hero-input">
-                        <input type="text" className="search-bar" placeholder="Search for algorithms..." />
-                        <button className="search-button">Search</button>
+                        <SearchBarComponent setSelectSearch={setSelectSearch}/>
+                        <button className="search-button" onClick={handleSearch}>Search</button>
                     </div>
                 </div>
             </section>
@@ -87,15 +97,19 @@ const Home = () => {
                                 <p>Click explore button to use all the visualizer features</p>
                                 <button 
                                     className="explore-button" 
-                                    onClick={() => window.location.href = '/algoSpectra/dashboard'}
+                                    onClick={() => navigate('/algoSpectra/dashboard')}
                                 >
                                     Explore Now <span className="arrow">→</span>
                                 </button>
                             </div>
-                            <div>
-                                <DataCarousel items={dataItems} />
-                            </div>
+                                
+                            
                         </section>
+
+                       <div className="crousel-bg">
+                       <DataCarousel items={dataItems} />
+                       
+                       </div>
 
                         {/* New Columns Section */}
             <section className="columns-section">

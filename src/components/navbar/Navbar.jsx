@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import "../../styles/Navbar.css"; // Adjust the path as necessary
 import { Menu, X } from "lucide-react";
-import logo from "../../assets/images/logo512.png"; // Adjust the path as necessary
 
 const Navbar = ({ title = "" }) => {
   const [menuOpen, setMenuOpen] = useState(false);
@@ -16,7 +15,7 @@ const Navbar = ({ title = "" }) => {
     <nav className="navbar">
       <div className="navbar-container">
         <div className="logo-title">
-          <img src={logo} alt="Logo" className="logo" />
+          <img src="/logo512.png" alt="Logo" className="logo" />
           <span className="title">{title}</span>
         </div>
 

@@ -9,7 +9,7 @@ import {
   Panel,
 } from "reactflow";
 import { shallow } from "zustand/shallow";
-import "../../pages/datavisualizers/Visual.css";
+import "../../styles/Visual.css";
 import ELK from "elkjs/lib/elk.bundled.js";
 
 
