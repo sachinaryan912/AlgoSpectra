@@ -1,169 +1,170 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
+import LinkedList from "../../utils/LinkedList";
+import { motion, AnimatePresence } from "framer-motion";
 import { useSelector } from "react-redux";
-import { AnimatePresence, motion } from "framer-motion";
+import "../../styles/linkedListStyle.css";
 import DataStructureInfo from "../DataStructureInfo";
-import "../../styles/ArrayVisualizer.css";
 
-function ArrayComponent() {
-  const [array, setArray] = useState([1, 2, 3]);
-  const [inputValue, setInputValue] = useState("");
-  const [indexValue, setIndexValue] = useState("");
-  const [arraySize, setArraySize] = useState(5);
-  const [isDynamic, setIsDynamic] = useState(false);
-  const [isIndexBased, setIsIndexBased] = useState(false);
-  const [popupMessage, setPopupMessage] = useState("");
-  const darkMode = useSelector((state) => state?.themeSlice?.darkMode) || true;
+export default function LinkedListComponent() {
+    const [linkedList] = useState(new LinkedList());
+    const [elements, setElements] = useState([]);
+    const [inputValue, setInputValue] = useState("");
+    const [historyArr, setHistoryArr] = useState([]);
 
-  const showPopup = (message) => {
-    setPopupMessage(message);
-    setTimeout(() => setPopupMessage(""), 2000);
-  };
+    useEffect(() => {}, []);
 
-  const handleInsert = () => {
-    if (inputValue === "") return;
+    const darkMode = useSelector((state) => state?.themeSlice?.darkMode) || true;
 
-    const value = parseInt(inputValue);
-    const idx = parseInt(indexValue);
+    const handleInsertHead = () => {
+        if (inputValue.trim() === "") return;
+        const newNode = { id: Date.now(), value: inputValue };
+        linkedList.insertAtHead(newNode);
+        setHistoryArr([...historyArr, ["insert head", inputValue]]);
+        setElements(linkedList.getList());
+        setInputValue("");
+    };
 
-    if (!isDynamic && array.length >= arraySize) {
-      showPopup("❌ Overflow: Array is full");
-      return;
-    }
+    const handleInsertTail = () => {
+        if (inputValue.trim() === "") return;
+        const newNode = { id: Date.now(), value: inputValue };
+        linkedList.insertAtTail(newNode);
+        setHistoryArr([...historyArr, ["insert tail", inputValue]]);
+        setElements(linkedList.getList());
+        setInputValue("");
+    };
 
-    if (isIndexBased && indexValue !== "") {
-      if (idx < 0 || idx > array.length) {
-        showPopup("⚠️ Invalid index");
-        return;
-      }
-      const newArray = [...array.slice(0, idx), value, ...array.slice(idx)];
-      setArray(newArray);
-    } else {
-      setArray([...array, value]);
-    }
+    const handleDeleteHead = () => {
+        if (!linkedList.isEmpty()) {
+            const deletedNode = linkedList.deleteHead();
+            if (deletedNode) {
+                setHistoryArr([...historyArr, ["delete head", deletedNode.value]]);
+                setElements(linkedList.getList());
+            }
+        }
+    };
 
-    setInputValue("");
-    setIndexValue("");
-  };
+    const handleDeleteTail = () => {
+        if (!linkedList.isEmpty()) {
+            const deletedNode = linkedList.deleteTail();
+            if (deletedNode) {
+                setHistoryArr([...historyArr, ["delete tail", deletedNode.value]]);
+                setElements(linkedList.getList());
+            }
+        }
+    };
 
-  const handleDelete = () => {
-    if (array.length === 0) {
-      showPopup("⚠️ Underflow: Array is empty");
-      return;
-    }
+    const handleClear = () => {
+        linkedList.clear();
+        setHistoryArr([]);
+        setElements([]);
+    };
 
-    if (isIndexBased && indexValue !== "") {
-      const idx = parseInt(indexValue);
-      if (idx < 0 || idx >= array.length) {
-        showPopup("⚠️ Invalid index");
-        return;
-      }
-      const newArray = [...array.slice(0, idx), ...array.slice(idx + 1)];
-      setArray(newArray);
-    } else {
-      setArray(array.slice(0, -1));
-    }
+    return (
+        <>
+            {/* Header */}
+            <nav className={`stack-navbar ${darkMode ? "glass-dark" : "glass-light"}`}>
+        <DataStructureInfo dataStructure="linkedlist" />
 
-    setIndexValue("");
-  };
-
-  const updateArraySize = () => {
-    const size = parseInt(arraySize);
-    if (isNaN(size) || size <= 0) {
-      showPopup("⚠️ Invalid array size");
-      return;
-    }
-    setArray(new Array(size).fill(0));
-  };
-
-  return (
-    <>
-      <nav className={`stack-navbar ${darkMode ? "glass-dark" : "glass-light"}`}>
-        <DataStructureInfo dataStructure="array" />
       </nav>
+            <div className="ll-container">
+            
 
-      <div className={`array-visualizer-container ${darkMode ? "dark" : "light"}`}>
-        <h2>🔢 Array Visualizer</h2>
 
-        <div className="switch-container">
-          <label>Array Type:</label>
-          <div className="switch">
-            <button className={!isDynamic ? "active" : ""} onClick={() => setIsDynamic(false)}>Static</button>
-            <button className={isDynamic ? "active" : ""} onClick={() => setIsDynamic(true)}>Dynamic</button>
-          </div>
-        </div>
+            {/* Linked List Visualization */}
+            <div className="ll-visualization">
+                <AnimatePresence>
+                    {elements.map((item, index) => (
+                        <React.Fragment key={item.id}>
+                            <motion.div
+                                initial={{ opacity: 0, scale: 0.5, y: -20 }}
+                                animate={{ opacity: 1, scale: 1, y: 0 }}
+                                exit={{ opacity: 0, scale: 0, y: -20 }}
+                                transition={{ duration: 0.3, type: "spring", stiffness: 300, damping: 20 }}
+                                className={`ll-node ${darkMode ? "dark" : "light"}`}
+                            >
+                                {item.value}
+                            </motion.div>
 
-        {!isDynamic && (
-          <div className="size-config">
-            <input
-              type="number"
-              value={arraySize}
-              onChange={(e) => setArraySize(e.target.value)}
-              placeholder="Array Size"
-            />
-            <button onClick={updateArraySize}>Set Size</button>
-          </div>
-        )}
+                            {index !== elements.length - 1 && (
+                                <motion.div
+                                    initial={{ opacity: 0, x: -30 }}
+                                    animate={{ opacity: 1, x: 0 }}
+                                    exit={{ opacity: 0, x: 30 }}
+                                    transition={{ duration: 0.4, ease: "easeInOut" }}
+                                    className="ll-arrow"
+                                >
+                                    ➜
+                                </motion.div>
+                            )}
+                        </React.Fragment>
+                    ))}
+                </AnimatePresence>
+            </div>
 
-        <div className="switch-container">
-          <label>Operation:</label>
-          <div className="switch">
-            <button className={!isIndexBased ? "active" : ""} onClick={() => setIsIndexBased(false)}>End Based</button>
-            <button className={isIndexBased ? "active" : ""} onClick={() => setIsIndexBased(true)}>Index Based</button>
-          </div>
-        </div>
+            <div className="row2">
+                {/* Linked List Controls */}
+                <div className="ll-controls">
+                    <div className="ll-title">Linked List Operations</div>
+                    <div className="ll-input-container">
+                        <input
+                            className={`ll-input ${darkMode ? "dark" : "light"}`}
+                            placeholder="Enter Value"
+                            type="text"
+                            value={inputValue}
+                            onChange={(e) => {
+                                if (e.target.value > -1000000 && e.target.value < 1000000)
+                                    setInputValue(e.target.value);
+                            }}
+                        />
+                    </div>
+                    <div className="ll-button-group">
+                        <button className="ll-button green" onClick={handleInsertHead}>
+                            <i className="fas fa-plus"></i> Head
+                        </button>
+                        <button className="ll-button green" onClick={handleInsertTail}>
+                            <i className="fas fa-plus"></i> Tail
+                        </button>
+                        <button className="ll-button red" onClick={handleDeleteHead}>
+                            <i className="fas fa-trash-alt"></i> Head
+                        </button>
+                        <button className="ll-button red" onClick={handleDeleteTail}>
+                            <i className="fas fa-trash"></i> Tail
+                        </button>
+                        <button className={`ll-clear-button ${darkMode ? "dark" : "light"}`} onClick={handleClear}>
+                        <i className="fas fa-times-circle"></i> Clear
+                    </button>
+                    </div>
+                  
+                    
+                </div>
 
-        <div className="array-box">
-          <AnimatePresence>
-            {array.map((val, index) => (
-              <motion.div
-                key={index}
-                className="array-element"
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                exit={{ opacity: 0, scale: 0.5 }}
-                transition={{ duration: 0.3 }}
-              >
-                {val}
-              </motion.div>
-            ))}
-          </AnimatePresence>
-        </div>
-
-        <div className="controls">
-          <input
-            type="number"
-            value={inputValue}
-            onChange={(e) => setInputValue(e.target.value)}
-            placeholder="Element"
-          />
-          {isIndexBased && (
-            <input
-              type="number"
-              value={indexValue}
-              onChange={(e) => setIndexValue(e.target.value)}
-              placeholder="Index"
-            />
-          )}
-          <button onClick={handleInsert}>Insert</button>
-          <button onClick={handleDelete}>Delete</button>
-        </div>
-
-        <AnimatePresence>
-          {popupMessage && (
-            <motion.div
-              className="popup-message"
-              initial={{ y: 20, opacity: 0 }}
-              animate={{ y: 0, opacity: 1 }}
-              exit={{ y: -20, opacity: 0 }}
-              transition={{ duration: 0.4 }}
-            >
-              {popupMessage}
-            </motion.div>
-          )}
-        </AnimatePresence>
-      </div>
-    </>
-  );
+                {/* Operations History */}
+                <div className="ll-history">
+                    <div className="ll-history-title">Operations History</div>
+                    <AnimatePresence>
+                        {historyArr.map((item, index) => (
+                            <motion.div
+                                key={index}
+                                initial={{ opacity: 0, x: -20 }}
+                                animate={{ opacity: 1, x: 0 }}
+                                exit={{ opacity: 0, x: 20 }}
+                                transition={{ duration: 0.4 }}
+                                className="ll-history-item"
+                            >
+                                <span
+                                    className={`ll-history-label ${
+                                        item[0].includes("insert") ? "green" : "red"
+                                    }`}
+                                >
+                                    {item[0]}
+                                </span>
+                                <span>{item[1]}</span>
+                            </motion.div>
+                        ))}
+                    </AnimatePresence>
+                </div>
+            </div>
+            </div>
+        </>
+    );
 }
-
-export default ArrayComponent;

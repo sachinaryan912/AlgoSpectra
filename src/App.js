@@ -10,8 +10,21 @@ import LinkedListPage from "./pages/algorithms/LinkedListPage";
 import InfixToPostfix from "./pages/queueAlgorithm/InfixToPostfix";
 import Navbar from "./components/navbar/Navbar";
 import DashboardPage from "./pages/DashboardPage";
+import axios from "axios";
+import { useEffect } from "react";
 
 function App() {
+  let callApiHealth = async () => {
+    try {
+      const response = await axios.get("https://algospectra.onrender.com/algohealth");
+      console.log("API Health Check:", response.data);
+    } catch (error) {
+      console.error("Error checking API health:", error);
+    }
+  }
+  useEffect(() => {
+    callApiHealth();
+ }, []);
   return (
     <>
     {/* <Navbar/> */}

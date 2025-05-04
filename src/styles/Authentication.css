@@ -1,0 +1,203 @@
+/* Authentication.css */
+
+/* Backdrop */
+.auth-backdrop {
+    position: fixed;
+    inset: 0;
+    background-color: rgba(0, 0, 0, 0.6);
+    backdrop-filter: blur(6px);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 50;
+  }
+  
+  /* Modal box */
+  .auth-modal {
+    width: 100%;
+    max-width: 420px;
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 1.5rem;
+    padding: 2rem;
+    color: white;
+    position: relative;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4);
+    backdrop-filter: blur(18px);
+    animation: slideFadeIn 0.5s ease-out;
+  }
+  
+  /* Slide-in animation */
+  @keyframes slideFadeIn {
+    from {
+      transform: translateY(100px);
+      opacity: 0;
+    }
+    to {
+      transform: translateY(0px);
+      opacity: 1;
+    }
+  }
+  
+  /* Close button */
+  .auth-close-btn {
+    position: absolute;
+    top: 12px;
+    right: 16px;
+    font-size: 24px;
+    color: rgba(255, 255, 255, 0.6);
+    background: none;
+    border: none;
+    cursor: pointer;
+    transition: color 0.2s;
+  }
+  
+  .auth-close-btn:hover {
+    color: white;
+  }
+  
+  /* Heading */
+  .auth-title {
+    font-size: 1.75rem;
+    font-weight: 600;
+    text-align: center;
+    margin-bottom: 1.5rem;
+  }
+  
+  /* Form and inputs */
+  .auth-form {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+  }
+  
+  .auth-form input {
+    width: 100%;
+    padding: 0.75rem 1rem;
+    border-radius: 0.75rem;
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    color: white;
+    font-size: 1rem;
+    transition: background 0.3s, border 0.3s;
+  }
+  
+  .auth-form input::placeholder {
+    color: rgba(255, 255, 255, 0.5);
+  }
+  
+  .auth-form input:focus {
+    outline: none;
+    background: rgba(255, 255, 255, 0.1);
+    border-color: rgba(255, 255, 255, 0.4);
+  }
+  
+  /* Checkbox + forgot link section */
+  .auth-options {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 0.875rem;
+    color: rgba(255, 255, 255, 0.7);
+    margin-top: 0.5rem;
+  }
+  
+  .auth-options label {
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
+  }
+  
+  .auth-options button {
+    background: none;
+    border: none;
+    color: inherit;
+    text-decoration: underline;
+    cursor: pointer;
+    padding: 0;
+  }
+  
+  .auth-options button:hover {
+    color: white;
+  }
+  
+  /* Submit button */
+  .auth-submit-btn {
+    width: 100%;
+    padding: 0.8rem;
+    background: rgba(255, 255, 255, 0.2);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    color: white;
+    font-weight: 500;
+    border-radius: 0.75rem;
+    margin-top: 1rem;
+    transition: background 0.3s;
+  }
+  
+  .auth-submit-btn:hover {
+    background: rgba(255, 255, 255, 0.3);
+  }
+  
+  /* Toggle between login/register */
+  .auth-toggle {
+    text-align: center;
+    font-size: 0.875rem;
+    color: rgba(255, 255, 255, 0.6);
+    margin-top: 1.5rem;
+  }
+  
+  .auth-toggle span {
+    color: white;
+    text-decoration: underline;
+    cursor: pointer;
+    transition: opacity 0.2s;
+  }
+  
+  .auth-toggle span:hover {
+    opacity: 0.8;
+  }
+  
+
+  input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus,
+textarea:-webkit-autofill,
+textarea:-webkit-autofill:hover,
+textarea:-webkit-autofill:focus,
+select:-webkit-autofill,
+select:-webkit-autofill:hover,
+select:-webkit-autofill:focus {
+  -webkit-box-shadow: 0 0 0 1000px rgba(255, 255, 255, 0.05) inset !important;
+  -webkit-text-fill-color: #ffffff !important;
+  transition: background-color 5000s ease-in-out 0s;
+}
+
+.password-input-container {
+    position: relative;
+  }
+  
+  .password-input {
+    width: 100%;
+    padding: 1rem;
+    border-radius: 8px;
+    background-color: #1f1f1f; /* Adjust for dark theme */
+    border: 1px solid #444;
+    color: white;
+    outline: none;
+  }
+  
+  .eye-icon {
+    position: absolute;
+    right: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    color: #fff;
+  }
+  
+  .eye-icon:hover {
+    color: #ddd; /* subtle hover effect */
+  }
+  

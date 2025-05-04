@@ -13,6 +13,7 @@
     "@testing-library/jest-dom": "^6.6.3",
     "@testing-library/react": "^16.3.0",
     "@testing-library/user-event": "^13.5.0",
+    "axios": "^1.9.0",
     "buffer": "^6.0.3",
     "elkjs": "^0.10.0",
     "fast-xml-parser": "^5.2.0",
