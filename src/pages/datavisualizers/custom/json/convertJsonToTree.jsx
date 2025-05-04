@@ -17,7 +17,7 @@ const jsonToTree = (data, newNode, isRoot = false) => {
         
         !Array.isArray(value)
       ) {
-        if(isRoot == true){
+        if(isRoot === true){
           newNode.key = key;
           newNode.value[key] = value; 
         }else{

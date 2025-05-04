@@ -3,8 +3,6 @@ import React, { useEffect, useState, useRef } from "react";
 import Stack from "../../utils/Stack";
 import { motion, AnimatePresence } from "framer-motion";
 import { useSelector } from "react-redux";
-import { useDispatch } from "react-redux";
-// import { setDashBoardElement } from "../dashboardElementSlice"
 import { hasEqualBrackets } from "../../utils/fuctions";
 import "../../styles/infixToPostfixStyle.css";
 import DataStructureInfo from "../DataStructureInfo";
@@ -20,10 +18,7 @@ const darkMode = useSelector((state) => state?.themeSlice?.darkMode) || true;
     const [isStart, setIsStart] = useState(false);
     const [isWrongInput, setIsWrongInput] = useState([false,""]);
     const [isAnimation, setIsAnimation] = useState(false);
-    const intervalRef = useRef(null); // Store interval reference
-
-
-    const dispatch = useDispatch();
+    const intervalRef = useRef(null);
     useEffect(()=>{
         // dispatch(setDashBoardElement("Infix to Postfix"))
     },[]);
@@ -72,12 +67,12 @@ const darkMode = useSelector((state) => state?.themeSlice?.darkMode) || true;
             }
             else{
                 const brackets = hasEqualBrackets(exp);
-                if(brackets[0]==true)
+                if(brackets[0]===true)
                 {
                     setExpression(exp);
                     setIsWrongInput([false,""]);
                 }
-                else if(brackets[1]==0)
+                else if(brackets[1]===0)
                     setIsWrongInput([true,"You haven't used '(' in the expression."]);
                 else
                     setIsWrongInput([true,"An infix expression should have an equal number of left and right brackets."]);

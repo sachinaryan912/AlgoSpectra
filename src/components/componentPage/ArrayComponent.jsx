@@ -61,7 +61,6 @@ function ArrayComponent() {
     if (isIndexBased && indexValue !== "") {
       const idx = parseInt(indexValue);
       if (idx >= 0 && idx < array.length) {
-        const deletedValue = array[idx];
         const newArray = [
           ...array.slice(0, idx),
           ...array.slice(idx + 1),
@@ -72,7 +71,6 @@ function ArrayComponent() {
         showPopup("Index out of bounds", "error");
       }
     } else {
-      const deletedValue = array[array.length - 1];
       setArray(array.slice(0, -1));
       // showPopup(`Deleted ${deletedValue}`, "success");
     }

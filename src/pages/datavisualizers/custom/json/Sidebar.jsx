@@ -1,7 +1,6 @@
 import { useRef } from "react";
 import { shallow } from "zustand/shallow";
 import useStore from "../../store";
-import DataModelSelector from "../../../../components/DataModelSelector";
 
 const selector = (state) => ({
   needToRenderJson: state.needToRenderJson,
@@ -19,7 +18,6 @@ function Sidebar({ dataType }) {
     needToRenderXml,
     setNeedToRenderXml,
     needToRenderYaml,
-    setNeedToRenderYaml,
   } = useStore(selector, shallow);
 
   const textareaEl = useRef(null);

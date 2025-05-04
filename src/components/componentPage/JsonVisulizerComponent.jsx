@@ -4,7 +4,6 @@ import {
   Controls,
   Background,
   MiniMap,
-  BackgroundVariant,
   useReactFlow,
   Panel,
 } from "reactflow";
@@ -142,21 +141,18 @@ function JsonVisulizerComponent() {
         }
       );
     },
-    [nodes, edges]   //So that the useCallback will rememoize the nodes and edges variable if it values changed.
+    [nodes, edges]
   );
 
   console.log(nodes);
 
-  //It will render before "layout" phase happening when rendering page. So that the page will outputing layouted nodes and edges
   useLayoutEffect(() => {
     const nodeTree = convertJsonToTree(needToRenderJson); //to convert json to tree
     let convertedNodes = convertTreeToNodes(nodeTree, true); //to convert tree to nodes
     onLayout({ direction: "DOWN" }, convertedNodes); 
 
-    //so that when needToRenderJson change, useLayoutEffect wil reexecute the callback. needToRenderJson change everytime user click run button in the page. The run button is in sidebar component.
   }, [needToRenderJson]);   
 
-  //to zoom the viewport to the root nodes. nodes[0] is root node. everytime nodes and edges change, the callback reexecute and zoom the viewport to the root nodes 
   useEffect(() => {
     fitView({ nodes: [nodes[0], nodes[0]?.id], minZoom: 0.1, padding: 8 });
   }, [nodes, edges, fitView]);

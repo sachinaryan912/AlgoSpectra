@@ -33,48 +33,52 @@ class Stack {
     }
   
     // Function to convert infix expression to postfix
-    static InfixToPostfix(expression) {
-      let precedence = { "+": 1, "-": 1, "*": 2, "/": 2, "^": 3 };
-      let stack = new Stack();
-      let postfix = "";
-      let ans = [];
-      
-      // 1 -> operand,  2 -> operator,  3 -> leftBracket,  4 -> rightBracket
-      for (let i = 0; i < expression.length; i++) {
-        let char = expression[i];
-  
-        if (/[a-zA-Z]/.test(char)) {
-          postfix += char; // Append operands to postfix expression
-          ans.push([["text-green-500",`\' ${char} \' is operand : directly print operand`], postfix, stack.getStack(),i]);
-        } else if (char === "(") {
-          stack.push(char);
-          ans.push([["text-blue-500",`\' ( \' is left bracket : Push into Stack`], postfix, stack.getStack(),i]);
-        } else if (char === ")") {
-          while (!stack.isEmpty() && stack.peek() !== "(") {
-            postfix += stack.pop();
-          }
-          stack.pop(); // Remove '(' from the stack
-          ans.push([["text-red-500",`\' ) \' is right bracket : Pop from stack and print until \'(\' is found`], postfix, stack.getStack(),i]);
-        } else {
-          while (
-            !stack.isEmpty() &&
-            precedence[char] <= precedence[stack.peek()]
-          ) {
-            postfix += stack.pop();
-          }
-          ans.push([["text-yellow-500",`\' ${char} \' is operator : Pop from stack and print until an operator with less precedence is found`], postfix, stack.getStack(),i]);
-          stack.push(char);
-          ans.push([["text-yellow-500",`Push \' ${char} \' into Stack`], postfix, stack.getStack(),i]);
-        }
-      }
-  
-      while (!stack.isEmpty()) {
+static InfixToPostfix(expression) {
+  const precedence = { "+": 1, "-": 1, "*": 2, "/": 2, "^": 3 };
+  const stack = new Stack();
+  let postfix = "";
+  const ans = [];
+
+  // Helper function to add steps for clarity
+  const addStep = (style, message, index) => {
+    ans.push([[style, message], postfix, stack.getStack(), index]);
+  };
+
+  for (let i = 0; i < expression.length; i++) {
+    const char = expression[i];
+
+    if (/[a-zA-Z]/.test(char)) {
+      postfix += char; // Append operands to postfix expression
+      addStep("text-green-500", `'${char}' is an operand: directly append`, i);
+    } else if (char === "(") {
+      stack.push(char);
+      addStep("text-blue-500", `'${char}' is a left bracket: push to stack`, i);
+    } else if (char === ")") {
+      while (!stack.isEmpty() && stack.peek() !== "(") {
         postfix += stack.pop();
       }
-      ans.push([["text-blue-400",`No operator or operand has left : Pop from stack and print until stack empty`], postfix, stack.getStack(),expression.length]);
-  
-      return ans;
+      stack.pop(); // Remove '(' from the stack
+      addStep("text-red-500", `'${char}' is a right bracket: pop until '('`, i);
+    } else {
+      while (
+        !stack.isEmpty() &&
+        precedence[char] <= precedence[stack.peek()]
+      ) {
+        postfix += stack.pop();
+      }
+      addStep("text-yellow-500", `'${char}' is an operator: pop until lower precedence`, i);
+      stack.push(char);
+      addStep("text-yellow-500", `Push '${char}' to stack`, i);
     }
+  }
+
+  while (!stack.isEmpty()) {
+    postfix += stack.pop();
+  }
+  addStep("text-blue-400", `Stack is empty: pop all remaining operators`, expression.length);
+
+  return ans;
+}
     
   }
   

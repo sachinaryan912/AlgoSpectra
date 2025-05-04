@@ -3,20 +3,19 @@ import { algorithmArray, datastructureArray } from "../../data/cardData";
 import FunctionCard from "../../components/Card/FunctionCard";
 import "../../styles/dashboard.css";
 import { useNavigate } from "react-router-dom";
-import { SlArrowDown } from "react-icons/sl";
 
-const features = [
-    ...algorithmArray.map((algorithm) => ({
-        id: algorithm.id,
-        title: algorithm.name,
-        description: algorithm.description,
-    })),
-    ...datastructureArray.map((datastructure) => ({
-        id: datastructure.id,
-        title: datastructure.name,
-        description: datastructure.description,
-    })),
-];
+// const features = [
+//     ...algorithmArray.map((algorithm) => ({
+//         id: algorithm.id,
+//         title: algorithm.name,
+//         description: algorithm.description,
+//     })),
+//     ...datastructureArray.map((datastructure) => ({
+//         id: datastructure.id,
+//         title: datastructure.name,
+//         description: datastructure.description,
+//     })),
+// ];
 
 const Dashboard = () => {
 
