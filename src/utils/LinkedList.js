@@ -1,86 +1,69 @@
-class Node {
-    constructor(value) {
-        this.value = value;
-        this.next = null;
-    }
-}
+// src/utils/LinkedList.js
 
-class LinkedList {
+export default class LinkedList {
     constructor() {
-        this.head = null;
-        this.tail = null;
+      this.head = null;
     }
-
-    isEmpty() {
-        return this.head === null;
+  
+    insertAtHead(node) {
+      const newNode = { ...node, next: this.head };
+      this.head = newNode;
     }
-
-    insertAtHead(value) {
-        const newNode = new Node(value);
-        if (this.isEmpty()) {
-            this.head = this.tail = newNode;
-        } else {
-            newNode.next = this.head;
-            this.head = newNode;
-        }
+  
+    insertAtTail(node) {
+      const newNode = { ...node, next: null };
+      if (!this.head) {
+        this.head = newNode;
+        return;
+      }
+  
+      let current = this.head;
+      while (current.next) {
+        current = current.next;
+      }
+      current.next = newNode;
     }
-
-    insertAtTail(value) {
-        const newNode = new Node(value);
-        if (this.isEmpty()) {
-            this.head = this.tail = newNode;
-        } else {
-            this.tail.next = newNode;
-            this.tail = newNode;
-        }
-    }
-
+  
     deleteHead() {
-        if (this.isEmpty()) {
-            return null;
-        }
-        const removedValue = this.head.value;
-        this.head = this.head.next;
-        if (!this.head) {
-            this.tail = null;
-        }
-        return removedValue;
+      if (!this.head) return null;
+      const deleted = this.head;
+      this.head = this.head.next;
+      return deleted;
     }
-
+  
     deleteTail() {
-        if (this.isEmpty()) {
-            return null;
-        }
-        if (this.head === this.tail) {
-            const removedValue = this.head.value;
-            this.head = this.tail = null;
-            return removedValue;
-        }
-
-        let current = this.head;
-        while (current.next !== this.tail) {
-            current = current.next;
-        }
-
-        const removedValue = this.tail.value;
-        current.next = null;
-        this.tail = current;
-        return removedValue;
+      if (!this.head) return null;
+      if (!this.head.next) {
+        const deleted = this.head;
+        this.head = null;
+        return deleted;
+      }
+  
+      let current = this.head;
+      while (current.next.next) {
+        current = current.next;
+      }
+      const deleted = current.next;
+      current.next = null;
+      return deleted;
     }
-
-    getList() {
-        let current = this.head;
-        const result = [];
-        while (current) {
-            result.push(current.value);
-            current = current.next;
-        }
-        return result;
-    }
-
+  
     clear() {
-        this.head = this.tail = null;
+      this.head = null;
     }
-}
-
-export default LinkedList;
+  
+    getList() {
+      const elements = [];
+      let current = this.head;
+      while (current) {
+        elements.push({ id: current.id, value: current.value });
+        current = current.next;
+      }
+      return elements;  // returns head-to-tail (LEFT to RIGHT visual order)
+    }
+  
+    isEmpty() {
+      return !this.head;
+    }
+  }
+  

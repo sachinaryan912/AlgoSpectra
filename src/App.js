@@ -8,7 +8,6 @@ import StackPage from "./pages/algorithms/StackPage";
 import QueuePage from "./pages/algorithms/QueuePage";
 import LinkedListPage from "./pages/algorithms/LinkedListPage";
 import InfixToPostfix from "./pages/queueAlgorithm/InfixToPostfix";
-import Navbar from "./components/navbar/Navbar";
 import DashboardPage from "./pages/DashboardPage";
 import axios from "axios";
 import { useEffect } from "react";

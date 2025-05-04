@@ -2,7 +2,7 @@ import React, { useEffect, useRef, useState } from "react";
 import "../../styles/Home.css";
 import FeatureCard from "../Card/FeatureCard";
 import DataCarousel from "../carousel/DataCarousel";
-import { algorithmArray, datastructureArray, featureData, dataItems } from "../../data/cardData";
+import { featureData, dataItems } from "../../data/cardData";
 import HomeNav from "../navbar/HomeNav";
 import SearchBarComponent from "./SearchBarComponent";
 import { useNavigate } from "react-router-dom";
