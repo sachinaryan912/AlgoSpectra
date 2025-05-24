@@ -1,14 +1,22 @@
-import React, { useState } from "react";
+import React, { useState,useEffect } from "react";
 import "../../styles/Navbar.css";
 import { Menu, X } from "lucide-react";
 import Authentication from "../Authentication";
 import { useNavigate } from "react-router-dom";
+
+
 
 const Navbar = ({ title = "" }) => {
   const [menuOpen, setMenuOpen] = useState(false);
   const [popupOpen, setPopupOpen] = useState(false);
   const [showAuth, setShowAuth] = useState(false);
   const navigate = useNavigate();
+
+  useEffect(() => {
+    const token = localStorage.getItem("token");
+    console.log("Token:", token);
+    
+  }, []);
 
   const toggleMenu = () => {
     setMenuOpen(!menuOpen);

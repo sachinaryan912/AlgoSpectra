@@ -1,44 +1,88 @@
 import React, { useState } from "react";
 import { Eye, EyeOff } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
-import axios from "axios"; // Import axios
+import axios from "axios";
 import "../styles/Authentication.css";
+import { useNavigate } from "react-router-dom";
 
 export default function Authentication({ show, onClose }) {
   const [isLogin, setIsLogin] = useState(true);
   const [showPassword, setShowPassword] = useState(false);
+  const [name, setName] = useState(""); // For registration
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [loading, setLoading] = useState(false);
+  const navigate = useNavigate();
 
-  const toggleMode = () => setIsLogin(!isLogin);
+
+  const toggleMode = () => {
+    setIsLogin(!isLogin);
+    setName("");
+    setEmail("");
+    setPassword("");
+  };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-
-    if (isLogin) {
-      try {
-        const response = await axios.post(
-          "https://algospectra.onrender.com/api/auth/login",
+    setLoading(true);
+  
+    const endpoint = isLogin
+      ? "https://algospectra.onrender.com/api/auth/login"
+      : "https://algospectra.onrender.com/api/auth/register";
+  
+    const body = isLogin
+      ? { email, password }
+      : { name, email, password };
+  
+    try {
+      const response = await axios.post(endpoint, body);
+  
+      const token = response.data.access_token;
+      console.log(`Token received: ${token}`);
+      
+  
+      if (isLogin) {
+        const profileRes = await axios.get(
+          `https://algospectra.onrender.com/api/auth/profile`,
           {
-            email,
-            password,
+            headers: {
+              Authorization: `Bearer ${token}`,
+            },
+            params: {
+              emailId: email,
+            },
+
           }
         );
-        alert("Login Successful: " + JSON.stringify(response.data));
-      } catch (error) {
-        if (error.response) {
-          // Server responded with a status outside of 2xx
-          alert("Login Failed: " + (error.response.data.message || "Server error"));
-        } else if (error.request) {
-          // No response received
-          alert("Login Failed: No response from server");
-        } else {
-          // Error setting up the request
-          alert("Login Failed: " + error.message);
-        }
+  
+        const profile = profileRes.data;
+        localStorage.setItem("userProfile", JSON.stringify(profile));
+        localStorage.setItem("token", token);
+
+        navigate("/");
+
+        console.log("Login Successful. Profile stored:", profile);
+      } else {
+        
+        console.log("Registration Successful. Token stored.");
       }
+  
+      onClose(); // Close modal
+    } catch (error) {
+      handleError(isLogin ? "Login" : "Registration", error);
+    } finally {
+      setLoading(false);
+    }
+  };
+  
+
+  const handleError = (action, error) => {
+    if (error.response) {
+      console.log(`${action} Failed: ${error.response.data.message || "Server error"}`);
+    } else if (error.request) {
+      console.log(`${action} Failed: No response from server`);
     } else {
-      alert("Register API not implemented yet.");
+      console.log(`${action} Failed: ${error.message}`);
     }
   };
 
@@ -71,7 +115,9 @@ export default function Authentication({ show, onClose }) {
                 <input
                   type="text"
                   placeholder="Username"
-                  // disabled
+                  value={name}
+                  onChange={(e) => setName(e.target.value)}
+                  required
                 />
               )}
               <input
@@ -104,37 +150,38 @@ export default function Authentication({ show, onClose }) {
                   <label>
                     <input type="checkbox" /> Remember me
                   </label>
-                  <button
-                    type="button"
-                    onClick={() => alert("Forgot password clicked")}
-                  >
+                  <button type="button" onClick={() => console.log("Forgot password clicked")}>
                     Forgot?
                   </button>
                 </div>
               )}
 
-              <button
-                type="submit"
-                className="auth-submit-btn"
-              >
-                {isLogin ? "Login" : "Create Account"}
+              <button type="submit" className="auth-submit-btn" disabled={loading}>
+                {loading ? (
+                  <motion.div
+                    className="loader"
+                    initial={{ opacity: 0 }}
+                    animate={{ opacity: 1, rotate: 360 }}
+                    transition={{ repeat: Infinity, duration: 1, ease: "linear" }}
+                  >
+                    ↺
+                  </motion.div>
+                ) : isLogin ? (
+                  "Login"
+                ) : (
+                  "Create Account"
+                )}
               </button>
             </form>
 
             <p className="auth-toggle">
               {isLogin ? (
                 <>
-                  New user?{" "}
-                  <span onClick={toggleMode}>
-                    Register now
-                  </span>
+                  New user? <span onClick={toggleMode}>Register now</span>
                 </>
               ) : (
                 <>
-                  Already have an account?{" "}
-                  <span onClick={toggleMode}>
-                    Login now
-                  </span>
+                  Already have an account? <span onClick={toggleMode}>Login now</span>
                 </>
               )}
             </p>
