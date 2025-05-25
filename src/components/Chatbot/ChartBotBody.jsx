@@ -28,10 +28,7 @@ export default function ChatbotBody() {
     const userMessage = input;
     setMessages(prev => [...prev, { text: userMessage, sender: 'user' }]);
     setInput('');
-<<<<<<< Updated upstream
-=======
-  console.log(process.env.REACT_APP_OPENAI_API_KEY);
->>>>>>> Stashed changes
+  // console.log(process.env.REACT_APP_OPENAI_API_KEY);
   
     try {
       const response = await axios.post(
@@ -44,11 +41,7 @@ export default function ChatbotBody() {
         {
           headers: {
             'Content-Type': 'application/json',
-<<<<<<< Updated upstream
-            Authorization: `Bearer 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` // replace with your key
-=======
             Authorization: `Bearer ${process.env.REACT_APP_OPENAI_API_KEY}` // replace with your key
->>>>>>> Stashed changes
           }
         }
       );
