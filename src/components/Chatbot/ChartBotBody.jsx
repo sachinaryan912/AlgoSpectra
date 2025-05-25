@@ -1,36 +1,86 @@
-import React, { useState, useRef } from 'react';
+import React, { useState, useRef, useEffect } from 'react';
 import {
   Fab,
   Paper,
   IconButton,
   Typography,
   TextField,
-  Button,
   Box
 } from '@mui/material';
-import ChatIcon from '@mui/icons-material/Chat';
+import SendIcon from '@mui/icons-material/Send';
+import SmartToyIcon from '@mui/icons-material/SmartToy';
 import CloseIcon from '@mui/icons-material/Close';
-import Draggable from 'react-draggable';
 import axios from 'axios';
+import { motion, AnimatePresence } from 'framer-motion';
+import '../../styles/ChatBot.css';
 
 export default function ChatbotBody() {
   const [open, setOpen] = useState(false);
   const [messages, setMessages] = useState([]);
   const [input, setInput] = useState('');
+  const [isTyping, setIsTyping] = useState(false);
+  const [responseCount, setResponseCount] = useState(
+    Number(localStorage.getItem('botResponseCount')) || 0
+  );
+  const [showTutorial, setShowTutorial] = useState(false);
 
-  // Refs for draggable components
   const fabRef = useRef(null);
   const chatRef = useRef(null);
+  const messageEndRef = useRef(null);
+
+  useEffect(() => {
+    // Show tutorial popup only once per user
+    const hasSeenTutorial = localStorage.getItem('hasSeenBotTutorial');
+    if (!hasSeenTutorial) {
+      setShowTutorial(true);
+      localStorage.setItem('hasSeenBotTutorial', 'true');
+      setTimeout(() => setShowTutorial(false), 3500);
+    }else{
+      setShowTutorial(true);
+      localStorage.setItem('hasSeenBotTutorial', 'true');
+      setTimeout(() => setShowTutorial(false), 3500);
+    }
+  }, []);
+
+  useEffect(() => {
+    if (messageEndRef.current) {
+      messageEndRef.current.scrollIntoView({ behavior: 'smooth' });
+    }
+  }, [messages]);
+
+  const handleOpen = () => {
+    setOpen((prev) => !prev);
+
+    if (!open && messages.length === 0) {
+      setMessages([
+        {
+          text: `👋 Hello! I'm AlgoBot — your personal assistant for Data Structures and Algorithms (DSA).\n⚠️ Note: You can ask up to 2 questions per session. Make them count!`,
+          sender: 'bot'
+        }
+      ]);
+    }
+  };
 
   const handleSend = async () => {
     if (!input.trim()) return;
-  
+
     const userMessage = input;
     setMessages(prev => [...prev, { text: userMessage, sender: 'user' }]);
     setInput('');
-  // console.log(process.env.REACT_APP_OPENAI_API_KEY);
-  
+
+    if (responseCount >= 2) {
+      setMessages(prev => [
+        ...prev,
+        {
+          text: `⚠️ You've reached your free limit for this session.\n\n✨ Upgrade to unlock unlimited access using contacts and continue exploring DSA topics with us!\n\n🔁 You can also try again later.`,
+          sender: 'bot'
+        }
+      ]);
+      return;
+    }
+
     try {
+      setIsTyping(true);
       const response = await axios.post(
         'https://api.openai.com/v1/chat/completions',
         {
@@ -41,136 +91,174 @@ export default function ChatbotBody() {
         {
           headers: {
             'Content-Type': 'application/json',
-            Authorization: `Bearer ${process.env.REACT_APP_OPENAI_API_KEY}` // replace with your key
+            Authorization: `Bearer ${process.env.REACT_APP_OPENAI_API_KEY}`
           }
         }
       );
-  
+
       const botReply = response.data.choices[0].message.content.trim();
-      setMessages(prev => [...prev, { text: botReply, sender: 'bot' }]);
+      animateBotReply(botReply);
+
+      const newCount = responseCount + 1;
+      setResponseCount(newCount);
+      localStorage.setItem('botResponseCount', newCount.toString());
     } catch (error) {
       console.error(error);
-      setMessages(prev => [...prev, { text: "Sorry, I couldn't get a response.", sender: 'bot' }]);
+      setMessages(prev => [...prev, { text: "⚠️ Sorry, I couldn't get a response.", sender: 'bot' }]);
+      setIsTyping(false);
     }
   };
 
-//   const handleSend = () => {
-//     if (!input.trim()) return;
-//     setMessages(prev => [...prev, { text: input, sender: 'user' }]);
-//     setInput('');
-//     setTimeout(() => {
-//       setMessages(prev => [...prev, { text: 'Hello! How can I help you?', sender: 'bot' }]);
-//     }, 600);
-//   };
+  const animateBotReply = (fullText) => {
+    let index = 0;
+    const typingSpeed = 25;
+    const reply = { text: '', sender: 'bot' };
+
+    setMessages((prev) => [...prev, reply]);
+
+    const intervalId = setInterval(() => {
+      index++;
+      reply.text = fullText.substring(0, index);
+      setMessages((prev) => {
+        const updated = [...prev];
+        updated[updated.length - 1] = { ...reply };
+        return updated;
+      });
+
+      if (index === fullText.length) {
+        clearInterval(intervalId);
+        setIsTyping(false);
+      }
+    }, typingSpeed);
+  };
 
   return (
     <>
-      {/* Draggable FAB */}
-      <Draggable nodeRef={fabRef}>
-        <div
-          ref={fabRef}
-          style={{
-            position: 'absolute',
-            bottom: 16,
-            right: 16,
-            zIndex: 1300,
-            cursor: 'grab',
-          }}
-        >
-          <Fab color="primary" onClick={() => setOpen(!open)}>
-            <ChatIcon />
-          </Fab>
-        </div>
-      </Draggable>
-
-      {/* Draggable Chatbot Window */}
-      {open && (
-        <Draggable nodeRef={chatRef} handle=".chat-header">
-          <div
-            ref={chatRef}
+      {/* Tutorial Popup */}
+      <AnimatePresence>
+        {showTutorial && (
+          <motion.div
+            initial={{ opacity: 0, y: -10 }}
+            animate={{ opacity: 1, y: -30 }}
+            exit={{ opacity: 0 }}
+            transition={{ duration: 0.3 }}
             style={{
               position: 'absolute',
-              bottom: 100,
-              right: 20,
-              zIndex: 1400,
-              width: 320,
+              bottom: 90,
+              right: 46,
+              background: 'rgba(0, 0, 0, 0.85)',
+              color: 'white',
+              padding: '10px 14px',
+              borderRadius: '12px',
+              fontSize: '14px',
+              zIndex: 2500,
+              boxShadow: '0px 0px 10px rgba(255,255,255,0.1)'
             }}
           >
-            <Paper
-              elevation={6}
-              sx={{
-                height: 420,
-                display: 'flex',
-                flexDirection: 'column',
-                borderRadius: 2,
-              }}
-            >
-              {/* Drag handle */}
-              <Box
-                className="chat-header"
+            🤖 I'm AlgoBot. Tap me to start!
+          </motion.div>
+        )}
+      </AnimatePresence>
+
+      {/* FAB button */}
+      <motion.div
+        ref={fabRef}
+        style={{
+          position: 'absolute',
+          bottom: 36,
+          right: 46,
+          zIndex: 2300,
+        }}
+        initial={{ opacity: 0, scale: 0.8 }}
+        animate={{ opacity: 1, scale: 1 }}
+      >
+        <Fab
+          sx={{
+            pointerEvents: 'auto',
+            backgroundColor: '#002d57',
+            color: 'white',
+            '&:hover': { backgroundColor: '#004080' },
+            borderRadius: '40px'
+          }}
+          onClick={handleOpen}
+        >
+          {open ? <CloseIcon /> : <SmartToyIcon />}
+        </Fab>
+      </motion.div>
+
+      {/* Chat Window */}
+      {open && (
+        <motion.div
+          ref={chatRef}
+          className="chatbot-container"
+          initial={{ opacity: 0, y: 100 }}
+          animate={{ opacity: 1, y: 0 }}
+        >
+          <Paper elevation={6} className="chat-paper">
+            <Box className="chat-header">
+              <Typography variant="subtitle1">AlgoBot</Typography>
+              <Typography variant="body2" className="credit-count">
+                💎 {2 - responseCount} credits left
+              </Typography>
+              <IconButton size="small" sx={{ color: 'white' }} onClick={() => setOpen(false)}>
+                <CloseIcon />
+              </IconButton>
+            </Box>
+
+            <Box className="chat-messages">
+              {messages.map((msg, i) => (
+                <Box
+                  key={i}
+                  className={`chat-row ${msg.sender === 'user' ? 'user' : 'bot'}`}
+                >
+                  <Box className={`chat-bubble ${msg.sender}`}>
+                    <Typography sx={{ whiteSpace: 'pre-line' }}>{msg.text}</Typography>
+                  </Box>
+                </Box>
+              ))}
+              {isTyping && (
+                <Box className="chat-row bot">
+                  <Box className="chat-bubble bot typing-indicator">
+                    AlgoBot is typing<span className="dot">.</span><span className="dot">.</span><span className="dot">.</span>
+                  </Box>
+                </Box>
+              )}
+              <div ref={messageEndRef} />
+            </Box>
+
+            <Box className="chat-input">
+              <TextField
+                fullWidth
+                size="small"
+                className="chat-textfield"
+                placeholder="Type something..."
+                value={input}
+                onChange={(e) => setInput(e.target.value)}
+                onKeyDown={(e) => {
+                  if (e.key === 'Enter') handleSend();
+                }}
+                InputProps={{
+                  style: { color: 'white', borderColor: 'white' }
+                }}
+                InputLabelProps={{
+                  style: { color: 'white' }
+                }}
+                variant="outlined"
+              />
+              <IconButton
+                onClick={handleSend}
                 sx={{
-                  p: 1,
-                  bgcolor: 'primary.main',
+                  backgroundColor: '#002d57',
                   color: 'white',
-                  display: 'flex',
-                  justifyContent: 'space-between',
-                  alignItems: 'center',
-                  cursor: 'move',
-                  borderTopLeftRadius: 8,
-                  borderTopRightRadius: 8
+                  '&:hover': { backgroundColor: '#004080' },
+                  borderRadius: '10px'
                 }}
               >
-                <Typography variant="subtitle1">AlgoBot</Typography>
-                <IconButton size="small" sx={{ color: 'white' }} onClick={() => setOpen(false)}>
-                  <CloseIcon />
-                </IconButton>
-              </Box>
-
-              {/* Messages */}
-              <Box sx={{ flex: 1, overflowY: 'auto', p: 1 }}>
-                {messages.map((msg, i) => (
-                  <Box
-                    key={i}
-                    sx={{
-                      textAlign: msg.sender === 'user' ? 'right' : 'left',
-                      mb: 1,
-                    }}
-                  >
-                    <Typography
-                      sx={{
-                        display: 'inline-block',
-                        p: 1,
-                        borderRadius: 2,
-                        bgcolor: msg.sender === 'user' ? 'primary.light' : 'grey.300',
-                        color: 'black',
-                        maxWidth: '80%',
-                      }}
-                    >
-                      {msg.text}
-                    </Typography>
-                  </Box>
-                ))}
-              </Box>
-
-              {/* Input */}
-              <Box sx={{ display: 'flex', p: 1, gap: 1 }}>
-                <TextField
-                  fullWidth
-                  size="small"
-                  placeholder="Type something..."
-                  value={input}
-                  onChange={(e) => setInput(e.target.value)}
-                  onKeyPress={(e) => {
-                    if (e.key === 'Enter') handleSend();
-                  }}
-                />
-                <Button variant="contained" onClick={handleSend}>
-                  Send
-                </Button>
-              </Box>
-            </Paper>
-          </div>
-        </Draggable>
+                <SendIcon />
+              </IconButton>
+            </Box>
+          </Paper>
+        </motion.div>
       )}
     </>
   );
