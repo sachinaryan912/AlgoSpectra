@@ -1,8 +1,8 @@
 .chatbot-container {
-    position: absolute;
+    position: fixed;
     bottom: 100px;
     right: 20px;
-    z-index: 1400;
+    z-index: 2400;
     width: 420px;
     max-width: 90vw;
     font-family: 'Segoe UI', sans-serif;

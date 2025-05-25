@@ -8,15 +8,11 @@ import {
   Button,
   Box
 } from '@mui/material';
-import ChatIcon from '@mui/icons-material/Chat';
 import SendIcon from '@mui/icons-material/Send';
 import SmartToyIcon from '@mui/icons-material/SmartToy';
-
-
 import CloseIcon from '@mui/icons-material/Close';
-import Draggable from 'react-draggable';
 import axios from 'axios';
-import { motion } from 'framer-motion';
+import { motion, AnimatePresence } from 'framer-motion';
 import '../../styles/ChatBot.css';
 
 export default function ChatbotBody() {
@@ -27,10 +23,25 @@ export default function ChatbotBody() {
   const [responseCount, setResponseCount] = useState(
     Number(localStorage.getItem('botResponseCount')) || 0
   );
+  const [showTutorial, setShowTutorial] = useState(false);
 
   const fabRef = useRef(null);
   const chatRef = useRef(null);
   const messageEndRef = useRef(null);
+
+  useEffect(() => {
+    // Show tutorial popup only once per user
+    const hasSeenTutorial = localStorage.getItem('hasSeenBotTutorial');
+    if (!hasSeenTutorial) {
+      setShowTutorial(true);
+      localStorage.setItem('hasSeenBotTutorial', 'true');
+      setTimeout(() => setShowTutorial(false), 3500);
+    }else{
+      setShowTutorial(true);
+      localStorage.setItem('hasSeenBotTutorial', 'true');
+      setTimeout(() => setShowTutorial(false), 3500);
+    }
+  }, []);
 
   useEffect(() => {
     if (messageEndRef.current) {
@@ -40,7 +51,7 @@ export default function ChatbotBody() {
 
   const handleOpen = () => {
     setOpen((prev) => !prev);
-  
+
     if (!open && messages.length === 0) {
       setMessages([
         {
@@ -50,9 +61,6 @@ export default function ChatbotBody() {
       ]);
     }
   };
-  
-  
-  
 
   const handleSend = async () => {
     if (!input.trim()) return;
@@ -71,7 +79,6 @@ export default function ChatbotBody() {
       ]);
       return;
     }
-    
 
     try {
       setIsTyping(true);
@@ -128,114 +135,131 @@ export default function ChatbotBody() {
 
   return (
     <>
-      <Draggable nodeRef={fabRef}>
-        <motion.div
-          ref={fabRef}
-          style={{
-            position: 'absolute',
-            bottom: 36,
-            right: 46,
-            zIndex: 1300,
-            cursor: 'grab'
-          }}
-          initial={{ opacity: 0, scale: 0.8 }}
-          animate={{ opacity: 1, scale: 1 }}
-        >
-          <Fab
-            sx={{
-              backgroundColor: '#002d57',
-              color: 'white',
-              '&:hover': { backgroundColor: '#004080' },
-              borderRadius: '40px'
-            }}
-            onClick={handleOpen}
-          >
-            {open ? <CloseIcon /> : <SmartToyIcon />}
-          </Fab>
-
-
-
-        </motion.div>
-      </Draggable>
-
-      {open && (
-        <Draggable nodeRef={chatRef} handle=".chat-header">
+      {/* Tutorial Popup */}
+      <AnimatePresence>
+        {showTutorial && (
           <motion.div
-            ref={chatRef}
-            className="chatbot-container"
-            initial={{ opacity: 0, y: 100 }}
-            animate={{ opacity: 1, y: 0 }}
+            initial={{ opacity: 0, y: -10 }}
+            animate={{ opacity: 1, y: -30 }}
+            exit={{ opacity: 0 }}
+            transition={{ duration: 0.3 }}
+            style={{
+              position: 'absolute',
+              bottom: 90,
+              right: 46,
+              background: 'rgba(0, 0, 0, 0.85)',
+              color: 'white',
+              padding: '10px 14px',
+              borderRadius: '12px',
+              fontSize: '14px',
+              zIndex: 2500,
+              boxShadow: '0px 0px 10px rgba(255,255,255,0.1)'
+            }}
           >
-            <Paper elevation={6} className="chat-paper">
-              <Box className="chat-header">
-                <Typography variant="subtitle1">AlgoBot</Typography>
-                <Typography variant="body2" className="credit-count">
-                  💎 {2 - responseCount} credits left
-                </Typography>
-                <IconButton size="small" sx={{ color: 'white' }} onClick={() => setOpen(false)}>
-                  <CloseIcon />
-                </IconButton>
-              </Box>
-
-              <Box className="chat-messages">
-                {messages.map((msg, i) => (
-                  <Box
-                    key={i}
-                    className={`chat-row ${msg.sender === 'user' ? 'user' : 'bot'}`}
-                  >
-                    <Box className={`chat-bubble ${msg.sender}`}>
-                    <Typography sx={{ whiteSpace: 'pre-line' }}>{msg.text}</Typography>
-
-                    </Box>
-                  </Box>
-                ))}
-                {isTyping && (
-                  <Box className="chat-row bot">
-                    <Box className="chat-bubble bot typing-indicator">
-                      AlgoBot is typing<span className="dot">.</span><span className="dot">.</span><span className="dot">.</span>
-                    </Box>
-                  </Box>
-                )}
-                <div ref={messageEndRef} />
-              </Box>
-
-              <Box className="chat-input">
-              <TextField
-                  fullWidth
-                  size="small"
-                  className="chat-textfield"
-                  placeholder="Type something..."
-                  value={input}
-                  onChange={(e) => setInput(e.target.value)}
-                  onKeyDown={(e) => {
-                    if (e.key === 'Enter') handleSend();
-                  }}
-                  InputProps={{
-                    style: { color: 'white', borderColor: 'white' }
-                  }}
-                  InputLabelProps={{
-                    style: { color: 'white' }
-                  }}
-                  variant="outlined"
-                />
-
-            <IconButton
-              onClick={handleSend}
-              sx={{
-                backgroundColor: '#002d57',
-                color: 'white',
-                '&:hover': { backgroundColor: '#004080' },
-                borderRadius: '10px'
-              }}
-            >
-              <SendIcon />
-            </IconButton>
-
-
-                 </Box>
-            </Paper>
+            🤖 I'm AlgoBot. Tap me to start!
           </motion.div>
-        </Draggable>
+        )}
+      </AnimatePresence>
+
+      {/* FAB button */}
+      <motion.div
+        ref={fabRef}
+        style={{
+          position: 'absolute',
+          bottom: 36,
+          right: 46,
+          zIndex: 2300,
+        }}
+        initial={{ opacity: 0, scale: 0.8 }}
+        animate={{ opacity: 1, scale: 1 }}
+      >
+        <Fab
+          sx={{
+            pointerEvents: 'auto',
+            backgroundColor: '#002d57',
+            color: 'white',
+            '&:hover': { backgroundColor: '#004080' },
+            borderRadius: '40px'
+          }}
+          onClick={handleOpen}
+        >
+          {open ? <CloseIcon /> : <SmartToyIcon />}
+        </Fab>
+      </motion.div>
+
+      {/* Chat Window */}
+      {open && (
+        <motion.div
+          ref={chatRef}
+          className="chatbot-container"
+          initial={{ opacity: 0, y: 100 }}
+          animate={{ opacity: 1, y: 0 }}
+        >
+          <Paper elevation={6} className="chat-paper">
+            <Box className="chat-header">
+              <Typography variant="subtitle1">AlgoBot</Typography>
+              <Typography variant="body2" className="credit-count">
+                💎 {2 - responseCount} credits left
+              </Typography>
+              <IconButton size="small" sx={{ color: 'white' }} onClick={() => setOpen(false)}>
+                <CloseIcon />
+              </IconButton>
+            </Box>
+
+            <Box className="chat-messages">
+              {messages.map((msg, i) => (
+                <Box
+                  key={i}
+                  className={`chat-row ${msg.sender === 'user' ? 'user' : 'bot'}`}
+                >
+                  <Box className={`chat-bubble ${msg.sender}`}>
+                    <Typography sx={{ whiteSpace: 'pre-line' }}>{msg.text}</Typography>
+                  </Box>
+                </Box>
+              ))}
+              {isTyping && (
+                <Box className="chat-row bot">
+                  <Box className="chat-bubble bot typing-indicator">
+                    AlgoBot is typing<span className="dot">.</span><span className="dot">.</span><span className="dot">.</span>
+                  </Box>
+                </Box>
+              )}
+              <div ref={messageEndRef} />
+            </Box>
+
+            <Box className="chat-input">
+              <TextField
+                fullWidth
+                size="small"
+                className="chat-textfield"
+                placeholder="Type something..."
+                value={input}
+                onChange={(e) => setInput(e.target.value)}
+                onKeyDown={(e) => {
+                  if (e.key === 'Enter') handleSend();
+                }}
+                InputProps={{
+                  style: { color: 'white', borderColor: 'white' }
+                }}
+                InputLabelProps={{
+                  style: { color: 'white' }
+                }}
+                variant="outlined"
+              />
+              <IconButton
+                onClick={handleSend}
+                sx={{
+                  backgroundColor: '#002d57',
+                  color: 'white',
+                  '&:hover': { backgroundColor: '#004080' },
+                  borderRadius: '10px'
+                }}
+              >
+                <SendIcon />
+              </IconButton>
+            </Box>
+          </Paper>
+        </motion.div>
       )}
     </>
   );
